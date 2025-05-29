@@ -1,5 +1,9 @@
 class_name UnitContainerInfo
 
+######################################################
+## General class to hold specific unit based information
+######################################################
+
 var unit_resource: UnitResource
 var unit_count: int
 var unit_damage: float

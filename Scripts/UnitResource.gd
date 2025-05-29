@@ -1,6 +1,11 @@
 extends Resource
 class_name UnitResource
 
+######################################################
+## A resource that stores information about units
+## as well as a scene for instantiation when needed
+######################################################
+
 @export var name: String
 @export var texture: Texture2D
 @export var initial_count: int
