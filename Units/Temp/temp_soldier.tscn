@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dl36pg1txrdq"]
 
-[ext_resource type="Script" path="res://temp_soldier.gd" id="1_kl7nj"]
+[ext_resource type="Script" path="res://Units/Temp/temp_soldier.gd" id="1_kl7nj"]
 [ext_resource type="Texture2D" uid="uid://bpbq580mpl0j1" path="res://icon2.svg" id="2_bjq1y"]
 
 [node name="Temp_Soldier" type="Node2D"]

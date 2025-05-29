@@ -1,22 +1,30 @@
 extends Node2D
-class_name Units
-
-@export var unit_array: Array[Node2D]
+class_name UnitsNode
 
 var cube_size: float = 90.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	distribute_units_in_square(unit_array, cube_size, position)
+	distribute_units_in_square(cube_size, position)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+func update_units(info: UnitContainerInfo) -> void:
+	for i in get_children():
+		remove_child(i)
+	
+	for i in info.unit_count:
+		var scene = info.unit_resource.unit_packed_scene.instantiate()
+		add_child(scene)
+	distribute_units_in_square(cube_size, position)
 
-func distribute_units_in_square(units: Array, square_size: float, center_position: Vector2):
-	var total_units = units.size()
+func distribute_units_in_square(square_size: float, center_position: Vector2):
+	var units_array = get_children()
+	var total_units = units_array.size()
+	
 	if total_units == 0:
 		return
 	
@@ -40,4 +48,4 @@ func distribute_units_in_square(units: Array, square_size: float, center_positio
 		var x = start_x + col * cell_width + cell_width / 2
 		var y = start_y + row * cell_height + cell_height / 2
 		
-		units[i].position = Vector2(x, y)
+		units_array[i].position = Vector2(x, y)

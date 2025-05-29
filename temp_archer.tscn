@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://brfqbjlxrrt58"]
+
+[ext_resource type="Script" path="res://Units/Temp/temp_soldier.gd" id="1_exjv4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_304s2"]
+load_path = "res://.godot/imported/archer.png-b1eb8c08c06dc0c1c4c64a269f69b509.ctex"
+
+[node name="Temp_Soldier" type="Node2D"]
+script = ExtResource("1_exjv4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = SubResource("CompressedTexture2D_304s2")

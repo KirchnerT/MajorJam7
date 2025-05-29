@@ -18,12 +18,13 @@ extends Node
 	## Unit Health
 	## Unit Attack Speed
 
-var unit_container_01: UnitContainerInfo
-var unit_container_02: UnitContainerInfo
-var unit_container_03: UnitContainerInfo
-var unit_container_04: UnitContainerInfo
-var unit_container_05: UnitContainerInfo
-var unit_container_06: UnitContainerInfo
+var unit_containers: Array[UnitContainerInfo]
 
-func update_unit_container() -> void:
-	pass
+func _ready() -> void:
+	# Set all unit containers to null
+	for i in 6:
+		unit_containers.insert(i, null)
+
+func update_unit_container(unit_container_info: UnitContainerInfo, index: int) -> void:
+	# add safe gaurd on index
+	unit_containers[index] = unit_container_info
