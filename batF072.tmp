@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://pbwnb04nu8d0"]
+
+[ext_resource type="Script" path="res://battle_map.gd" id="1_e6q5w"]
+[ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://unit_container.tscn" id="2_nwsat"]
+
+[node name="BattleMap" type="Node2D" node_paths=PackedStringArray("ally_unit_containers")]
+script = ExtResource("1_e6q5w")
+ally_unit_containers = [NodePath("AllyUnitContainer_1")]
+
+[node name="AllyUnitContainer_1" parent="." instance=ExtResource("2_nwsat")]
+position = Vector2(100, 71)
