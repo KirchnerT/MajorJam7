@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgw8db45qdoqk"]
+
+[ext_resource type="Script" path="res://unit_container.gd" id="1_ukpf0"]
+[ext_resource type="Texture2D" uid="uid://bpbq580mpl0j1" path="res://icon2.svg" id="2_m8xiy"]
+[ext_resource type="Script" path="res://units.gd" id="3_ww1nt"]
+[ext_resource type="PackedScene" uid="uid://dl36pg1txrdq" path="res://temp_soldier.tscn" id="4_816ff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev5rt"]
+size = Vector2(135, 105)
+
+[node name="UnitContainer" type="Node2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_ukpf0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ev5rt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.172549)
+position = Vector2(4.05312e-06, -3.33786e-06)
+scale = Vector2(1.04688, 0.828125)
+texture = ExtResource("2_m8xiy")
+
+[node name="Units" type="Node2D" parent="." node_paths=PackedStringArray("unit_array")]
+script = ExtResource("3_ww1nt")
+unit_array = [NodePath("Temp_Soldier"), NodePath("Temp_Soldier2")]
+
+[node name="Temp_Soldier" parent="Units" instance=ExtResource("4_816ff")]
+
+[node name="Temp_Soldier2" parent="Units" instance=ExtResource("4_816ff")]
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
