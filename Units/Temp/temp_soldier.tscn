@@ -9,3 +9,9 @@ script = ExtResource("1_kl7nj")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_bjq1y")
+
+[node name="HealthComponent" type="Node2D" parent="."]
+
+[node name="MovementComponent" type="Node2D" parent="."]
+
+[node name="AttackComponent" type="Node2D" parent="."]
