@@ -1,14 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgw8db45qdoqk"]
 
 [ext_resource type="Script" path="res://Scripts/unit_container.gd" id="1_ukpf0"]
-[ext_resource type="Texture2D" uid="uid://bpbq580mpl0j1" path="res://icon2.svg" id="2_m8xiy"]
+[ext_resource type="Texture2D" uid="uid://435a2k00c8mw" path="res://Assets/Square_for_Units_-_Test.png" id="2_4pd0d"]
 [ext_resource type="Script" path="res://Scripts/units_node.gd" id="3_ww1nt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ev5rt"]
-size = Vector2(135, 105)
+size = Vector2(80, 80)
 
 [node name="UnitContainer" type="Node2D"]
-position = Vector2(-1, 0)
 script = ExtResource("1_ukpf0")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -17,11 +16,8 @@ script = ExtResource("1_ukpf0")
 shape = SubResource("RectangleShape2D_ev5rt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.172549)
 position = Vector2(4.05312e-06, -3.33786e-06)
-scale = Vector2(1.04688, 0.828125)
-texture = ExtResource("2_m8xiy")
+texture = ExtResource("2_4pd0d")
 
 [node name="UnitsNode" type="Node2D" parent="."]
 script = ExtResource("3_ww1nt")

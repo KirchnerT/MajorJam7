@@ -1,11 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=5 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
+[ext_resource type="Script" path="res://Scripts/EnemyArmyResource.gd" id="2_2itb3"]
 [ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://Scenes/unit_container.tscn" id="2_nwsat"]
+[ext_resource type="Resource" uid="uid://dlj2e7j006407" path="res://EnemyArmies/Day1_01.tres" id="3_3o37x"]
 
-[node name="BattleMap" type="Node2D" node_paths=PackedStringArray("ally_unit_containers")]
+[node name="BattleMap" type="Node2D" node_paths=PackedStringArray("ally_unit_containers", "enemy_unit_containers")]
 script = ExtResource("1_e6q5w")
-ally_unit_containers = [NodePath("AllyUnitContainer_1")]
+ally_unit_containers = [NodePath("AllyUnits/AllyUnitContainer_1"), NodePath("AllyUnits/AllyUnitContainer_2"), NodePath("AllyUnits/AllyUnitContainer_3"), NodePath("AllyUnits/AllyUnitContainer_4"), NodePath("AllyUnits/AllyUnitContainer_5"), NodePath("AllyUnits/AllyUnitContainer_6")]
+enemy_unit_containers = [NodePath("EnemyUnits/EnemyUnitContainer_1"), NodePath("EnemyUnits/EnemyUnitContainer_2"), NodePath("EnemyUnits/EnemyUnitContainer_3"), NodePath("EnemyUnits/EnemyUnitContainer_4"), NodePath("EnemyUnits/EnemyUnitContainer_5"), NodePath("EnemyUnits/EnemyUnitContainer_6")]
+enemy_armies = Array[ExtResource("2_2itb3")]([ExtResource("3_3o37x")])
 
-[node name="AllyUnitContainer_1" parent="." instance=ExtResource("2_nwsat")]
-position = Vector2(100, 71)
+[node name="AllyUnits" type="Node2D" parent="."]
+
+[node name="AllyUnitContainer_1" parent="AllyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(48, 48)
+
+[node name="AllyUnitContainer_2" parent="AllyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(48, 130)
+
+[node name="AllyUnitContainer_3" parent="AllyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(48, 212)
+
+[node name="AllyUnitContainer_4" parent="AllyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(130, 48)
+
+[node name="AllyUnitContainer_5" parent="AllyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(130, 130)
+
+[node name="AllyUnitContainer_6" parent="AllyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(130, 212)
+
+[node name="EnemyUnits" type="Node2D" parent="."]
+position = Vector2(781, 0)
+
+[node name="EnemyUnitContainer_1" parent="EnemyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(48, 48)
+
+[node name="EnemyUnitContainer_2" parent="EnemyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(48, 130)
+
+[node name="EnemyUnitContainer_3" parent="EnemyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(48, 212)
+
+[node name="EnemyUnitContainer_4" parent="EnemyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(130, 48)
+
+[node name="EnemyUnitContainer_5" parent="EnemyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(130, 130)
+
+[node name="EnemyUnitContainer_6" parent="EnemyUnits" instance=ExtResource("2_nwsat")]
+position = Vector2(130, 212)

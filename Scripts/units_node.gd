@@ -6,11 +6,11 @@ class_name UnitsNode
 ## are intially displayed
 ######################################################
 
-var cube_size: float = 90.0
+var cube_size: float = 64
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	distribute_units_in_square(cube_size, position)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,6 +26,7 @@ func update_units(info: UnitContainerInfo) -> void:
 	for i in info.unit_count:
 		var scene = info.unit_resource.unit_packed_scene.instantiate()
 		add_child(scene)
+		scene.add_to_group(info.unit_group, true)
 	
 	distribute_units_in_square(cube_size, position)
 
@@ -56,5 +57,4 @@ func distribute_units_in_square(square_size: float, center_position: Vector2):
 		# Position in center of the cell
 		var x = start_x + col * cell_width + cell_width / 2
 		var y = start_y + row * cell_height + cell_height / 2
-		
 		units_array[i].position = Vector2(x, y)

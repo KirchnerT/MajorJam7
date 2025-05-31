@@ -14,6 +14,7 @@ texture = ExtResource("2_r4gsl")
 
 [node name="MovementComponent" type="Node2D" parent="." node_paths=PackedStringArray("check_target_timer")]
 script = ExtResource("3_3y78k")
+speed = null
 unit_allegience = 2
 unit_target_faction = 2
 unit_targeting = 0
