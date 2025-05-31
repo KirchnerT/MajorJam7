@@ -21,3 +21,10 @@ func _on_movement_component_new_target_found(new_target: Node2D) -> void:
 
 func _on_attack_component_is_within_attack_range_changed(is_within_attack_range: bool) -> void:
 	movement_component.can_move = !is_within_attack_range
+
+
+func deactivate():
+	# Will deactivate all nodes that are 'dead'
+	# Once the round is over, if the player still have living units, we will use the activate method
+	# to re-enable the dead units for round restart
+	pass
