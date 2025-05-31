@@ -17,16 +17,19 @@ func _ready() -> void:
 	AllyArmy.update_unit_container(test_container2, 3)
 	
 	# Simulating Day X for testing
-	var enemy_army = enemy_armies[0]
+	var enemy_army = enemy_armies[1]
 	for i in 5:
 		var test_container_enemy = UnitContainerInfo.new(enemy_army.unit_types[i], enemy_army.unit_count[i], 0, 0, 0, Vector2(1,1), "Enemy")
 		enemy_unit_containers[i].update_unit_container(test_container_enemy)
 	
-	## TEST CODE
 	
 	# Set all unit containers with all unit info found in AllyArmy globals
 	for i in ally_unit_containers.size():
 		ally_unit_containers[i].update_unit_container(AllyArmy.unit_containers[i])
+	## TEST CODE
+	
+	## Start of Game -- Player must choose starter pack
+	## Show UI for Factions
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

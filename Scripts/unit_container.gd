@@ -2,7 +2,7 @@ extends Node2D
 class_name UnitContainer
 
 ######################################################
-## Unit container that will handle all unit based 
+## Unit container that will handle all whole-unit based 
 ## movement initiated by the player (drag and drop units)
 ######################################################
 
@@ -43,4 +43,5 @@ func hover_changed(_is_hovered: bool) -> void:
 func update_unit_container(info: UnitContainerInfo) -> void:
 	if (info == null):
 		return
+	
 	units_node.update_units(info)

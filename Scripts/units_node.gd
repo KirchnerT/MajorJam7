@@ -8,6 +8,7 @@ class_name UnitsNode
 
 var cube_size: float = 64
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -29,6 +30,7 @@ func update_units(info: UnitContainerInfo) -> void:
 		scene.add_to_group(info.unit_group, true)
 	
 	distribute_units_in_square(cube_size, position)
+
 
 # Nicifies all units in the specified space. DO NOT TOUCH
 func distribute_units_in_square(square_size: float, center_position: Vector2):

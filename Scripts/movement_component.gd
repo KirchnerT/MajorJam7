@@ -3,6 +3,8 @@ class_name MovementComponent
 
 enum unitGroups {ALLY, ENEMY, NONE}
 
+signal new_target_found(closest_target: Node2D)
+
 @export var speed: float = 10.0
 @export var unit_allegience: unitGroups
 @export var unit_target_faction: unitGroups
@@ -11,12 +13,12 @@ enum unitGroups {ALLY, ENEMY, NONE}
 
 var target_unit: Node2D
 var attack_range: float
-var is_within_attack_range: bool = false
+var can_move: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if attack_range == 0:
-		attack_range = 20.0
+		attack_range = 1.0
 	
 	check_target_timer.start()
 
@@ -26,7 +28,7 @@ func _process(delta: float) -> void:
 	if unit_allegience == 2 && get_parent().get_groups() != []:
 		set_allegiance()
 	
-	if target_unit != null && !is_within_attack_range:
+	if target_unit != null && can_move:
 		move_towards(delta)
 
 
@@ -46,20 +48,22 @@ func move_towards(delta: float) -> void:
 	
 
 func _on_timer_timeout() -> void:
-	target_unit = get_new_target()
+	if unit_allegience != 2:
+		target_unit = get_new_target()
+		new_target_found.emit(target_unit)
+	
 	check_target_timer.start()
 
 
 func get_new_target() -> Node2D:
-	if unit_targeting == null: 
+	if unit_targeting == null:
 		return null
-
+	
 	if unit_targeting == 0: # CLOSEST
 		return find_closest_enemy()
 	else:
 		print("Targeting Style Not Implemented")
 	
-
 	return null
 
 
@@ -68,16 +72,12 @@ func find_closest_enemy() -> Node2D:
 	var all_enemies = get_tree().get_nodes_in_group(get_string_of_unit_group(unit_target_faction))
 	var closest_distance: float
 	var closest_enemy: Node2D
+	
 	for enemy in all_enemies:
 		var distance_to_enemy = parent_position.distance_to(enemy.global_position)
 		if  closest_enemy == null || distance_to_enemy < closest_distance:
 			closest_distance = distance_to_enemy
 			closest_enemy = enemy
-	
-	if closest_distance <= attack_range:
-		is_within_attack_range = true
-	else:
-		is_within_attack_range = false
 	
 	return closest_enemy
 

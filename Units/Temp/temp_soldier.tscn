@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl36pg1txrdq"]
+[gd_scene load_steps=6 format=3 uid="uid://dl36pg1txrdq"]
 
 [ext_resource type="Script" path="res://Units/Temp/temp_soldier.gd" id="1_kl7nj"]
 [ext_resource type="Texture2D" uid="uid://tn6eguwflw2x" path="res://Assets/Unit_-_Test.png" id="2_r4gsl"]
-[ext_resource type="Script" path="res://Units/Temp/movement_component.gd" id="3_3y78k"]
+[ext_resource type="Script" path="res://Scripts/movement_component.gd" id="3_3y78k"]
+[ext_resource type="Script" path="res://Units/Temp/health_component.gd" id="3_boedc"]
+[ext_resource type="Script" path="res://Units/Temp/attack_component.gd" id="4_bkf7k"]
 
 [node name="Temp_Soldier" type="Node2D"]
 script = ExtResource("1_kl7nj")
@@ -11,17 +13,21 @@ script = ExtResource("1_kl7nj")
 texture = ExtResource("2_r4gsl")
 
 [node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("3_boedc")
 
 [node name="MovementComponent" type="Node2D" parent="." node_paths=PackedStringArray("check_target_timer")]
 script = ExtResource("3_3y78k")
 unit_allegience = 2
 unit_target_faction = 2
 unit_targeting = 0
-check_target_timer = NodePath("Timer")
+check_target_timer = NodePath("CheckTargetTimer")
 
-[node name="Timer" type="Timer" parent="MovementComponent"]
+[node name="CheckTargetTimer" type="Timer" parent="MovementComponent"]
 wait_time = 0.5
 
 [node name="AttackComponent" type="Node2D" parent="."]
+script = ExtResource("4_bkf7k")
 
-[connection signal="timeout" from="MovementComponent/Timer" to="MovementComponent" method="_on_timer_timeout"]
+[connection signal="new_target_found" from="MovementComponent" to="." method="_on_movement_component_new_target_found"]
+[connection signal="timeout" from="MovementComponent/CheckTargetTimer" to="MovementComponent" method="_on_timer_timeout"]
+[connection signal="is_within_attack_range_changed" from="AttackComponent" to="." method="_on_attack_component_is_within_attack_range_changed"]
