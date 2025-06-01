@@ -13,22 +13,22 @@ script = ExtResource("1_e6q5w")
 
 [node name="AllyUnits" type="Node2D" parent="."]
 
-[node name="AllyUnitContainer_1" parent="AllyUnits" groups=["droppable"] instance=ExtResource("2_nwsat")]
+[node name="AllyUnitContainer_1" parent="AllyUnits" instance=ExtResource("2_nwsat")]
 position = Vector2(48, 48)
 
-[node name="AllyUnitContainer_2" parent="AllyUnits" groups=["droppable"] instance=ExtResource("2_nwsat")]
+[node name="AllyUnitContainer_2" parent="AllyUnits" instance=ExtResource("2_nwsat")]
 position = Vector2(48, 130)
 
-[node name="AllyUnitContainer_3" parent="AllyUnits" groups=["droppable"] instance=ExtResource("2_nwsat")]
+[node name="AllyUnitContainer_3" parent="AllyUnits" instance=ExtResource("2_nwsat")]
 position = Vector2(48, 212)
 
-[node name="AllyUnitContainer_4" parent="AllyUnits" groups=["droppable"] instance=ExtResource("2_nwsat")]
+[node name="AllyUnitContainer_4" parent="AllyUnits" instance=ExtResource("2_nwsat")]
 position = Vector2(130, 48)
 
-[node name="AllyUnitContainer_5" parent="AllyUnits" groups=["droppable"] instance=ExtResource("2_nwsat")]
+[node name="AllyUnitContainer_5" parent="AllyUnits" instance=ExtResource("2_nwsat")]
 position = Vector2(130, 130)
 
-[node name="AllyUnitContainer_6" parent="AllyUnits" groups=["droppable"] instance=ExtResource("2_nwsat")]
+[node name="AllyUnitContainer_6" parent="AllyUnits" instance=ExtResource("2_nwsat")]
 position = Vector2(130, 212)
 
 [node name="EnemyUnits" type="Node2D" parent="."]
@@ -61,4 +61,4 @@ ally_unit_containers = [NodePath("../AllyUnits/AllyUnitContainer_1"), NodePath("
 enemy_unit_containers = [NodePath("../EnemyUnits/EnemyUnitContainer_1"), NodePath("../EnemyUnits/EnemyUnitContainer_2"), NodePath("../EnemyUnits/EnemyUnitContainer_3"), NodePath("../EnemyUnits/EnemyUnitContainer_4"), NodePath("../EnemyUnits/EnemyUnitContainer_5"), NodePath("../EnemyUnits/EnemyUnitContainer_6")]
 
 [node name="TempCard" parent="." instance=ExtResource("7_r12aw")]
-position = Vector2(289, 362)
+position = Vector2(304, 125)

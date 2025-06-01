@@ -5,7 +5,7 @@ extends Node2D
 @export var ally_unit_containers: Array[UnitContainer]
 @export var enemy_unit_containers: Array[UnitContainer]
 
-var temp_soldier_resource: UnitResource = preload("res://Units/Temp/temp_soldier_resource.tres")
+var temp_soldier_resource: UnitResource = preload("res://Units/Temp_Soldier/temp_soldier_resource.tres")
 
 
 # Called when the node enters the scene tree for the first time.

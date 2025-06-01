@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/EnemyArmyResource.gd" id="1_lkrwj"]
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="2_7iuge"]
-[ext_resource type="Resource" uid="uid://cqwkhfan77ico" path="res://Units/Temp/temp_soldier_resource.tres" id="3_jfoa7"]
+[ext_resource type="Resource" uid="uid://cqwkhfan77ico" path="res://Units/Temp_Soldier/temp_soldier_resource.tres" id="3_jfoa7"]
 
 [resource]
 script = ExtResource("1_lkrwj")
