@@ -51,6 +51,8 @@ position = Vector2(130, 130)
 [node name="EnemyUnitContainer_6" parent="EnemyUnits" instance=ExtResource("2_nwsat")]
 position = Vector2(130, 212)
 
+[node name="Shop" type="Node2D" parent="."]
+
 [node name="DayManager" type="Node2D" parent="." node_paths=PackedStringArray("ally_unit_containers", "enemy_unit_containers")]
 script = ExtResource("3_8lsv2")
 enemy_armies = Array[ExtResource("2_2itb3")]([ExtResource("3_3o37x"), ExtResource("4_r51qh")])
