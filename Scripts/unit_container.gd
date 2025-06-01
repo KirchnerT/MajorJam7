@@ -20,7 +20,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_area_2d_mouse_entered() -> void:
 	hover_changed(true)
 
@@ -34,10 +33,7 @@ func hover_changed(_is_hovered: bool) -> void:
 	else:
 		area_sprite.self_modulate.a = 0.5
 	is_hovered = _is_hovered
-	
-	# IF TRUE -> Start a coroutine that when done, pops up a UI of unit info
-	#			 UI should follow the user's mouse
-	# IF FLASE -> instantly mark the UI visibility as false
+
 
 # Passthrough method to update the unit information
 func update_unit_container(info: UnitContainerInfo) -> void:

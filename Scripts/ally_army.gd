@@ -6,6 +6,7 @@ extends Node
 
 var unit_containers: Array[UnitContainerInfo]
 var max_containers: int = 6
+var starter_pack: StarterPackResource
 
 func _ready() -> void:
 	# Set all unit containers to null

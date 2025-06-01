@@ -37,6 +37,7 @@ attack_speed_timer = NodePath("AttackSpeedTimer")
 [node name="AttackSpeedTimer" type="Timer" parent="AttackComponent"]
 wait_time = 0.5
 
+[connection signal="unit_has_died" from="HealthComponent" to="." method="_on_health_component_unit_has_died"]
 [connection signal="new_target_found" from="MovementComponent" to="." method="_on_movement_component_new_target_found"]
 [connection signal="timeout" from="MovementComponent/CheckTargetTimer" to="MovementComponent" method="_on_timer_timeout"]
 [connection signal="is_within_attack_range_changed" from="AttackComponent" to="." method="_on_attack_component_is_within_attack_range_changed"]

@@ -12,7 +12,13 @@ var can_attack: bool = true
 
 var target_unit: Node2D
 
-var is_within_attack_range: bool = false
+var is_within_attack_range: bool = false:
+	get:
+		return is_within_attack_range
+	set(value):
+		is_within_attack_range_changed.emit(value)
+		is_within_attack_range = value
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,24 +36,23 @@ func _process(delta: float) -> void:
 
 	if distance_to_target <= attack_range && is_within_attack_range == false:
 		is_within_attack_range = true
-		is_within_attack_range_changed.emit(true)
 	elif distance_to_target > attack_range && is_within_attack_range == true:
 		is_within_attack_range = false
-		is_within_attack_range_changed.emit(false)
-
+	
+	# MUST check both values as true as these are our conditions to "Attack"
 	if can_attack == true && is_within_attack_range == true:
 		attack_target()
-		
+
+
+
 func attack_target() -> void:
-	# Check if target is able to be damaged (ie: has health component, or you can assume they do since they are targetable)
-	#	call the targets damage function
+	if target_unit == null:
+		return
+	
 	can_attack = false
-	target_unit.health_component.take_damage(attack_damage) #testing
+	target_unit.health_component.take_damage(attack_damage)
 	attack_speed_timer.start()
-		# gets the take damage function from the health_component script to deal damage to the unit
-		
-		
-	pass
+
 
 func _on_attack_speed_timer_timeout() -> void:
 	can_attack = true # Replace with function body.

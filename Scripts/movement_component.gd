@@ -30,6 +30,11 @@ func _process(delta: float) -> void:
 	
 	if target_unit != null && can_move:
 		move_towards(delta)
+	else:
+		check_target_timer.stop()
+		target_unit = get_new_target()
+		new_target_found.emit(target_unit)
+		check_target_timer.start()
 
 
 func set_allegiance() -> void:

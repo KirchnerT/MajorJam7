@@ -23,8 +23,18 @@ func _on_attack_component_is_within_attack_range_changed(is_within_attack_range:
 	movement_component.can_move = !is_within_attack_range
 
 
-func deactivate():
-	# Will deactivate all nodes that are 'dead'
-	# Once the round is over, if the player still have living units, we will use the activate method
-	# to re-enable the dead units for round restart
-	pass
+func _on_health_component_unit_has_died() -> void:
+	queue_free()
+	
+	
+	
+	return
+	var groups = get_groups()
+	
+	for group in groups:
+		if group == "Ally":
+			remove_from_group("Ally")
+			add_to_group("HiddenAlly")
+		elif group == "Enemy":
+			remove_from_group("Enemy")
+			add_to_group("HiddenEnemy")

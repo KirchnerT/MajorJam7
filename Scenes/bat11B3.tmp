@@ -4,11 +4,17 @@
 [ext_resource type="Script" path="res://Scripts/EnemyArmyResource.gd" id="2_2itb3"]
 [ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://Scenes/unit_container.tscn" id="2_nwsat"]
 [ext_resource type="Resource" uid="uid://dlj2e7j006407" path="res://EnemyArmies/Day1_01.tres" id="3_3o37x"]
-[ext_resource type="Script" path="res://Scenes/day_manager.gd" id="3_8lsv2"]
 [ext_resource type="Resource" uid="uid://bf2sfs1kb651f" path="res://EnemyArmies/Day1_02.tres" id="4_r51qh"]
+[ext_resource type="Script" path="res://Scripts/day_manager.gd" id="6_8bnhd"]
 
 [node name="BattleMap" type="Node2D"]
 script = ExtResource("1_e6q5w")
+
+[node name="DayManager" type="Node2D" parent="." node_paths=PackedStringArray("ally_unit_containers", "enemy_unit_containers")]
+script = ExtResource("6_8bnhd")
+enemy_armies = Array[ExtResource("2_2itb3")]([ExtResource("3_3o37x"), ExtResource("4_r51qh")])
+ally_unit_containers = [NodePath("../AllyUnits/AllyUnitContainer_1"), NodePath("../AllyUnits/AllyUnitContainer_2"), NodePath("../AllyUnits/AllyUnitContainer_3"), NodePath("../AllyUnits/AllyUnitContainer_4"), NodePath("../AllyUnits/AllyUnitContainer_5"), NodePath("../AllyUnits/AllyUnitContainer_6")]
+enemy_unit_containers = [NodePath("../EnemyUnits/EnemyUnitContainer_1"), NodePath("../EnemyUnits/EnemyUnitContainer_2"), NodePath("../EnemyUnits/EnemyUnitContainer_3"), NodePath("../EnemyUnits/EnemyUnitContainer_4"), NodePath("../EnemyUnits/EnemyUnitContainer_5"), NodePath("../EnemyUnits/EnemyUnitContainer_6")]
 
 [node name="AllyUnits" type="Node2D" parent="."]
 
@@ -50,9 +56,3 @@ position = Vector2(130, 130)
 
 [node name="EnemyUnitContainer_6" parent="EnemyUnits" instance=ExtResource("2_nwsat")]
 position = Vector2(130, 212)
-
-[node name="DayManager" type="Node2D" parent="." node_paths=PackedStringArray("ally_unit_containers", "enemy_unit_containers")]
-script = ExtResource("3_8lsv2")
-enemy_armies = Array[ExtResource("2_2itb3")]([ExtResource("3_3o37x"), ExtResource("4_r51qh")])
-ally_unit_containers = [NodePath("../AllyUnits/AllyUnitContainer_1"), NodePath("../AllyUnits/AllyUnitContainer_2"), NodePath("../AllyUnits/AllyUnitContainer_3"), NodePath("../AllyUnits/AllyUnitContainer_4"), NodePath("../AllyUnits/AllyUnitContainer_5"), NodePath("../AllyUnits/AllyUnitContainer_6")]
-enemy_unit_containers = [NodePath("../EnemyUnits/EnemyUnitContainer_1"), NodePath("../EnemyUnits/EnemyUnitContainer_2"), NodePath("../EnemyUnits/EnemyUnitContainer_3"), NodePath("../EnemyUnits/EnemyUnitContainer_4"), NodePath("../EnemyUnits/EnemyUnitContainer_5"), NodePath("../EnemyUnits/EnemyUnitContainer_6")]
