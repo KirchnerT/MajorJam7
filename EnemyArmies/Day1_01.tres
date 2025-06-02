@@ -6,6 +6,8 @@
 
 [resource]
 script = ExtResource("1_lkrwj")
+faction = 0
 day = 1
 unit_types = Array[ExtResource("2_7iuge")]([ExtResource("3_jfoa7"), ExtResource("3_jfoa7"), ExtResource("3_jfoa7"), ExtResource("3_jfoa7"), ExtResource("3_jfoa7"), null])
 unit_count = Array[int]([8, 2, 1, 3, 4, 0])
+reward_money = 10
