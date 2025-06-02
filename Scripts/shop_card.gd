@@ -1,11 +1,22 @@
 extends Node2D
+class_name ShopCard
+
+signal activate_adding_unit(active: bool, shop_card: ShopCard)
 
 var is_hovered: bool = false
-var draggable: bool = false
-var is_inside_droppable: bool = false
 var offset: Vector2 # snap location if card is within unit container and player lets go of card
 var initial_pos: Vector2 # if player lets go of card and is outside of a unit container, the card will snap to it's original position
-var body_ref
+
+var is_pack_card: bool = false
+var unit_in_card: UnitResource
+
+var is_following: bool = false:
+	get:
+		return is_following
+	set(value):
+		if is_following != value:
+			activate_adding_unit.emit(value, self)
+			is_following = value
 
 # hover variables
 var original_size: Vector2 = Vector2(1,1)
@@ -14,51 +25,32 @@ var hovered_size: Vector2 = Vector2(1.05, 1.05)
 var static_color: Color = Color.WHITE
 var dragging_color: Color = Color.MEDIUM_PURPLE
 
+
 func _process(delta: float) -> void:
-	if draggable:
+	if is_hovered:
 		if Input.is_action_just_pressed("click"):
 			initial_pos = global_position
 			offset = get_global_mouse_position() - global_position
+			is_following = true
+	else:
+		is_following = false
+	if is_following:
 		if Input.is_action_pressed("click"):
-			global_position = get_global_mouse_position() - offset
+				global_position = get_global_mouse_position() - offset
 		elif Input.is_action_just_released("click"):
 			var tween = get_tree().create_tween()
-			if is_inside_droppable:
-				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
-			else:
-				tween.tween_property(self, "global_position", initial_pos, 0.2).set_ease(Tween.EASE_OUT)
-			
+			tween.tween_property(self, "global_position", initial_pos, 0.2).set_ease(Tween.EASE_OUT)
+			is_following = false
 
 
 func _on_area_2d_mouse_entered() -> void:
-	draggable = true
 	hover_changed(true) # Replace with function body.
 
 
 func _on_area_2d_mouse_exited() -> void:
-	if Input.is_action_pressed("click"):
-		return
-	else:
-		draggable = false
+	if !is_following:
 		hover_changed(false) # Replace with function body.
 
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("droppable")
-	if body.is_in_group("droppable"):
-		is_inside_droppable = true
-		
-		
-	body_ref = body
-		#body.modulate = dragging_color
-		  # Replace with function body.
-	
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("droppable"):
-		is_inside_droppable = false
-		print("not droppable")
-	
-	body_ref = body # Replace with function body.
 
 # Slightly increases the sprite size when mouse hovers over the sprite
 func hover_changed(_is_hovered: bool) -> void:
@@ -67,3 +59,11 @@ func hover_changed(_is_hovered: bool) -> void:
 	else:
 		scale = original_size
 	is_hovered = _is_hovered
+
+
+func change_unit_in_card(new_unit: UnitResource) -> void:
+	unit_in_card = new_unit
+
+func deactivate() -> void:
+	if is_pack_card:
+		self.queue_free()

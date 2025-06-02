@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardPack" load_steps=5 format=3 uid="uid://cag66hxim3hu4"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/pack_resource.gd" id="1_6f5l3"]
+[ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="2_yh1u1"]
+[ext_resource type="Resource" uid="uid://cqwkhfan77ico" path="res://Units/Temp_Soldier/temp_soldier_resource.tres" id="3_u64rn"]
+[ext_resource type="Resource" uid="uid://cnax2jdrglysf" path="res://Units/Temp_Archer/temp_archer_resource.tres" id="4_3hmej"]
+
+[resource]
+script = ExtResource("1_6f5l3")
+faction = 0
+min_number_of_units = 5
+max_number_of_units = 5
+unit_pool = Array[ExtResource("2_yh1u1")]([ExtResource("3_u64rn"), ExtResource("4_3hmej")])

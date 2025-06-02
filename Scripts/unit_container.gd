@@ -10,6 +10,7 @@ class_name UnitContainer
 @onready var units_node: UnitsNode = $UnitsNode
 
 var is_hovered: bool = false
+var index: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,5 +40,28 @@ func hover_changed(_is_hovered: bool) -> void:
 func update_unit_container(info: UnitContainerInfo) -> void:
 	if (info == null):
 		return
-	
 	units_node.update_units(info)
+
+func start_battle() -> void:
+	units_node.start_battle() 
+
+
+func is_actively_adding_unit(active: bool, shop_card: ShopCard) -> void:
+	var current_units: UnitContainerInfo = AllyArmy.unit_containers[index]
+	if active:
+		if current_units == null || shop_card.unit_in_card == current_units.unit_resource:
+			area_sprite.modulate.a = 1
+			return
+	elif is_hovered:
+		if current_units == null:
+			var new_container = UnitContainerInfo.new(shop_card.unit_in_card, shop_card.unit_in_card.initial_count, "Ally")
+			AllyArmy.update_unit_container(new_container, index)
+			update_unit_container(new_container)
+			shop_card.deactivate()
+		elif current_units.unit_resource == shop_card.unit_in_card:
+			current_units.unit_count += 4
+			AllyArmy.update_unit_container(current_units, index)
+			update_unit_container(current_units)
+			shop_card.deactivate()
+	
+	area_sprite.modulate.a = 0.5

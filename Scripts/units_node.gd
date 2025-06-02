@@ -31,6 +31,15 @@ func update_units(info: UnitContainerInfo) -> void:
 	
 	distribute_units_in_square(cube_size, position)
 
+func start_battle() -> void:
+	for child in get_children():
+		child.activate()
+
+
+func end_battle() -> void:
+	for child in get_children():
+		child.deactivate()
+
 
 # Nicifies all units in the specified space. DO NOT TOUCH
 func distribute_units_in_square(square_size: float, center_position: Vector2):

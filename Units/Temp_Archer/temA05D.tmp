@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl36pg1txrdq"]
+
+[ext_resource type="Script" path="res://Units/Temp/temp_soldier.gd" id="1_kl7nj"]
+[ext_resource type="Texture2D" uid="uid://tn6eguwflw2x" path="res://Assets/Unit_-_Test.png" id="2_r4gsl"]
+[ext_resource type="Script" path="res://Units/Temp/movement_component.gd" id="3_3y78k"]
+
+[node name="Temp_Soldier" type="Node2D"]
+script = ExtResource("1_kl7nj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_r4gsl")
+
+[node name="HealthComponent" type="Node2D" parent="."]
+
+[node name="MovementComponent" type="Node2D" parent="." node_paths=PackedStringArray("check_target_timer")]
+script = ExtResource("3_3y78k")
+speed = null
+unit_allegience = 0
+unit_target_faction = 1
+unit_targeting = 0
+check_target_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="MovementComponent"]
+wait_time = 0.5
+
+[node name="AttackComponent" type="Node2D" parent="."]
+
+[connection signal="timeout" from="MovementComponent/Timer" to="MovementComponent" method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=11 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="2_2itb3"]
@@ -7,10 +7,9 @@
 [ext_resource type="Script" path="res://Scripts/day_manager.gd" id="3_8lsv2"]
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="3_txbk6"]
 [ext_resource type="Resource" uid="uid://bf2sfs1kb651f" path="res://EnemyArmies/Day1_02.tres" id="4_r51qh"]
-[ext_resource type="PackedScene" uid="uid://co7kucn2sklks" path="res://Scenes/shop_card.tscn" id="7_r12aw"]
+[ext_resource type="Resource" uid="uid://cqwkhfan77ico" path="res://Units/Temp_Soldier/temp_soldier_resource.tres" id="4_xvujd"]
 [ext_resource type="PackedScene" uid="uid://d215epv115w73" path="res://Scenes/witch_starter_pack.tscn" id="10_uihuv"]
 [ext_resource type="Script" path="res://Scenes/main_ui.gd" id="10_yym2m"]
-[ext_resource type="Resource" uid="uid://cag66hxim3hu4" path="res://StarterPacks/temp_alot_starter_pack.tres" id="11_d5r8k"]
 
 [node name="BattleMap" type="Node2D" node_paths=PackedStringArray("shop", "day_manager", "ui_manager")]
 script = ExtResource("1_e6q5w")
@@ -61,15 +60,15 @@ position = Vector2(130, 212)
 
 [node name="Shop" type="Node2D" parent="." node_paths=PackedStringArray("cards_in_shop")]
 script = ExtResource("3_txbk6")
-cards_in_shop = [null]
-card_packed_scene = ExtResource("7_r12aw")
-
-[node name="Center" type="Node2D" parent="Shop"]
-position = Vector2(313, 421)
+cards_in_shop = [NodePath("")]
+witch_units = null
+lich_units = null
+imp_units = null
+devil_units = null
+test_unit_resource = ExtResource("4_xvujd")
 
 [node name="DayManager" type="Node2D" parent="." node_paths=PackedStringArray("ally_unit_containers", "enemy_unit_containers")]
 script = ExtResource("3_8lsv2")
-current_day = 1
 enemy_armies = Array[ExtResource("2_2itb3")]([ExtResource("3_3o37x"), ExtResource("4_r51qh")])
 ally_unit_containers = [NodePath("../AllyUnits/AllyUnitContainer_1"), NodePath("../AllyUnits/AllyUnitContainer_2"), NodePath("../AllyUnits/AllyUnitContainer_3"), NodePath("../AllyUnits/AllyUnitContainer_4"), NodePath("../AllyUnits/AllyUnitContainer_5"), NodePath("../AllyUnits/AllyUnitContainer_6")]
 enemy_unit_containers = [NodePath("../EnemyUnits/EnemyUnitContainer_1"), NodePath("../EnemyUnits/EnemyUnitContainer_2"), NodePath("../EnemyUnits/EnemyUnitContainer_3"), NodePath("../EnemyUnits/EnemyUnitContainer_4"), NodePath("../EnemyUnits/EnemyUnitContainer_5"), NodePath("../EnemyUnits/EnemyUnitContainer_6")]
@@ -80,7 +79,7 @@ anchors_preset = 0
 offset_right = 960.0
 offset_bottom = 600.0
 script = ExtResource("10_yym2m")
-starter_packs = [NodePath("StarterPackSelection/WITCH"), NodePath("StarterPackSelection/A LOT OF WITCH")]
+starter_packs = [NodePath("StarterPackSelection/WITCH")]
 
 [node name="StarterPackSelection" type="Panel" parent="UI"]
 layout_mode = 0
@@ -93,11 +92,3 @@ offset_left = 213.0
 offset_top = 105.0
 offset_right = 309.0
 offset_bottom = 249.0
-
-[node name="A LOT OF WITCH" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
-layout_mode = 0
-offset_left = 583.0
-offset_top = 344.0
-offset_right = 679.0
-offset_bottom = 488.0
-starter_pack = ExtResource("11_d5r8k")

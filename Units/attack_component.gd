@@ -22,8 +22,7 @@ var is_within_attack_range: bool = false:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Start timer and add its signal to this script to do attack rate
-	 # Replace with function body.
+	attack_speed_timer.wait_time = attack_speed
 	pass
 
 

@@ -4,9 +4,12 @@ extends Node
 ## player stats and player army information
 #############################################
 
+enum FACTIONS {WITCHES, LICHES, IMPS, DEVILS}
+
 var unit_containers: Array[UnitContainerInfo]
 var max_containers: int = 6
-var starter_pack: StarterPackResource
+var starter_pack: CardPack
+var money: int = 0
 
 func _ready() -> void:
 	# Set all unit containers to null

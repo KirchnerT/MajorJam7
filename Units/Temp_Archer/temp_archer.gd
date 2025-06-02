@@ -1,5 +1,5 @@
 extends Node2D
-class_name TempSoldier
+class_name TempArcher
 
 @onready var attack_component: AttackComponent = $AttackComponent
 @onready var movement_component: MovementComponent = $MovementComponent

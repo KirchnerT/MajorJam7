@@ -19,8 +19,6 @@ var can_move: bool = true
 func _ready() -> void:
 	if attack_range == 0:
 		attack_range = 1.0
-	
-	check_target_timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
