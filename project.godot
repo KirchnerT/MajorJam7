@@ -27,10 +27,6 @@ window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 
-[global_group]
-
-droppable="Should be added to any containers where units can be added via a faction card"
-
 [input]
 
 click={

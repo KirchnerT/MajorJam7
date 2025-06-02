@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=9 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="Script" path="res://Scripts/EnemyArmyResource.gd" id="2_2itb3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/day_manager.gd" id="3_8lsv2"]
 [ext_resource type="Resource" uid="uid://bf2sfs1kb651f" path="res://EnemyArmies/Day1_02.tres" id="4_r51qh"]
 [ext_resource type="PackedScene" uid="uid://co7kucn2sklks" path="res://Units/Temp_Card/temp_card.tscn" id="7_r12aw"]
+[ext_resource type="PackedScene" uid="uid://d1iaa58scrodt" path="res://Testing/test_container.tscn" id="8_aw7dd"]
 
 [node name="BattleMap" type="Node2D"]
 script = ExtResource("1_e6q5w")
@@ -62,3 +63,6 @@ enemy_unit_containers = [NodePath("../EnemyUnits/EnemyUnitContainer_1"), NodePat
 
 [node name="TempCard" parent="." instance=ExtResource("7_r12aw")]
 position = Vector2(289, 362)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("8_aw7dd")]
+position = Vector2(429, 133)

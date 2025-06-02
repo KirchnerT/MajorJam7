@@ -14,8 +14,6 @@ var hovered_size: Vector2 = Vector2(1.05, 1.05)
 var static_color: Color = Color.WHITE
 var dragging_color: Color = Color.MEDIUM_PURPLE
 
-@onready var card_sprite: Sprite2D = $Sprite2D
-
 func _process(delta: float) -> void:
 	if draggable:
 		if Input.is_action_just_pressed("click"):
@@ -46,18 +44,21 @@ func _on_area_2d_mouse_exited() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("droppable")
 	if body.is_in_group("droppable"):
 		is_inside_droppable = true
-		print("droppable")
+		
+		
+	body_ref = body
 		#body.modulate = dragging_color
-		body_ref = body
 		  # Replace with function body.
 	
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.get_tree().get_nodes_in_group("droppable"):
+	if body.is_in_group("droppable"):
 		is_inside_droppable = false
-		body.modulate = static_color
-		body_ref = body # Replace with function body.
+		print("not droppable")
+	
+	body_ref = body # Replace with function body.
 
 # Slightly increases the sprite size when mouse hovers over the sprite
 func hover_changed(_is_hovered: bool) -> void:
