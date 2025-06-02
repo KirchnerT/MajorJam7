@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=16 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="2_2itb3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d215epv115w73" path="res://Scenes/witch_starter_pack.tscn" id="10_uihuv"]
 [ext_resource type="Script" path="res://Scenes/main_ui.gd" id="10_yym2m"]
 [ext_resource type="Resource" uid="uid://cag66hxim3hu4" path="res://StarterPacks/temp_alot_starter_pack.tres" id="11_d5r8k"]
+[ext_resource type="Texture2D" uid="uid://cet0qto6fydva" path="res://Assets/Character_Box_Bottom_Left.png" id="15_kr4cd"]
 
 [node name="BattleMap" type="Node2D" node_paths=PackedStringArray("shop", "day_manager", "ui_manager")]
 script = ExtResource("1_e6q5w")
@@ -66,9 +67,9 @@ position = Vector2(130, 212)
 visible = false
 script = ExtResource("3_txbk6")
 witch_units = Array[ExtResource("4_jpu8v")]([ExtResource("5_gwt10"), ExtResource("4_xvujd")])
-lich_units = Array[ExtResource("4_jpu8v")]([ExtResource("5_gwt10")])
-imp_units = Array[ExtResource("4_jpu8v")]([ExtResource("4_xvujd")])
-devil_units = Array[ExtResource("4_jpu8v")]([ExtResource("4_xvujd")])
+lich_units = Array[ExtResource("4_jpu8v")]([ExtResource("4_xvujd"), ExtResource("5_gwt10")])
+imp_units = Array[ExtResource("4_jpu8v")]([ExtResource("4_xvujd"), ExtResource("4_xvujd")])
+devil_units = Array[ExtResource("4_jpu8v")]([ExtResource("4_xvujd"), ExtResource("5_gwt10")])
 card_packed_scene = ExtResource("7_r12aw")
 card_holders = [NodePath("CardHolderContainer/ShopCardHolder"), NodePath("CardHolderContainer/ShopCardHolder2"), NodePath("CardHolderContainer/ShopCardHolder3"), NodePath("CardHolderContainer/ShopCardHolder4"), NodePath("CardHolderContainer/ShopCardHolder5"), NodePath("CardHolderContainer/ShopCardHolder6")]
 
@@ -190,6 +191,20 @@ offset_top = 128.0
 offset_right = 418.0
 offset_bottom = 199.0
 text = "Imp Shop"
+
+[node name="MoneyLabel" type="Label" parent="UI/FactionShopsPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "$0"
+
+[node name="PortraitBorder" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 279.0
+offset_right = 949.0
+offset_bottom = 595.0
+texture = ExtResource("15_kr4cd")
 
 [connection signal="all_packed_cards_used" from="Shop" to="." method="_on_shop_all_packed_cards_used"]
 [connection signal="child_exiting_tree" from="Shop/PackedCardsContainer" to="Shop" method="_on_pulled_cards_container_child_exiting_tree"]

@@ -4,12 +4,12 @@ class_name DayManager
 signal precombat_started()
 signal shopping_started(day: int)
 
-enum RoundState {STARTER_DECK = 1, 
-				SHOP = 2, 
-				PRECOMBAT = 3, 
-				COMBAT = 4, 
-				POSTCOMBAT = 5, 
-				EVENT = 6, 
+enum RoundState {STARTER_DECK = 1,
+				SHOP = 2,
+				PRECOMBAT = 3,
+				COMBAT = 4,
+				POSTCOMBAT = 5,
+				EVENT = 6,
 				GAMEOVER = 7,
 				STARTOFDAY = 8}
 
@@ -51,15 +51,16 @@ func start_battle() -> void:
 	
 
 func start_new_day() -> void:
-	current_day += 1
+	#current_day += 1
 	round_state = RoundState.STARTOFDAY
+
 
 func start_precombat() -> void:
 	setup_armies()
 
 
 func stop_day() -> void:
-	current_day += 1
+	#current_day += 1
 	setup_ally_army()
 
 
@@ -120,7 +121,7 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 	elif prev_state == RoundState.POSTCOMBAT && new_state == RoundState.EVENT:
 		print("Postcombat to Event")
 		print("DO EVENT STUFF (^.^)")
-		round_state = RoundState.STARTOFDAY
+		start_new_day()
 	elif prev_state == RoundState.EVENT && new_state == RoundState.STARTOFDAY:
 		print("Event to Start of Day")
 		print("DO START OF DAY STUFF")

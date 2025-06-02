@@ -8,5 +8,6 @@
 script = ExtResource("1_80ivy")
 name = "temp soldier"
 texture = ExtResource("2_oxggg")
+cost = 4
 initial_count = 3
 unit_packed_scene = ExtResource("3_ctgqa")

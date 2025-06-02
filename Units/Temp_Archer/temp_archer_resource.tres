@@ -8,5 +8,6 @@
 script = ExtResource("1_3mpm2")
 name = "temp archer"
 texture = ExtResource("2_yw0dp")
+cost = 6
 initial_count = 2
 unit_packed_scene = ExtResource("3_o1bkt")

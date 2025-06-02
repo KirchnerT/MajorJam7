@@ -63,5 +63,8 @@ func is_actively_adding_unit(active: bool, shop_card: ShopCard) -> void:
 			AllyArmy.update_unit_container(current_units, index)
 			update_unit_container(current_units)
 			shop_card.deactivate()
+		
+		if !shop_card.is_pack_card:
+			AllyArmy.money -= shop_card.unit_in_card.cost
 	
 	area_sprite.modulate.a = 0.5

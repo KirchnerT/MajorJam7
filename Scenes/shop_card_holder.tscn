@@ -15,4 +15,11 @@ offset_right = 163.0
 offset_bottom = -48.0
 text = "Invalid_Name"
 
+[node name="CostLabel" type="Label" parent="."]
+offset_left = 89.0
+offset_top = 47.0
+offset_right = 129.0
+offset_bottom = 70.0
+text = "$0"
+
 [connection signal="activate_adding_unit" from="ShopCard" to="." method="_on_shop_card_activate_adding_unit"]
