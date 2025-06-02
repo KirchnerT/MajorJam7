@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 # Use ONLY for scene initial loading from AllyArmy.gd global script
 func update_units(info: UnitContainerInfo) -> void:
 	for i in get_children():
+		i.queue_free()
 		remove_child(i)
 	
 	for i in info.unit_count:

@@ -1,16 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=11 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="2_2itb3"]
 [ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://Scenes/unit_container.tscn" id="2_nwsat"]
 [ext_resource type="Script" path="res://Scripts/day_manager.gd" id="3_8lsv2"]
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="3_txbk6"]
-[ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="4_jpu8v"]
 [ext_resource type="Resource" uid="uid://bf2sfs1kb651f" path="res://EnemyArmies/Day1_02.tres" id="4_r51qh"]
-[ext_resource type="Resource" uid="uid://cqwkhfan77ico" path="res://Units/Temp_Soldier/temp_soldier_resource.tres" id="4_xvujd"]
-[ext_resource type="Resource" uid="uid://cnax2jdrglysf" path="res://Units/Temp_Archer/temp_archer_resource.tres" id="5_gwt10"]
 [ext_resource type="PackedScene" uid="uid://co7kucn2sklks" path="res://Scenes/shop_card.tscn" id="7_r12aw"]
-[ext_resource type="PackedScene" uid="uid://ccqybcgx31ach" path="res://Scenes/shop_card_holder.tscn" id="8_et18m"]
 [ext_resource type="PackedScene" uid="uid://d215epv115w73" path="res://Scenes/witch_starter_pack.tscn" id="10_uihuv"]
 [ext_resource type="Script" path="res://Scenes/main_ui.gd" id="10_yym2m"]
 [ext_resource type="Resource" uid="uid://cag66hxim3hu4" path="res://StarterPacks/temp_alot_starter_pack.tres" id="11_d5r8k"]
@@ -62,40 +58,15 @@ position = Vector2(130, 130)
 [node name="EnemyUnitContainer_6" parent="EnemyUnits" instance=ExtResource("2_nwsat")]
 position = Vector2(130, 212)
 
-[node name="Shop" type="Node2D" parent="." node_paths=PackedStringArray("card_holders")]
-visible = false
+[node name="Shop" type="Node2D" parent="." node_paths=PackedStringArray("cards_in_shop")]
 script = ExtResource("3_txbk6")
-witch_units = Array[ExtResource("4_jpu8v")]([ExtResource("5_gwt10"), ExtResource("4_xvujd")])
-lich_units = Array[ExtResource("4_jpu8v")]([ExtResource("5_gwt10")])
-imp_units = Array[ExtResource("4_jpu8v")]([ExtResource("4_xvujd")])
-devil_units = Array[ExtResource("4_jpu8v")]([ExtResource("4_xvujd")])
+cards_in_shop = [null]
 card_packed_scene = ExtResource("7_r12aw")
-card_holders = [NodePath("CardHolderContainer/ShopCardHolder"), NodePath("CardHolderContainer/ShopCardHolder2"), NodePath("CardHolderContainer/ShopCardHolder3"), NodePath("CardHolderContainer/ShopCardHolder4"), NodePath("CardHolderContainer/ShopCardHolder5"), NodePath("CardHolderContainer/ShopCardHolder6")]
 
 [node name="Center" type="Node2D" parent="Shop"]
 position = Vector2(313, 421)
 
-[node name="CardHolderContainer" type="Node2D" parent="Shop"]
-
-[node name="ShopCardHolder" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(65, 350)
-
-[node name="ShopCardHolder2" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(290, 354)
-
-[node name="ShopCardHolder3" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(517, 356)
-
-[node name="ShopCardHolder4" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(64, 510)
-
-[node name="ShopCardHolder5" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(288, 511)
-
-[node name="ShopCardHolder6" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(514, 515)
-
-[node name="PackedCardsContainer" type="Node2D" parent="Shop"]
+[node name="PulledCardsContainer" type="Node2D" parent="Shop"]
 
 [node name="DayManager" type="Node2D" parent="." node_paths=PackedStringArray("ally_unit_containers", "enemy_unit_containers")]
 script = ExtResource("3_8lsv2")
@@ -138,19 +109,11 @@ label_name = "A lot of Units"
 
 [node name="BattleStartButton" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = 416.0
-offset_top = 115.0
-offset_right = 565.0
-offset_bottom = 180.0
+offset_left = 430.0
+offset_top = 84.0
+offset_right = 579.0
+offset_bottom = 149.0
 text = "Start Battle"
-
-[node name="ShopLeaveButton" type="Button" parent="UI"]
-layout_mode = 0
-offset_left = 722.0
-offset_top = 14.0
-offset_right = 775.0
-offset_bottom = 45.0
-text = "Leave"
 
 [node name="FactionShopsPanel" type="Panel" parent="UI"]
 layout_mode = 0
@@ -192,13 +155,11 @@ offset_bottom = 199.0
 text = "Imp Shop"
 
 [connection signal="all_packed_cards_used" from="Shop" to="." method="_on_shop_all_packed_cards_used"]
-[connection signal="child_exiting_tree" from="Shop/PackedCardsContainer" to="Shop" method="_on_pulled_cards_container_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Shop/PulledCardsContainer" to="Shop" method="_on_pulled_cards_container_child_exiting_tree"]
 [connection signal="shopping_started" from="DayManager" to="." method="_on_day_manager_shopping_started"]
-[connection signal="leave_shop" from="UI" to="." method="_on_ui_leave_shop"]
 [connection signal="open_shop" from="UI" to="." method="_on_ui_open_shop"]
 [connection signal="pressed" from="UI/BattleStartButton" to="DayManager" method="_on_battle_start_button_pressed"]
 [connection signal="pressed" from="UI/BattleStartButton" to="UI" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/ShopLeaveButton" to="UI" method="_on_shop_leave_button_pressed"]
 [connection signal="pressed" from="UI/FactionShopsPanel/WitchShop" to="UI" method="_on_witch_shop_pressed"]
 [connection signal="pressed" from="UI/FactionShopsPanel/DevilShop" to="UI" method="_on_devil_shop_pressed"]
 [connection signal="pressed" from="UI/FactionShopsPanel/LichShop" to="UI" method="_on_lich_shop_pressed"]
