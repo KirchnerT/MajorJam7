@@ -46,9 +46,10 @@ func _on_area_2d_mouse_exited() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.get_tree().get_nodes_in_group("droppable"):
+	if body.is_in_group("droppable"):
 		is_inside_droppable = true
-		body.modulate = dragging_color
+		print("droppable")
+		#body.modulate = dragging_color
 		body_ref = body
 		  # Replace with function body.
 	
