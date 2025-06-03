@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvu8tdvgqb8cl"]
+[gd_scene load_steps=5 format=3 uid="uid://cvu8tdvgqb8cl"]
 
 [ext_resource type="Script" path="res://Menus/decks_menu.gd" id="1_pwwr4"]
+[ext_resource type="FontFile" uid="uid://d1gy756akasq0" path="res://Assets/New Roman Times.ttf" id="2_35men"]
+[ext_resource type="Texture2D" uid="uid://byvmfporyv5cq" path="res://Assets/fantasy_pixelmap_by_chevyray_d1uljko-375w-2x.jpg" id="2_gksb6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k6qno"]
 
 [node name="Decks Menu" type="Control"]
 layout_mode = 3
@@ -11,21 +15,105 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pwwr4")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gksb6")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 40
 
-[node name="Next" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Next"
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Back"
+theme_override_fonts/font = ExtResource("2_35men")
+theme_override_font_sizes/font_size = 48
+text = "FACTIONS"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Next" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Back" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_35men")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k6qno")
+text = "
+BACK"
+
+[node name="Factions" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Factions"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Factions/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Witches Button" type="Button" parent="Factions/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_35men")
+theme_override_font_sizes/font_size = 16
+text = "
+WITCHES"
+
+[node name="Liches Button" type="Button" parent="Factions/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_35men")
+theme_override_font_sizes/font_size = 16
+text = "
+LICHES"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Factions/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Imps Button" type="Button" parent="Factions/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_35men")
+theme_override_font_sizes/font_size = 16
+text = "
+IMPS"
+
+[node name="Devils Button" type="Button" parent="Factions/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_35men")
+theme_override_font_sizes/font_size = 16
+text = "
+DEVILS
+"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
