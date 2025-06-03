@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=22 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="2_2itb3"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://dyxgc27850wqy" path="res://Units/Imp/BombImp/bomb_imp_resource.tres" id="6_f5buj"]
 [ext_resource type="Resource" uid="uid://bh6vlrfdtw0kk" path="res://Units/Witch/Crow_Caller/crow_caller.tres" id="6_kbmpv"]
 [ext_resource type="Resource" uid="uid://rdy0r0cod4wr" path="res://Units/Imp/Scamperling/scamperling_resource.tres" id="7_6qghn"]
+[ext_resource type="Resource" uid="uid://bxypxwq6piuo5" path="res://Units/Lich/Bone_Channeler/bone_channeler.tres" id="7_ot4b7"]
 [ext_resource type="PackedScene" uid="uid://co7kucn2sklks" path="res://Scenes/shop_card.tscn" id="7_r12aw"]
 [ext_resource type="PackedScene" uid="uid://ccqybcgx31ach" path="res://Scenes/shop_card_holder.tscn" id="8_et18m"]
 [ext_resource type="PackedScene" uid="uid://d215epv115w73" path="res://Scenes/witch_starter_pack.tscn" id="10_uihuv"]
@@ -72,7 +73,7 @@ position = Vector2(130, 212)
 visible = false
 script = ExtResource("3_txbk6")
 witch_units = Array[ExtResource("4_jpu8v")]([ExtResource("5_bri2b"), ExtResource("6_kbmpv")])
-lich_units = Array[ExtResource("4_jpu8v")]([ExtResource("4_xvujd")])
+lich_units = Array[ExtResource("4_jpu8v")]([ExtResource("7_ot4b7")])
 imp_units = Array[ExtResource("4_jpu8v")]([ExtResource("6_f5buj"), ExtResource("7_6qghn")])
 devil_units = Array[ExtResource("4_jpu8v")]([ExtResource("4_xvujd")])
 card_packed_scene = ExtResource("7_r12aw")
