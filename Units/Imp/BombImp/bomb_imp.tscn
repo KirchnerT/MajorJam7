@@ -1,0 +1,37 @@
+[gd_scene load_steps=10 format=3 uid="uid://cpssubtmymddw"]
+
+[ext_resource type="Script" path="res://Units/Imp/BombImp/bomb_imp.gd" id="1_8eph1"]
+[ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="1_cwauq"]
+[ext_resource type="PackedScene" uid="uid://dj5k5b5yxq0ft" path="res://explosion_particle.tscn" id="2_1ftkm"]
+[ext_resource type="Shader" path="res://damage_flash.gdshader" id="2_2bkmk"]
+[ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="3_2n6v6"]
+[ext_resource type="PackedScene" uid="uid://iy8rxunr4xcq" path="res://Units/Components/health_component.tscn" id="4_jq6jc"]
+[ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="5_xw5qs"]
+[ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="8_v8r11"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_olt18"]
+resource_local_to_scene = true
+shader = ExtResource("2_2bkmk")
+shader_parameter/flash_color = Color(1, 0.0211822, 0.256846, 1)
+shader_parameter/flash_value = null
+
+[node name="BombImp" type="Node2D"]
+script = ExtResource("1_8eph1")
+explosion_radius = 50.0
+explosion_particle = ExtResource("2_1ftkm")
+
+[node name="SpriteComponent" parent="." instance=ExtResource("1_cwauq")]
+material = SubResource("ShaderMaterial_olt18")
+
+[node name="AttackComponent" parent="." instance=ExtResource("3_2n6v6")]
+attack_damage = 3.0
+attack_range = 15.0
+attack_speed = 0.5
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_jq6jc")]
+unit_health = 1.0
+
+[node name="MovementComponent" parent="." instance=ExtResource("5_xw5qs")]
+speed = 100.0
+
+[node name="StatusEffectsComponent" parent="." instance=ExtResource("8_v8r11")]

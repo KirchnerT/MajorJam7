@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardPack" load_steps=3 format=3 uid="uid://cadl0sibcoqo8"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/pack_resource.gd" id="1_ywny0"]
+[ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="2_lfthf"]
+
+[resource]
+script = ExtResource("1_ywny0")
+faction = 0
+min_number_of_units = 1
+max_number_of_units = 1
+unit_pool = Array[ExtResource("2_lfthf")]([null])

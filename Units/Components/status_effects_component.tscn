@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://biiy6qv6f42up"]
+
+[ext_resource type="Script" path="res://Units/Components/status_effects_component.gd" id="1_0df4y"]
+
+[node name="StatusEffectsComponent" type="Node2D"]
+script = ExtResource("1_0df4y")
+
+[node name="TauntTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CrowTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TauntTimer" to="." method="_on_taunt_timer_timeout"]
+[connection signal="timeout" from="CrowTimer" to="." method="_on_crow_timer_timeout"]

@@ -18,6 +18,8 @@ config/icon="res://icon2.svg"
 [autoload]
 
 AllyArmy="*res://Scripts/ally_army.gd"
+Enums="*res://enums.gd"
+StatusEffectInfo="*res://status_effect_info.gd"
 
 [display]
 

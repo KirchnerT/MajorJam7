@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="1_lkrwj"]
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="2_7iuge"]
-[ext_resource type="Resource" uid="uid://cqwkhfan77ico" path="res://Units/Temp_Soldier/temp_soldier_resource.tres" id="3_jfoa7"]
+[ext_resource type="Resource" uid="uid://rdy0r0cod4wr" path="res://Units/Imp/Scamperling/scamperling_resource.tres" id="3_vpet1"]
 
 [resource]
 script = ExtResource("1_lkrwj")
 faction = 0
 day = 1
-unit_types = Array[ExtResource("2_7iuge")]([ExtResource("3_jfoa7"), ExtResource("3_jfoa7"), ExtResource("3_jfoa7"), ExtResource("3_jfoa7"), ExtResource("3_jfoa7"), null])
-unit_count = Array[int]([8, 2, 1, 3, 4, 0])
+unit_types = Array[ExtResource("2_7iuge")]([null, ExtResource("3_vpet1"), null, null, null, null])
+unit_count = Array[int]([0, 1, 0, 0, 0, 0])
 reward_money = 10

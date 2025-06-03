@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://rdy0r0cod4wr"]
+
+[ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_o2mwc"]
+[ext_resource type="PackedScene" uid="uid://d0ssjge5ecnxi" path="res://Units/Imp/Scamperling/scamperling.tscn" id="2_gk5oc"]
+
+[resource]
+script = ExtResource("1_o2mwc")
+name = "Scamperling"
+cost = 1
+initial_count = 2
+unit_packed_scene = ExtResource("2_gk5oc")

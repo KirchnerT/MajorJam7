@@ -18,9 +18,6 @@ enum RoundState {STARTER_DECK = 1,
 @export var ally_unit_containers: Array[UnitContainer]
 @export var enemy_unit_containers: Array[UnitContainer]
 
-var temp_soldier_resource: UnitResource = preload("res://Units/Temp_Soldier/temp_soldier_resource.tres")
-var temp_archer_resource: UnitResource = preload("res://Units/Temp_Archer/temp_archer_resource.tres")
-
 var current_enemy_army: EnemyArmyResource
 
 var round_state: RoundState = RoundState.STARTER_DECK:
@@ -106,6 +103,7 @@ func check_for_winner() -> void:
 
 func round_state_transition(prev_state: RoundState, new_state: RoundState) -> void:
 	if prev_state == RoundState.COMBAT && new_state == RoundState.POSTCOMBAT:
+		await get_tree().create_timer(1.0).timeout
 		print("Combat to Postcombat")
 		setup_ally_army()
 		AllyArmy.money += current_enemy_army.reward_money

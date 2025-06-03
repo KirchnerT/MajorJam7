@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://dyxgc27850wqy"]
+
+[ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_5htdl"]
+[ext_resource type="PackedScene" uid="uid://cpssubtmymddw" path="res://Units/Imp/BombImp/bomb_imp.tscn" id="2_qxs6u"]
+
+[resource]
+script = ExtResource("1_5htdl")
+name = "Bomb Imp"
+cost = 1
+initial_count = 5
+unit_packed_scene = ExtResource("2_qxs6u")

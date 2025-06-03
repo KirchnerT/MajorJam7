@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://51picvsikgf"]
+
+[sub_resource type="Gradient" id="Gradient_4r448"]
+colors = PackedColorArray(0, 0.567887, 0.119523, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ltkci"]
+gradient = SubResource("Gradient_4r448")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vcoux"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 25.487
+initial_velocity_max = 20.22
+gravity = Vector3(0, -50, 0)
+color_ramp = SubResource("GradientTexture1D_ltkci")
+
+[node name="CrowParticle" type="GPUParticles2D"]
+position = Vector2(-1, -16)
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_vcoux")
+lifetime = 2.0

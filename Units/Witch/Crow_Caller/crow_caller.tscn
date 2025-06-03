@@ -1,0 +1,36 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6rxsg2mfokcr"]
+
+[ext_resource type="Script" path="res://Units/Witch/Crow_Caller/crow_caller.gd" id="1_66gns"]
+[ext_resource type="PackedScene" uid="uid://dqo7mjg8nna3x" path="res://Units/Components/ability_component.tscn" id="2_v146s"]
+[ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="3_ob0l8"]
+[ext_resource type="PackedScene" uid="uid://iy8rxunr4xcq" path="res://Units/Components/health_component.tscn" id="4_1b1nx"]
+[ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="5_4ex5e"]
+[ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="6_5xwu3"]
+[ext_resource type="Shader" path="res://damage_flash.gdshader" id="7_yxj67"]
+[ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="8_un4ew"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrwn7"]
+resource_local_to_scene = true
+shader = ExtResource("7_yxj67")
+shader_parameter/flash_color = Color(1, 0.0211822, 0.256846, 1)
+shader_parameter/flash_value = null
+
+[node name="Crowcaller" type="Node2D"]
+script = ExtResource("1_66gns")
+effect_duration = 5.0
+
+[node name="SpriteComponent" parent="." instance=ExtResource("6_5xwu3")]
+material = SubResource("ShaderMaterial_vrwn7")
+
+[node name="AbilityComponent" parent="." instance=ExtResource("2_v146s")]
+ability_energy_cost = 10.0
+
+[node name="AttackComponent" parent="." instance=ExtResource("3_ob0l8")]
+attack_damage = 0.0
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_1b1nx")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("5_4ex5e")]
+speed = 30.0
+
+[node name="StatusEffectsComponent" parent="." instance=ExtResource("8_un4ew")]

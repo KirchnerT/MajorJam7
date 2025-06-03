@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqo7mjg8nna3x"]
+
+[ext_resource type="Script" path="res://Units/Components/ability_component.gd" id="1_7m3rf"]
+
+[node name="AbilityComponent" type="Node2D"]
+script = ExtResource("1_7m3rf")
+
+[node name="AbilityTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]

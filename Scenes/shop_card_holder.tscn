@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccqybcgx31ach"]
 
-[ext_resource type="Script" path="res://Scenes/shop_card_holder.gd" id="1_ghbie"]
+[ext_resource type="Script" path="res://Scripts/shop_card_holder.gd" id="1_ghbie"]
 [ext_resource type="PackedScene" uid="uid://co7kucn2sklks" path="res://Scenes/shop_card.tscn" id="2_s5amk"]
 
 [node name="ShopCardHolder" type="Node2D"]

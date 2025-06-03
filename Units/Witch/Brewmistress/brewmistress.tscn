@@ -1,0 +1,36 @@
+[gd_scene load_steps=11 format=3 uid="uid://1n502iuaxwr6"]
+
+[ext_resource type="Script" path="res://Units/Witch/Brewmistress/brewmistress.gd" id="1_5q7bg"]
+[ext_resource type="PackedScene" uid="uid://dqo7mjg8nna3x" path="res://Units/Components/ability_component.tscn" id="2_pv53u"]
+[ext_resource type="PackedScene" uid="uid://d1y0dth2iew2i" path="res://Units/Witch/Brewmistress/potion_splash.tscn" id="2_wgof6"]
+[ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="3_khlya"]
+[ext_resource type="PackedScene" uid="uid://iy8rxunr4xcq" path="res://Units/Components/health_component.tscn" id="4_offrf"]
+[ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="5_7yk0p"]
+[ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="6_cdm2k"]
+[ext_resource type="Shader" path="res://damage_flash.gdshader" id="7_bvmi0"]
+[ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="8_g4a42"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvs2y"]
+resource_local_to_scene = true
+shader = ExtResource("7_bvmi0")
+shader_parameter/flash_color = Color(1, 0.0211822, 0.256846, 1)
+shader_parameter/flash_value = null
+
+[node name="Brewmistress" type="Node2D"]
+script = ExtResource("1_5q7bg")
+potion_splash_particle = ExtResource("2_wgof6")
+
+[node name="AbilityComponent" parent="." instance=ExtResource("2_pv53u")]
+ability_energy_cost = 5.0
+
+[node name="AttackComponent" parent="." instance=ExtResource("3_khlya")]
+attack_range = 80.0
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_offrf")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("5_7yk0p")]
+
+[node name="SpriteComponent" parent="." instance=ExtResource("6_cdm2k")]
+material = SubResource("ShaderMaterial_kvs2y")
+
+[node name="StatusEffectsComponent" parent="." instance=ExtResource("8_g4a42")]

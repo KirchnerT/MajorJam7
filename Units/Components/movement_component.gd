@@ -9,11 +9,15 @@ signal new_target_found(closest_target: Node2D)
 @export var unit_allegience: unitGroups
 @export var unit_target_faction: unitGroups
 @export_enum("Closest", "Farthest", "Healthiest", "LowestHP") var unit_targeting
-@export var check_target_timer: Timer
+
+@onready var check_target_timer: Timer = $CheckTargetTimer
 
 var target_unit: Node2D
 var attack_range: float
 var can_move: bool = true
+
+# Taunt Variables
+var is_taunted: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +31,7 @@ func _process(delta: float) -> void:
 		set_allegiance()
 	
 	if target_unit != null && can_move:
-		move_towards(delta)
+		move_towards(delta, target_unit)
 	else:
 		check_target_timer.stop()
 		target_unit = get_new_target()
@@ -45,8 +49,8 @@ func set_allegiance() -> void:
 		unit_target_faction = unitGroups.ALLY
 
 
-func move_towards(delta: float) -> void:
-	get_parent().global_position += get_parent().global_position.direction_to(target_unit.global_position) * speed * delta
+func move_towards(delta: float, target: Node2D) -> void:
+	get_parent().global_position += get_parent().global_position.direction_to(target.global_position) * speed * delta
 	pass
 	
 
@@ -61,6 +65,9 @@ func _on_timer_timeout() -> void:
 func get_new_target() -> Node2D:
 	if unit_targeting == null:
 		return null
+	
+	if is_taunted:
+		return target_unit
 	
 	if unit_targeting == 0: # CLOSEST
 		return find_closest_enemy()
@@ -91,3 +98,15 @@ func get_string_of_unit_group(unit_group_number: int) -> String:
 		return "Enemy"
 	else: # NOT FOUND
 		return ""
+
+
+func taunt_effect(is_active: bool, taunted_by: Node2D = null):
+	is_taunted = is_active
+	
+	if !is_active:
+		target_unit = get_new_target()
+		new_target_found.emit(target_unit)
+		check_target_timer.start()
+	else:
+		target_unit = taunted_by
+		check_target_timer.stop()

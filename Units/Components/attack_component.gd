@@ -2,11 +2,13 @@ extends Node2D
 class_name AttackComponent
 
 signal is_within_attack_range_changed(is_within_attack_range: bool)
+signal attack_target_unit(unit_to_attack: Node2D, attack_damage: float)
+
+@onready var attack_speed_timer: Timer = $AttackSpeedTimer
 
 @export var attack_damage: float
 @export var attack_range: float
 @export var attack_speed: float
-@export var attack_speed_timer: Timer
 
 var can_attack: bool = true
 
@@ -32,7 +34,7 @@ func _process(delta: float) -> void:
 		return
 	
 	var distance_to_target = get_parent().global_position.distance_to(target_unit.global_position)
-
+	
 	if distance_to_target <= attack_range && is_within_attack_range == false:
 		is_within_attack_range = true
 	elif distance_to_target > attack_range && is_within_attack_range == true:
@@ -49,7 +51,7 @@ func attack_target() -> void:
 		return
 	
 	can_attack = false
-	target_unit.health_component.take_damage(attack_damage)
+	attack_target_unit.emit(target_unit, attack_damage)
 	attack_speed_timer.start()
 
 

@@ -1,0 +1,39 @@
+[gd_scene load_steps=11 format=3 uid="uid://cg4bgko042ve4"]
+
+[ext_resource type="Script" path="res://Units/Lich/Bone_Channeler/bone_channeler.gd" id="1_ls0fh"]
+[ext_resource type="PackedScene" uid="uid://dl36pg1txrdq" path="res://Units/Temp_Soldier/temp_soldier.tscn" id="2_l52bn"]
+[ext_resource type="PackedScene" uid="uid://dqo7mjg8nna3x" path="res://Units/Components/ability_component.tscn" id="2_mtsoa"]
+[ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="3_t7j5g"]
+[ext_resource type="PackedScene" uid="uid://iy8rxunr4xcq" path="res://Units/Components/health_component.tscn" id="4_kpqxu"]
+[ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="5_dvpyg"]
+[ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="6_gcqx2"]
+[ext_resource type="Shader" path="res://damage_flash.gdshader" id="7_2fy8t"]
+[ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="8_m41st"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66oae"]
+resource_local_to_scene = true
+shader = ExtResource("7_2fy8t")
+shader_parameter/flash_color = Color(1, 0.0211822, 0.256846, 1)
+shader_parameter/flash_value = null
+
+[node name="BoneChanneler" type="Node2D"]
+script = ExtResource("1_ls0fh")
+skeleton_scene = ExtResource("2_l52bn")
+skeletons_to_spawn = 5
+skeleton_spawn_radius = 50.0
+
+[node name="AbilityComponent" parent="." instance=ExtResource("2_mtsoa")]
+ability_energy_cost = 80.0
+
+[node name="AttackComponent" parent="." instance=ExtResource("3_t7j5g")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_kpqxu")]
+unit_health = 12.0
+
+[node name="MovementComponent" parent="." instance=ExtResource("5_dvpyg")]
+speed = 30.0
+
+[node name="SpriteComponent" parent="." instance=ExtResource("6_gcqx2")]
+material = SubResource("ShaderMaterial_66oae")
+
+[node name="StatusEffectsComponent" parent="." instance=ExtResource("8_m41st")]
