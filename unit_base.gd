@@ -29,6 +29,7 @@ func _ready() -> void:
 	if ability_component != null:
 		ability_component.use_ability.connect(_on_ability_component_use_ability)
 	
+	sprite_component.stop_walk_animation()
 	deactivate()
 
 
@@ -51,9 +52,12 @@ func activate() -> void:
 	if ability_component != null:
 		ability_component.activate_ability_timer()
 		ability_component.set_process(true)
+	
+	sprite_component.play_walk_animation()
 
 
 func take_damage(damage: float) -> void:
+	sprite_component.stop_walk_animation()
 	sprite_component.play_flash_animation()
 	health_component.take_damage(damage)
 
@@ -63,6 +67,10 @@ func _on_movement_component_new_target_found(new_target: Node2D) -> void:
 
 
 func _on_attack_component_is_within_attack_range_changed(is_within_attack_range: bool) -> void:
+	if is_within_attack_range:
+		sprite_component.play_walk_animation()
+	else:
+		sprite_component.stop_walk_animation()
 	movement_component.can_move = !is_within_attack_range
 
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://ds37rmipltdya"]
+
+[ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_pgxgb"]
+[ext_resource type="PackedScene" uid="uid://c5ls0ufrwimas" path="res://Units/Devil/FlameAbjudicator/flame_adjudicator.tscn" id="2_a4b44"]
+
+[resource]
+script = ExtResource("1_pgxgb")
+name = "Flame Adjudicator"
+cost = 1
+initial_count = 3
+unit_packed_scene = ExtResource("2_a4b44")

@@ -27,7 +27,6 @@ func update_units(info: UnitContainerInfo) -> void:
 	
 	for i in info.unit_count:
 		var scene = info.unit_resource.unit_packed_scene.instantiate()
-		print(global_position)
 		scene.global_position = global_position
 		scene.global_rotation = global_rotation
 		add_child(scene)
