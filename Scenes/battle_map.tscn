@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=24 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="2_2itb3"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="3_txbk6"]
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="4_jpu8v"]
 [ext_resource type="Resource" uid="uid://bf2sfs1kb651f" path="res://EnemyArmies/Day1_02.tres" id="4_r51qh"]
-[ext_resource type="Resource" uid="uid://cqwkhfan77ico" path="res://Units/Temp_Soldier/temp_soldier_resource.tres" id="4_xvujd"]
 [ext_resource type="Resource" uid="uid://c8j5l3minannw" path="res://Units/Witch/Brewmistress/brewmistress.tres" id="5_bri2b"]
 [ext_resource type="Resource" uid="uid://dyxgc27850wqy" path="res://Units/Imp/BombImp/bomb_imp_resource.tres" id="6_f5buj"]
 [ext_resource type="Resource" uid="uid://bh6vlrfdtw0kk" path="res://Units/Witch/Crow_Caller/crow_caller.tres" id="6_kbmpv"]
@@ -15,12 +14,15 @@
 [ext_resource type="Resource" uid="uid://bxypxwq6piuo5" path="res://Units/Lich/Bone_Channeler/bone_channeler.tres" id="7_ot4b7"]
 [ext_resource type="PackedScene" uid="uid://co7kucn2sklks" path="res://Scenes/shop_card.tscn" id="7_r12aw"]
 [ext_resource type="PackedScene" uid="uid://ccqybcgx31ach" path="res://Scenes/shop_card_holder.tscn" id="8_et18m"]
+[ext_resource type="Resource" uid="uid://ds37rmipltdya" path="res://Units/Devil/FlameAbjudicator/flame_adjudicator.tres" id="10_1mhxw"]
 [ext_resource type="PackedScene" uid="uid://d215epv115w73" path="res://Scenes/witch_starter_pack.tscn" id="10_uihuv"]
 [ext_resource type="Script" path="res://Scripts/main_ui.gd" id="10_yym2m"]
 [ext_resource type="Resource" uid="uid://cag66hxim3hu4" path="res://StarterPacks/temp_alot_starter_pack.tres" id="11_d5r8k"]
 [ext_resource type="Resource" uid="uid://rvux3r4guujw" path="res://StarterPacks/imp_starter_pack.tres" id="13_jyuje"]
 [ext_resource type="Resource" uid="uid://dlj2e7j006407" path="res://EnemyArmies/Day1_01.tres" id="13_n8aw2"]
 [ext_resource type="Texture2D" uid="uid://cet0qto6fydva" path="res://Assets/Character_Box_Bottom_Left.png" id="15_kr4cd"]
+[ext_resource type="Resource" uid="uid://cadl0sibcoqo8" path="res://StarterPacks/lich_starter_pack.tres" id="19_ur6mj"]
+[ext_resource type="Resource" uid="uid://cew813ki0qn30" path="res://StarterPacks/devil_starter_pack.tres" id="20_njsr4"]
 
 [node name="BattleMap" type="Node2D" node_paths=PackedStringArray("shop", "day_manager", "ui_manager")]
 script = ExtResource("1_e6q5w")
@@ -75,7 +77,7 @@ script = ExtResource("3_txbk6")
 witch_units = Array[ExtResource("4_jpu8v")]([ExtResource("5_bri2b"), ExtResource("6_kbmpv")])
 lich_units = Array[ExtResource("4_jpu8v")]([ExtResource("7_ot4b7")])
 imp_units = Array[ExtResource("4_jpu8v")]([ExtResource("6_f5buj"), ExtResource("7_6qghn")])
-devil_units = Array[ExtResource("4_jpu8v")]([ExtResource("4_xvujd")])
+devil_units = Array[ExtResource("4_jpu8v")]([ExtResource("10_1mhxw")])
 card_packed_scene = ExtResource("7_r12aw")
 card_holders = [NodePath("CardHolderContainer/ShopCardHolder"), NodePath("CardHolderContainer/ShopCardHolder2"), NodePath("CardHolderContainer/ShopCardHolder3"), NodePath("CardHolderContainer/ShopCardHolder4"), NodePath("CardHolderContainer/ShopCardHolder5"), NodePath("CardHolderContainer/ShopCardHolder6")]
 
@@ -118,10 +120,9 @@ offset_right = 960.0
 offset_bottom = 600.0
 mouse_filter = 1
 script = ExtResource("10_yym2m")
-starter_packs = [NodePath("StarterPackSelection/WITCH"), NodePath("StarterPackSelection/TestPack"), NodePath("StarterPackSelection/Imp")]
+starter_packs = [NodePath("StarterPackSelection/WITCH"), NodePath("StarterPackSelection/TestPack"), NodePath("StarterPackSelection/Imp"), NodePath("StarterPackSelection/Lich"), NodePath("StarterPackSelection/Devil")]
 
 [node name="StarterPackSelection" type="Panel" parent="UI"]
-visible = false
 layout_mode = 0
 offset_right = 958.0
 offset_bottom = 601.0
@@ -134,6 +135,24 @@ offset_right = 309.0
 offset_bottom = 249.0
 label_name = "Witch"
 
+[node name="Lich" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 360.0
+offset_right = 671.0
+offset_bottom = 504.0
+starter_pack = ExtResource("19_ur6mj")
+label_name = "Lich"
+
+[node name="Devil" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
+layout_mode = 0
+offset_left = 573.0
+offset_top = 107.0
+offset_right = 669.0
+offset_bottom = 251.0
+starter_pack = ExtResource("20_njsr4")
+label_name = "Devil"
+
 [node name="Imp" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
 layout_mode = 0
 offset_left = 213.0
@@ -145,10 +164,10 @@ label_name = "Imp"
 
 [node name="TestPack" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
 layout_mode = 0
-offset_left = 583.0
-offset_top = 344.0
-offset_right = 679.0
-offset_bottom = 488.0
+offset_left = 428.0
+offset_top = 223.0
+offset_right = 524.0
+offset_bottom = 367.0
 starter_pack = ExtResource("11_d5r8k")
 label_name = "Test Pack"
 

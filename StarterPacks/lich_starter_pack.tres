@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_ywny0")
-faction = 0
+faction = 1
 min_number_of_units = 1
 max_number_of_units = 1
 unit_pool = Array[ExtResource("2_lfthf")]([ExtResource("3_68x61")])
