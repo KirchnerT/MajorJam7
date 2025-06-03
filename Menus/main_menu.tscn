@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba8aq4kwa10gq"]
+[gd_scene load_steps=3 format=3 uid="uid://ba8aq4kwa10gq"]
 
+[ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_hp6vp"]
 [ext_resource type="FontFile" uid="uid://d1gy756akasq0" path="res://Assets/New Roman Times.ttf" id="1_v4x4n"]
 
 [node name="Main Menu" type="Control"]
@@ -9,20 +10,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hp6vp")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 297.0
+offset_bottom = 196.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+z_index = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_v4x4n")
 theme_override_font_sizes/font_size = 8
 text = "PLAY"
+icon_alignment = 1
 
 [node name="Decks" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -41,3 +45,8 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_v4x4n")
 theme_override_font_sizes/font_size = 8
 text = "QUIT"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Decks" to="." method="_on_decks_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
