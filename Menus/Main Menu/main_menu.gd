@@ -8,11 +8,11 @@ func _on_play_pressed() -> void:
 
 
 func _on_decks_pressed() -> void:
-	get_tree().change_scene_to_file("res://Menus/decks_menu.tscn") # Replace with function body.
+	get_tree().change_scene_to_file("res://Menus/Factions Menu/decks_menu.tscn") # Replace with function body.
 
 
 func _on_options_pressed() -> void:
-	get_tree().change_scene_to_file("res://Menus/options_menu.tscn") # Replace with function body.
+	get_tree().change_scene_to_file("res://Menus/Options Menu/options_menu.tscn") # Replace with function body.
 
 
 func _on_quit_pressed() -> void:
