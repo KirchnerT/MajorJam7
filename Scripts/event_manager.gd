@@ -8,13 +8,21 @@ signal proceed_event(event_data: EventDisplayData)
 @export_range (0,1) var event_chance: float
 @export var events: Array[EventResource]
 
+var start_event_chance: float
 var event_stage: int = 0
 var cur_event: EventResource
+
+
+func _ready() -> void:
+	start_event_chance = event_chance
 
 func attempt_event_start() -> void:
 	if randi_range(0, 1) > event_chance:
 		event_ended.emit()
+		event_chance += 0.05 # increase odds of event on next day by 5%
 		return
+	
+	event_chance = start_event_chance # reset event chance if an event happens
 	
 	# Pick a random event
 	cur_event = events[randi_range(0, events.size() - 1)]
