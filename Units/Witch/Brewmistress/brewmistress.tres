@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cke3bmxlkp5d1" path="res://Assets/unit_sprites/brewmistress.png" id="2_h2dgp"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_4mpha")
 name = "Brewmistress"
 texture = ExtResource("2_h2dgp")

@@ -23,7 +23,7 @@ skeletons_to_spawn = 5
 skeleton_spawn_radius = 50.0
 
 [node name="AbilityComponent" parent="." instance=ExtResource("2_mtsoa")]
-ability_energy_cost = 80.0
+ability_energy_cost = 30.0
 
 [node name="AttackComponent" parent="." instance=ExtResource("3_t7j5g")]
 

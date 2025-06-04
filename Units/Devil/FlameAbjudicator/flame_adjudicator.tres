@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ls0ufrwimas" path="res://Units/Devil/FlameAbjudicator/flame_adjudicator.tscn" id="2_a4b44"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_pgxgb")
 name = "Flame Adjudicator"
 cost = 1

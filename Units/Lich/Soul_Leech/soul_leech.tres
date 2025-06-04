@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://deqass2swsrnk" path="res://Units/Lich/Soul_Leech/soul_leech.tscn" id="2_x5fgf"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_oiae6")
 name = "Soul Leech"
 cost = 1

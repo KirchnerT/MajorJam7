@@ -11,11 +11,12 @@ class_name Brewmistress
 func _on_ability_component_use_ability() -> void:
 	var units_in_range: Array[Node]
 	var all_units: Array[Node]
-	var is_healing: bool = randi_range(0,100) > 50
+	var is_healing: bool = randi_range(0,100) > 80
 	var potion_damage: float = effect_damage
 	
 	if is_healing:
-		potion_damage *= -1
+		if AllyArmy.current_law != Enums.LawEffects.REVERSEHEAL:
+			potion_damage *= -1
 		var all_allies = get_tree().get_nodes_in_group(movement_component.get_string_of_unit_group(movement_component.unit_allegience))
 		all_units = all_allies
 	else:

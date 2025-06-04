@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b6ikpyyoi84w6" path="res://Assets/unit_sprites/crow_caller.png" id="2_pjony"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_20jm4")
 name = "Crow Caller"
 texture = ExtResource("2_pjony")

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dl36pg1txrdq" path="res://Units/Temp_Soldier/temp_soldier.tscn" id="3_ctgqa"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_80ivy")
 name = "temp soldier"
 texture = ExtResource("2_oxggg")

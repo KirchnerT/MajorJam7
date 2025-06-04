@@ -48,6 +48,7 @@ func proceed(pressed_leave: bool = false) -> void:
 func proceed_rule_modifier_event() -> void:
 	if event_stage == 1:
 		var effect_keys: Array = cur_event.effects.keys()
+		
 		var choosen_effect_key: String = effect_keys[randi_range(0, effect_keys.size() - 1)]
 		var choosen_effect_desc: String = cur_event.effects[choosen_effect_key]
 		var event_description = cur_event.description[0] + choosen_effect_desc

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cpssubtmymddw" path="res://Units/Imp/BombImp/bomb_imp.tscn" id="2_qxs6u"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_5htdl")
 name = "Bomb Imp"
 cost = 1

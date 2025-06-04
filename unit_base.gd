@@ -5,11 +5,13 @@ class_name UnitBase
 @onready var movement_component: MovementComponent = $MovementComponent
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var status_effects_component: StatusEffectsComponent = $StatusEffectsComponent
-@onready var ability_component: AbilityComponent = $AbilityComponent
 @onready var sprite_component: SpriteComponent = $SpriteComponent
 
+var ability_component: AbilityComponent
+
+
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready() -> void:	
 	movement_component.attack_range = attack_component.attack_range
 	
 	# connect signals
@@ -26,6 +28,8 @@ func _ready() -> void:
 	# Crow
 	status_effects_component.crow_ended.connect(_on_status_effects_component_crow_ended)
 	status_effects_component.crow_started.connect(_on_status_effects_component_crow_started)
+	
+	ability_component = get_node_or_null("AbilityComponent")
 	if ability_component != null:
 		ability_component.use_ability.connect(_on_ability_component_use_ability)
 	
@@ -63,7 +67,6 @@ func update_stats(attack_damage: float, health: float) -> void:
 
 
 func take_damage(damage: float, source: UnitBase, damage_mult_low_health: float = 1) -> void:
-	print("Took: " + str(damage))
 	sprite_component.stop_walk_animation()
 	if damage > 0:
 		sprite_component.play_flash_animation()

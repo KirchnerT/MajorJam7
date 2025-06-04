@@ -1,8 +1,5 @@
 extends Node2D
 
-#@export var shop: Shop
-#@export var day_manager: DayManager
-#@export var ui_manager: MainUi
 @onready var shop: Shop = $Shop
 @onready var day_manager: DayManager = $DayManager
 @onready var event_manager: EventManager = $EventManager
@@ -26,6 +23,7 @@ func _ui_manager_starter_pack_selected(starter_pack: CardPack) -> void:
 
 func _on_shop_all_packed_cards_used() -> void:
 	day_manager.all_packed_cards_used()
+
 
 func _day_manager_precombat_started() -> void:
 	ui_manager.show_battle_start_button()

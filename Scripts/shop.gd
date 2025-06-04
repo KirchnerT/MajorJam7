@@ -58,7 +58,6 @@ func show_starter_pack_cards(starter_pack: CardPack) -> void:
 	var added_cards: Array[Node2D]
 	for i in number_of_cards:
 		added_cards.append(add_new_card_scene(starter_pack.unit_pool[randi_range(0, starter_pack.unit_pool.size() - 1)], true))
-	print(added_cards)
 	distribute_cards_in_square(added_cards, 500, shop_center.global_position)
 
 
@@ -141,6 +140,5 @@ func distribute_cards_in_square(cards_to_distribute: Array[Node2D], square_size:
 
 
 func _on_pulled_cards_container_child_exiting_tree(node: Node) -> void:
-	print(packed_cards_container.get_children().size() - 1)
 	if packed_cards_container.get_children().size() - 1 <= 0:
 		all_packed_cards_used.emit()

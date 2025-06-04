@@ -43,10 +43,16 @@ func set_allegiance() -> void:
 	var groups: Array[StringName] = get_parent().get_groups()
 	if groups[0] == "Ally":
 		unit_allegience = unitGroups.ALLY
-		unit_target_faction = unitGroups.ENEMY
+		if AllyArmy.current_law == Enums.LawEffects.ALLYATTACK:
+			unit_target_faction = unitGroups.ALLY
+		else:
+			unit_target_faction = unitGroups.ENEMY
 	elif groups[0] == "Enemy":
 		unit_allegience = unitGroups.ENEMY
-		unit_target_faction = unitGroups.ALLY
+		if AllyArmy.current_law == Enums.LawEffects.ALLYATTACK:
+			unit_target_faction = unitGroups.ENEMY
+		else:
+			unit_target_faction = unitGroups.ALLY
 
 
 func move_towards(delta: float, target: Node2D) -> void:
@@ -83,12 +89,16 @@ func find_lowest_hp_enemy() -> Node2D:
 	var all_enemies = get_tree().get_nodes_in_group(get_string_of_unit_group(unit_target_faction))
 	var lowest_hp: float
 	var lowest_enemy: Node2D
+	var self_index = all_enemies.find(self)
+	if self_index != -1:
+		all_enemies.remove_at(self_index)
 	
 	for enemy in all_enemies:
-		var enemy_cur_health = enemy.get_cur_health()
-		if  lowest_enemy == null || enemy_cur_health < lowest_hp:
-			lowest_hp = enemy_cur_health
-			lowest_enemy = enemy
+		if enemy.movement_component != self || all_enemies.size() == 1:
+			var enemy_cur_health = enemy.get_cur_health()
+			if  lowest_enemy == null || enemy_cur_health < lowest_hp:
+				lowest_hp = enemy_cur_health
+				lowest_enemy = enemy
 	
 	return lowest_enemy
 
@@ -100,10 +110,11 @@ func find_closest_enemy() -> Node2D:
 	var closest_enemy: Node2D
 	
 	for enemy in all_enemies:
-		var distance_to_enemy = parent_position.distance_to(enemy.global_position)
-		if  closest_enemy == null || distance_to_enemy < closest_distance:
-			closest_distance = distance_to_enemy
-			closest_enemy = enemy
+		if enemy.movement_component != self || all_enemies.size() == 1:
+			var distance_to_enemy = parent_position.distance_to(enemy.global_position)
+			if  (closest_enemy == null || distance_to_enemy < closest_distance):
+				closest_distance = distance_to_enemy
+				closest_enemy = enemy
 	
 	return closest_enemy
 

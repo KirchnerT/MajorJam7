@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cg4bgko042ve4" path="res://Units/Lich/Bone_Channeler/bone_channeler.tscn" id="2_ctnn3"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_aauvt")
 name = "Bone Channeler"
 cost = 1

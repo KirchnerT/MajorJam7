@@ -23,7 +23,6 @@ taunt_range = 50.0
 material = SubResource("ShaderMaterial_vjrje")
 
 [node name="AttackComponent" parent="." instance=ExtResource("4_fji2o")]
-attack_range = 30.0
 attack_speed = 2.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_ssg15")]

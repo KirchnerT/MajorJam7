@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://wpavlxto66g5" path="res://Units/Devil/SinbrandDuelist/sinbrand_duelist.tscn" id="2_ursoc"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_3823k")
 name = "Sinbrand Duelist"
 cost = 1
