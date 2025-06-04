@@ -9,5 +9,5 @@ script = ExtResource("1_4mpha")
 name = "Brewmistress"
 texture = ExtResource("2_h2dgp")
 cost = 1
-initial_count = 1
+initial_count = 2
 unit_packed_scene = ExtResource("2_bldbm")

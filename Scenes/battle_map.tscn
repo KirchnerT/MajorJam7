@@ -260,19 +260,21 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Event Title"
 
-[node name="EventDescription" type="Label" parent="UI/EventPanel"]
+[node name="EventDescription" type="RichTextLabel" parent="UI/EventPanel"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 32.0
-offset_right = 462.0
+offset_right = 430.0
 offset_bottom = 304.0
-text = "This is where the event description will live...
+bbcode_enabled = true
+text = "This is where the event description  will live...
 
 OoooOOOOOOOO   Spooky noises
 WIll you dive into the realm of WILD
 
 
 Take your chances....!!!??!?!?!! !!?!? !?!???! !!"
+autowrap_mode = 2
 
 [node name="ChoiceButton_1" type="Button" parent="UI/EventPanel"]
 layout_mode = 0

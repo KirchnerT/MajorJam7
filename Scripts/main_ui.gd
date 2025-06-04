@@ -17,7 +17,7 @@ signal leave_shop()
 # Event
 @onready var event_panel: Panel = $EventPanel
 @onready var event_title: Label = $EventPanel/EventTitle
-@onready var event_description: Label = $EventPanel/EventDescription
+@onready var event_description: RichTextLabel = $EventPanel/EventDescription
 @onready var choice_button_1: Button = $EventPanel/ChoiceButton_1
 @onready var choice_button_2: Button = $EventPanel/ChoiceButton_2
 @onready var choice_button_3: Button = $EventPanel/ChoiceButton_3
@@ -93,7 +93,7 @@ func update_money() -> void:
 func start_event(event_data: EventManager.EventDisplayData) -> void:
 	event_panel.visible = true
 	event_title.text = event_data.title
-	event_description.text = event_data.description
+	event_description.text = event_data.description.replace("(new_line)", "\n")
 	choice_button_1.text = event_data.choice_1_text
 	choice_button_2.text = event_data.choice_2_text
 	choice_button_3.text = event_data.choice_3_text

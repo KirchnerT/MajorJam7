@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://bh6vlrfdtw0kk"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=4 format=3 uid="uid://bh6vlrfdtw0kk"]
 
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_20jm4"]
 [ext_resource type="PackedScene" uid="uid://c6rxsg2mfokcr" path="res://Units/Witch/Crow_Caller/crow_caller.tscn" id="2_13jvg"]
+[ext_resource type="Texture2D" uid="uid://b6ikpyyoi84w6" path="res://Assets/unit_sprites/crow_caller.png" id="2_pjony"]
 
 [resource]
 script = ExtResource("1_20jm4")
 name = "Crow Caller"
+texture = ExtResource("2_pjony")
 cost = 1
 initial_count = 1
 unit_packed_scene = ExtResource("2_13jvg")

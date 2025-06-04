@@ -18,9 +18,11 @@ func attempt_event_start() -> void:
 	cur_event = events[randi_range(0, events.size() - 1)]
 	
 	# Setup event
-	var new_display_data: EventDisplayData = EventDisplayData.new(cur_event.name, cur_event.description[0], "", "", "")
+	var new_display_data: EventDisplayData = EventDisplayData.new(cur_event.name, 
+											 cur_event.description[0], "", "", "")
 	# display event
 	start_event.emit(new_display_data)
+
 
 class EventDisplayData:
 	var title: String

@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_egxqm")
 name = "The Law of the Moment"
-description = Array[String](["Reality shifts ..... for now. \\n BLAH BLAH DESCRIPTION \\n \\n \\n You must chose a new law. This law will be enacted for the next day!"])
+description = Array[String](["Reality shifts ..... for now. (new_line)BLAH BLAH DESCRIPTION (new_line) (new_line) (new_line) You must chose a new law. This law will be enacted for the next day!"])
 type = "Rule Modifier"
 effect_names = {
 "AllyAttack": "Units attack allies instead of enemies.",

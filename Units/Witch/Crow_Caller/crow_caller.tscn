@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6rxsg2mfokcr"]
+[gd_scene load_steps=11 format=3 uid="uid://c6rxsg2mfokcr"]
 
 [ext_resource type="Script" path="res://Units/Witch/Crow_Caller/crow_caller.gd" id="1_66gns"]
 [ext_resource type="PackedScene" uid="uid://dqo7mjg8nna3x" path="res://Units/Components/ability_component.tscn" id="2_v146s"]
 [ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="3_ob0l8"]
 [ext_resource type="PackedScene" uid="uid://iy8rxunr4xcq" path="res://Units/Components/health_component.tscn" id="4_1b1nx"]
+[ext_resource type="Texture2D" uid="uid://b6ikpyyoi84w6" path="res://Assets/unit_sprites/crow_caller.png" id="4_5dm86"]
 [ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="5_4ex5e"]
 [ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="6_5xwu3"]
 [ext_resource type="Shader" path="res://damage_flash.gdshader" id="7_yxj67"]
@@ -21,6 +22,7 @@ effect_duration = 5.0
 
 [node name="SpriteComponent" parent="." instance=ExtResource("6_5xwu3")]
 material = SubResource("ShaderMaterial_vrwn7")
+texture = ExtResource("4_5dm86")
 
 [node name="AbilityComponent" parent="." instance=ExtResource("2_v146s")]
 ability_energy_cost = 10.0
