@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://csejggq5jx038"]
+
+[ext_resource type="AudioStream" uid="uid://brkle42m2s2ta" path="res://Assets/island-of-the-lost-dark-fantasy-background-music-110368.mp3" id="1_i6k86"]
+
+[node name="Menu Music" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_i6k86")
+autoplay = true
+bus = &"MUSIC"

@@ -61,7 +61,7 @@ TYLER KIRCHNER - DEVELOPER
 
 DYLAN FLYNN - DEVELOPER
 
-COOLSLICEOFJELLY - ARTIST
+KYLE FAIR - ARTIST
 
 "
 
@@ -71,6 +71,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_iqwxi")
 theme_override_font_sizes/font_size = 16

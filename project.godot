@@ -20,6 +20,7 @@ config/icon="res://icon2.svg"
 AllyArmy="*res://Singltons/ally_army.gd"
 Enums="*res://Singltons/enums.gd"
 StatusEffectInfo="*res://Singltons/status_effect_info.gd"
+MenuMusic="*res://Menus/menu_music.tscn"
 
 [display]
 

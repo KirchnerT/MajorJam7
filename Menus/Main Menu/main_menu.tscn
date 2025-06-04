@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Menus/Main Menu/main_menu.gd" id="1_hp6vp"]
 [ext_resource type="FontFile" uid="uid://d1gy756akasq0" path="res://Assets/New Roman Times.ttf" id="1_v4x4n"]
 [ext_resource type="Texture2D" uid="uid://byvmfporyv5cq" path="res://Assets/fantasy_pixelmap_by_chevyray_d1uljko-375w-2x.jpg" id="2_j61qd"]
-[ext_resource type="AudioStream" uid="uid://brkle42m2s2ta" path="res://Assets/island-of-the-lost-dark-fantasy-background-music-110368.mp3" id="4_kb6in"]
+[ext_resource type="PackedScene" uid="uid://csejggq5jx038" path="res://Menus/menu_music.tscn" id="4_s4tyo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57u4b"]
 
@@ -138,10 +138,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_g8t0c")
 text = "
 CREDITS"
 
-[node name="Menu Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_kb6in")
-autoplay = true
-bus = &"Music"
+[node name="Menu Music" parent="." instance=ExtResource("4_s4tyo")]
 
 [connection signal="pressed" from="MarginContainer/Menu Buttons/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/Menu Buttons/VBoxContainer/Factions" to="." method="_on_decks_pressed"]
