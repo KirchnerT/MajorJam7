@@ -15,11 +15,15 @@ enum RoundState {STARTER_DECK = 1,
 				STARTOFDAY = 8}
 
 @export var current_day: int = 0
-@export var enemy_armies: Array[EnemyArmyResource]
 @export var ally_unit_containers: Array[UnitContainer]
 @export var enemy_unit_containers: Array[UnitContainer]
 
 var current_enemy_army: EnemyArmyResource
+
+var power_level: int = 8 # test variable to do endless mode
+var should_mix_units: bool = false
+@export var power_level_scaling: Curve
+@export var units: Array[UnitResource]
 
 var round_state: RoundState = RoundState.STARTER_DECK:
 	get:
@@ -34,6 +38,9 @@ var round_state: RoundState = RoundState.STARTER_DECK:
 func _ready() -> void:	
 	for i in ally_unit_containers.size():
 		ally_unit_containers[i].index = i
+	
+	for i in enemy_unit_containers.size():
+		enemy_unit_containers[i].is_enemy_container = true
 	
 	current_enemy_army = get_new_enemy_army()
 
@@ -51,18 +58,62 @@ func start_battle() -> void:
 
 func start_new_day() -> void:
 	current_day += 1
-	round_state = RoundState.STARTOFDAY
+	increase_power_level()
 	current_enemy_army = get_new_enemy_army()
+	round_state = RoundState.SHOP
+
+
+func increase_power_level() -> void:
+	print("Increasing Power Level: " + str(power_level) + " --> " + str(power_level + (power_level * power_level_scaling.sample(current_day / 100.0))))
+	power_level += (power_level * power_level_scaling.sample(current_day / 100.0))
 
 
 func get_new_enemy_army() -> EnemyArmyResource:
-	var prospect_armies: Array[EnemyArmyResource]
+	var new_army: EnemyArmyResource = EnemyArmyResource.new()
+	new_army.faction = 0# randi_range(0, 3)
 	
-	for army in enemy_armies:
-		if army.day == current_day:
-			prospect_armies.append(army)
+	var units_in_faction: Array[UnitResource] = []
 	
-	return prospect_armies[randi_range(0, prospect_armies.size() - 1)]
+	for unit in units:
+		if unit.faction == new_army.faction:
+			units_in_faction.append(unit)
+	
+	while(new_army.power_level < power_level):
+		for i in new_army.units.size():
+			#var cur_container: UnitResource = new_army.unit_types[i]
+			#var cur_num_container: int = new_army.unit_count[i]
+			var cur_unit_array: EnemyArmyResource.UnitArray = new_army.units[i]
+			
+			if cur_unit_array.unit_type == null:
+				# get random unit types
+				var random_unit: UnitResource = units_in_faction[randi_range(0, units_in_faction.size() - 1)]
+				
+				# add random number of them up to power level
+				var max_units_to_add: int = ((power_level - new_army.power_level) / random_unit.unit_power_value)
+				var num_units_to_add: int = randi_range(0, max_units_to_add)
+				if num_units_to_add == 0 && new_army.power_level < power_level:
+					num_units_to_add = 1
+				
+				if num_units_to_add > 0:
+					new_army.units[i] = cur_unit_array
+					cur_unit_array.unit_type = random_unit
+					cur_unit_array.unit_count = num_units_to_add
+					new_army.power_level += (num_units_to_add * random_unit.unit_power_value)
+			else:
+				# add random number of them up to power level
+				var max_units_to_add: int = ((power_level  - new_army.power_level)/ cur_unit_array.unit_type.unit_power_value)
+				var num_units_to_add: int = randi_range(0, max_units_to_add)
+				
+				if num_units_to_add == 0 && new_army.power_level < power_level:
+					num_units_to_add = 1
+				
+				if num_units_to_add > 0:
+					new_army.units[i] = cur_unit_array
+					cur_unit_array.unit_count = num_units_to_add
+					new_army.power_level += (num_units_to_add * cur_unit_array.unit_type.unit_power_value)	
+	
+	return new_army
+
 
 func start_precombat() -> void:
 	setup_armies()
@@ -74,8 +125,10 @@ func setup_armies() -> void:
 
 
 func setup_enemy_army() -> void:
+	current_enemy_army.units.shuffle()
 	for i in enemy_unit_containers.size() - 1:
-		var test_container_enemy = UnitContainerInfo.new(current_enemy_army.unit_types[i], current_enemy_army.unit_count[i], "Enemy")
+		var cur_unit_array: EnemyArmyResource.UnitArray = current_enemy_army.units[i]
+		var test_container_enemy = UnitContainerInfo.new(cur_unit_array.unit_type, cur_unit_array.unit_count, "Enemy")
 		enemy_unit_containers[i].update_unit_container(test_container_enemy)
 
 
@@ -108,7 +161,7 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 		print("Combat to Postcombat")
 		setup_ally_army()
 		
-		var random_extra_reward: int = randi_range(-30, 30) / (current_enemy_army.reward_phylux as float)
+		var random_extra_reward: float = randi_range(-30, 30) / (current_enemy_army.reward_phylux as float)
 		print(random_extra_reward)
 		AllyArmy.phylux += current_enemy_army.reward_phylux + random_extra_reward
 		round_state = RoundState.EVENT
@@ -128,7 +181,7 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 		print("EVENT SET IN ALLY ARMY: " + str(AllyArmy.current_law))
 		print("Event to Start of Day")
 		print("DO START OF DAY STUFF")
-		round_state = RoundState.SHOP
+		start_new_day()
 	elif prev_state == RoundState.STARTOFDAY && new_state == RoundState.SHOP:
 		print("Start of Day to Shop")
 		shopping_started.emit(current_day)

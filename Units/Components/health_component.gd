@@ -11,7 +11,7 @@ var max_health: float
 var crow_particle_scene: PackedScene = preload("res://Units/Witch/Crow_Caller/crow_particle.tscn")
 
 var is_crowed: bool = false
-var crow_source: UnitBase
+var crow_source
 var crow_particle: GPUParticles2D
 
 func _ready() -> void:
@@ -42,7 +42,7 @@ func change_crow_dot(_is_crowed: bool, source: UnitBase) -> void:
 		return
 	
 	is_crowed = _is_crowed
-	crow_source = source
+	crow_source = weakref(source)
 
 	if is_crowed:
 		crow_particle.emitting = true
@@ -54,4 +54,4 @@ func change_crow_dot(_is_crowed: bool, source: UnitBase) -> void:
 
 func _on_crow_dot_timer_timeout() -> void:
 	print("CROW DAMAGE")
-	take_damage(StatusEffectInfo.crow_damage, crow_source)
+	take_damage(StatusEffectInfo.crow_damage, crow_source.get_ref())

@@ -7,6 +7,7 @@ class_name UnitResource
 ######################################################
 
 @export var name: String
+@export var faction: AllyArmy.FACTIONS
 @export var texture: Texture2D
 @export var cost: int
 @export var initial_count: int
@@ -14,3 +15,4 @@ class_name UnitResource
 @export var unit_upgrade_count: int
 @export var attack_damage: float
 @export var health: float
+@export var unit_power_value: int

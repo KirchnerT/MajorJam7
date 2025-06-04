@@ -21,7 +21,9 @@ func _ready() -> void:
 
 func update_unit_container(unit_container_info: UnitContainerInfo, index: int) -> void:
 	# TO DO: add safe gaurd on index so you cannot update past max_containers containers
-	if unit_containers[index] != null:
-		unit_count -= unit_containers[index].unit_count
+	
+	#if unit_containers[index] != null:
+		#unit_count -= unit_containers[index].unit_count
+	
 	unit_count += unit_container_info.unit_count
 	unit_containers[index] = unit_container_info

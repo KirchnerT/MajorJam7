@@ -7,9 +7,11 @@
 resource_local_to_scene = true
 script = ExtResource("1_oiae6")
 name = "Soul Leech"
+faction = 1
 cost = 10
 initial_count = 2
 unit_packed_scene = ExtResource("2_x5fgf")
 unit_upgrade_count = 2
 attack_damage = 60.0
 health = 110.0
+unit_power_value = 5

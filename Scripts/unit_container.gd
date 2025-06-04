@@ -11,6 +11,7 @@ class_name UnitContainer
 
 var is_hovered: bool = false
 var index: int
+var is_enemy_container: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,11 +23,14 @@ func _process(delta: float) -> void:
 	pass 
 
 func _on_area_2d_mouse_entered() -> void:
-	hover_changed(true)
+	if !is_enemy_container:
+		hover_changed(true)
+	
 
 
 func _on_area_2d_mouse_exited() -> void:
-	hover_changed(false)
+	if !is_enemy_container:
+		hover_changed(false)
 
 func hover_changed(_is_hovered: bool) -> void:
 	if _is_hovered:
@@ -47,6 +51,9 @@ func start_battle() -> void:
 
 
 func is_actively_adding_unit(active: bool, shop_card: ShopCard) -> void:
+	if is_enemy_container:
+		return
+	
 	var current_units: UnitContainerInfo = AllyArmy.unit_containers[index]
 	if active:
 		if current_units == null || shop_card.unit_in_card == current_units.unit_resource:

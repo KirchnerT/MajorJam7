@@ -8,6 +8,7 @@
 resource_local_to_scene = true
 script = ExtResource("1_20jm4")
 name = "Crow Caller"
+faction = 0
 texture = ExtResource("2_pjony")
 cost = 10
 initial_count = 1
@@ -15,3 +16,4 @@ unit_packed_scene = ExtResource("2_13jvg")
 unit_upgrade_count = 1
 attack_damage = 10.0
 health = 60.0
+unit_power_value = 10

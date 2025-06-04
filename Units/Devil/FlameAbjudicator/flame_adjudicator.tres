@@ -7,9 +7,11 @@
 resource_local_to_scene = true
 script = ExtResource("1_pgxgb")
 name = "Flame Adjudicator"
+faction = 3
 cost = 15
 initial_count = 3
 unit_packed_scene = ExtResource("2_a4b44")
 unit_upgrade_count = 3
 attack_damage = 60.0
 health = 60.0
+unit_power_value = 5

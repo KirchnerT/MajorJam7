@@ -140,7 +140,7 @@ func enemies_to_give_status_effects(all_enemies: Array[Node], status_effect: Enu
 	elif enemies_without_status.size() > number_of_enemies_to_effect:
 		for i in number_of_enemies_to_effect:
 			enemies_to_give_effects.append(enemies_without_status[i] as UnitBase)
-	else:
+	elif is_instance_valid(enemies_without_status):
 		enemies_to_give_effects.append(enemies_without_status as Array[UnitBase])
 	
 	return enemies_to_give_effects

@@ -8,6 +8,7 @@
 resource_local_to_scene = true
 script = ExtResource("1_4mpha")
 name = "Brewmistress"
+faction = 0
 texture = ExtResource("2_h2dgp")
 cost = 15
 initial_count = 2
@@ -15,3 +16,4 @@ unit_packed_scene = ExtResource("2_bldbm")
 unit_upgrade_count = 2
 attack_damage = 50.0
 health = 80.0
+unit_power_value = 8
