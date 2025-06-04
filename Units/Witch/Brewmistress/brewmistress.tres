@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://c8j5l3minannw"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=4 format=3 uid="uid://c8j5l3minannw"]
 
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_4mpha"]
 [ext_resource type="PackedScene" uid="uid://1n502iuaxwr6" path="res://Units/Witch/Brewmistress/brewmistress.tscn" id="2_bldbm"]
+[ext_resource type="Texture2D" uid="uid://cke3bmxlkp5d1" path="res://Assets/unit_sprites/brewmistress.png" id="2_h2dgp"]
 
 [resource]
 script = ExtResource("1_4mpha")
 name = "Brewmistress"
+texture = ExtResource("2_h2dgp")
 cost = 1
 initial_count = 1
 unit_packed_scene = ExtResource("2_bldbm")

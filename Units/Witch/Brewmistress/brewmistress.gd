@@ -34,7 +34,7 @@ func _on_ability_component_use_ability() -> void:
 	
 	for unit in all_units as Array[UnitBase]:
 		if global_position.distance_to(unit_position_to_throw_at) > splash_range:
-			unit.take_damage(potion_damage)
+			unit.take_damage(potion_damage, self)
 	
 	#spawn particle on position
 	var _particle = potion_splash_particle.instantiate()

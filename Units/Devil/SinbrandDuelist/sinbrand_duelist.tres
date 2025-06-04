@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://b1y0lpv8f78g5"]
+
+[ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_3823k"]
+[ext_resource type="PackedScene" uid="uid://wpavlxto66g5" path="res://Units/Devil/SinbrandDuelist/sinbrand_duelist.tscn" id="2_ursoc"]
+
+[resource]
+script = ExtResource("1_3823k")
+name = "Sinbrand Duelist"
+cost = 1
+initial_count = 2
+unit_packed_scene = ExtResource("2_ursoc")

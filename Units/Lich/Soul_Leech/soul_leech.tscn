@@ -1,0 +1,30 @@
+[gd_scene load_steps=9 format=3 uid="uid://deqass2swsrnk"]
+
+[ext_resource type="Script" path="res://Units/Lich/Soul_Leech/soul_leech.gd" id="1_pdw03"]
+[ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="2_3dgge"]
+[ext_resource type="PackedScene" uid="uid://iy8rxunr4xcq" path="res://Units/Components/health_component.tscn" id="3_mohxs"]
+[ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="4_of00e"]
+[ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="5_yhmil"]
+[ext_resource type="Shader" path="res://damage_flash.gdshader" id="6_778iq"]
+[ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="7_mgnh6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aw7k0"]
+resource_local_to_scene = true
+shader = ExtResource("6_778iq")
+shader_parameter/flash_color = Color(1, 0.0211822, 0.256846, 1)
+shader_parameter/flash_value = null
+
+[node name="SoulLeech" type="Node2D"]
+script = ExtResource("1_pdw03")
+lifesteal_percent = 0.333
+
+[node name="AttackComponent" parent="." instance=ExtResource("2_3dgge")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_mohxs")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("4_of00e")]
+
+[node name="SpriteComponent" parent="." instance=ExtResource("5_yhmil")]
+material = SubResource("ShaderMaterial_aw7k0")
+
+[node name="StatusEffectsComponent" parent="." instance=ExtResource("7_mgnh6")]

@@ -1,8 +1,12 @@
 extends Node2D
 
-@export var shop: Shop
-@export var day_manager: DayManager
-@export var ui_manager: MainUi
+#@export var shop: Shop
+#@export var day_manager: DayManager
+#@export var ui_manager: MainUi
+@onready var shop: Shop = $Shop
+@onready var day_manager: DayManager = $DayManager
+@onready var event_manager: EventManager = $EventManager
+@onready var ui_manager: MainUi = $UI
 
 func _ready():
 	ui_manager.starter_pack_selected.connect(_ui_manager_starter_pack_selected)
@@ -42,3 +46,15 @@ func _on_day_manager_shopping_started(day: int) -> void:
 func _on_ui_leave_shop() -> void:
 	day_manager.leave_shop()
 	shop.close_shop()
+
+
+func _on_day_manager_event_started() -> void:
+	event_manager.attempt_event_start()
+
+
+func _on_event_manager_event_ended() -> void:
+	day_manager.end_event()
+
+
+func _on_event_manager_start_event(event_data: EventManager.EventDisplayData) -> void:
+	ui_manager.start_event(event_data)

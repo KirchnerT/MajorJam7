@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=29 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="2_2itb3"]
@@ -14,21 +14,23 @@
 [ext_resource type="Resource" uid="uid://bxypxwq6piuo5" path="res://Units/Lich/Bone_Channeler/bone_channeler.tres" id="7_ot4b7"]
 [ext_resource type="PackedScene" uid="uid://co7kucn2sklks" path="res://Scenes/shop_card.tscn" id="7_r12aw"]
 [ext_resource type="PackedScene" uid="uid://ccqybcgx31ach" path="res://Scenes/shop_card_holder.tscn" id="8_et18m"]
+[ext_resource type="Resource" uid="uid://cpv2nln42jyyw" path="res://Units/Lich/Soul_Leech/soul_leech.tres" id="8_v2rql"]
 [ext_resource type="Resource" uid="uid://ds37rmipltdya" path="res://Units/Devil/FlameAbjudicator/flame_adjudicator.tres" id="10_1mhxw"]
 [ext_resource type="PackedScene" uid="uid://d215epv115w73" path="res://Scenes/witch_starter_pack.tscn" id="10_uihuv"]
 [ext_resource type="Script" path="res://Scripts/main_ui.gd" id="10_yym2m"]
 [ext_resource type="Resource" uid="uid://cag66hxim3hu4" path="res://StarterPacks/temp_alot_starter_pack.tres" id="11_d5r8k"]
+[ext_resource type="Resource" uid="uid://b1y0lpv8f78g5" path="res://Units/Devil/SinbrandDuelist/sinbrand_duelist.tres" id="11_p1t4x"]
 [ext_resource type="Resource" uid="uid://rvux3r4guujw" path="res://StarterPacks/imp_starter_pack.tres" id="13_jyuje"]
 [ext_resource type="Resource" uid="uid://dlj2e7j006407" path="res://EnemyArmies/Day1_01.tres" id="13_n8aw2"]
 [ext_resource type="Texture2D" uid="uid://cet0qto6fydva" path="res://Assets/Character_Box_Bottom_Left.png" id="15_kr4cd"]
+[ext_resource type="Script" path="res://Scripts/event_manager.gd" id="19_ps23t"]
 [ext_resource type="Resource" uid="uid://cadl0sibcoqo8" path="res://StarterPacks/lich_starter_pack.tres" id="19_ur6mj"]
+[ext_resource type="Script" path="res://Scripts/Resources/event_resource.gd" id="20_lg50m"]
 [ext_resource type="Resource" uid="uid://cew813ki0qn30" path="res://StarterPacks/devil_starter_pack.tres" id="20_njsr4"]
+[ext_resource type="Resource" uid="uid://cpcn3yxhqj5j4" path="res://Events/the_law_of_the_moment.tres" id="21_8f727"]
 
-[node name="BattleMap" type="Node2D" node_paths=PackedStringArray("shop", "day_manager", "ui_manager")]
+[node name="BattleMap" type="Node2D"]
 script = ExtResource("1_e6q5w")
-shop = NodePath("Shop")
-day_manager = NodePath("DayManager")
-ui_manager = NodePath("UI")
 
 [node name="AllyUnits" type="Node2D" parent="."]
 
@@ -75,9 +77,9 @@ position = Vector2(130, 212)
 visible = false
 script = ExtResource("3_txbk6")
 witch_units = Array[ExtResource("4_jpu8v")]([ExtResource("5_bri2b"), ExtResource("6_kbmpv")])
-lich_units = Array[ExtResource("4_jpu8v")]([ExtResource("7_ot4b7")])
+lich_units = Array[ExtResource("4_jpu8v")]([ExtResource("7_ot4b7"), ExtResource("8_v2rql")])
 imp_units = Array[ExtResource("4_jpu8v")]([ExtResource("6_f5buj"), ExtResource("7_6qghn")])
-devil_units = Array[ExtResource("4_jpu8v")]([ExtResource("10_1mhxw")])
+devil_units = Array[ExtResource("4_jpu8v")]([ExtResource("10_1mhxw"), ExtResource("11_p1t4x")])
 card_packed_scene = ExtResource("7_r12aw")
 card_holders = [NodePath("CardHolderContainer/ShopCardHolder"), NodePath("CardHolderContainer/ShopCardHolder2"), NodePath("CardHolderContainer/ShopCardHolder3"), NodePath("CardHolderContainer/ShopCardHolder4"), NodePath("CardHolderContainer/ShopCardHolder5"), NodePath("CardHolderContainer/ShopCardHolder6")]
 
@@ -112,6 +114,11 @@ current_day = 1
 enemy_armies = Array[ExtResource("2_2itb3")]([ExtResource("4_r51qh"), ExtResource("13_n8aw2")])
 ally_unit_containers = [NodePath("../AllyUnits/AllyUnitContainer_1"), NodePath("../AllyUnits/AllyUnitContainer_2"), NodePath("../AllyUnits/AllyUnitContainer_3"), NodePath("../AllyUnits/AllyUnitContainer_4"), NodePath("../AllyUnits/AllyUnitContainer_5"), NodePath("../AllyUnits/AllyUnitContainer_6")]
 enemy_unit_containers = [NodePath("../EnemyUnits/EnemyUnitContainer_1"), NodePath("../EnemyUnits/EnemyUnitContainer_2"), NodePath("../EnemyUnits/EnemyUnitContainer_3"), NodePath("../EnemyUnits/EnemyUnitContainer_4"), NodePath("../EnemyUnits/EnemyUnitContainer_5"), NodePath("../EnemyUnits/EnemyUnitContainer_6")]
+
+[node name="EventManager" type="Node2D" parent="."]
+script = ExtResource("19_ps23t")
+event_chance = 1.0
+events = Array[ExtResource("20_lg50m")]([ExtResource("21_8f727")])
 
 [node name="UI" type="Control" parent="." node_paths=PackedStringArray("starter_packs")]
 layout_mode = 3
@@ -240,9 +247,75 @@ offset_right = 949.0
 offset_bottom = 595.0
 texture = ExtResource("15_kr4cd")
 
+[node name="EventPanel" type="Panel" parent="UI"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 280.0
+offset_right = 718.0
+offset_bottom = 591.0
+
+[node name="EventTitle" type="Label" parent="UI/EventPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Event Title"
+
+[node name="EventDescription" type="Label" parent="UI/EventPanel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 32.0
+offset_right = 462.0
+offset_bottom = 304.0
+text = "This is where the event description will live...
+
+OoooOOOOOOOO   Spooky noises
+WIll you dive into the realm of WILD
+
+
+Take your chances....!!!??!?!?!! !!?!? !?!???! !!"
+
+[node name="ChoiceButton_1" type="Button" parent="UI/EventPanel"]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 9.0
+offset_right = 699.0
+offset_bottom = 58.0
+text = "Choice #1
+"
+
+[node name="ChoiceButton_2" type="Button" parent="UI/EventPanel"]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 76.0
+offset_right = 698.0
+offset_bottom = 125.0
+text = "Choice #2
+"
+
+[node name="ChoiceButton_3" type="Button" parent="UI/EventPanel"]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 138.0
+offset_right = 700.0
+offset_bottom = 187.0
+text = "Choice #3
+"
+
+[node name="LeaveButton" type="Button" parent="UI/EventPanel"]
+layout_mode = 0
+offset_left = 569.0
+offset_top = 256.0
+offset_right = 702.0
+offset_bottom = 287.0
+text = "Leave
+"
+
 [connection signal="all_packed_cards_used" from="Shop" to="." method="_on_shop_all_packed_cards_used"]
 [connection signal="child_exiting_tree" from="Shop/PackedCardsContainer" to="Shop" method="_on_pulled_cards_container_child_exiting_tree"]
+[connection signal="event_started" from="DayManager" to="." method="_on_day_manager_event_started"]
 [connection signal="shopping_started" from="DayManager" to="." method="_on_day_manager_shopping_started"]
+[connection signal="event_ended" from="EventManager" to="." method="_on_event_manager_event_ended"]
+[connection signal="start_event" from="EventManager" to="." method="_on_event_manager_start_event"]
 [connection signal="leave_shop" from="UI" to="." method="_on_ui_leave_shop"]
 [connection signal="open_shop" from="UI" to="." method="_on_ui_open_shop"]
 [connection signal="pressed" from="UI/BattleStartButton" to="DayManager" method="_on_battle_start_button_pressed"]

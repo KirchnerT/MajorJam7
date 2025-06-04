@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://cpcn3yxhqj5j4"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/event_resource.gd" id="1_egxqm"]
+
+[resource]
+script = ExtResource("1_egxqm")
+name = "The Law of the Moment"
+description = Array[String](["Reality shifts ..... for now. \\n BLAH BLAH DESCRIPTION \\n \\n \\n You must chose a new law. This law will be enacted for the next day!"])
+type = "Rule Modifier"
+effect_names = {
+"AllyAttack": "Units attack allies instead of enemies.",
+"DoubleCast": "Abilities take twice as long to activate, but activate twice",
+"ReversedHealing": "All healing is reversed (heals cause damage)."
+}

@@ -14,6 +14,15 @@ signal leave_shop()
 @onready var money_label: Label = $FactionShopsPanel/MoneyLabel
 @onready var portrait_border: TextureRect = $PortraitBorder
 
+# Event
+@onready var event_panel: Panel = $EventPanel
+@onready var event_title: Label = $EventPanel/EventTitle
+@onready var event_description: Label = $EventPanel/EventDescription
+@onready var choice_button_1: Button = $EventPanel/ChoiceButton_1
+@onready var choice_button_2: Button = $EventPanel/ChoiceButton_2
+@onready var choice_button_3: Button = $EventPanel/ChoiceButton_3
+@onready var leave_button: Button = $EventPanel/LeaveButton
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for starter_pack in starter_packs:
@@ -24,6 +33,7 @@ func _ready() -> void:
 	faction_shops_panel.visible = false
 	shop_leave_button.visible = false
 	portrait_border.visible = false
+	event_panel.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -78,3 +88,13 @@ func _on_shop_leave_button_pressed() -> void:
 
 func update_money() -> void:
 	money_label.text = "$" + str(AllyArmy.money)
+
+
+func start_event(event_data: EventManager.EventDisplayData) -> void:
+	event_panel.visible = true
+	event_title.text = event_data.title
+	event_description.text = event_data.description
+	choice_button_1.text = event_data.choice_1_text
+	choice_button_2.text = event_data.choice_2_text
+	choice_button_3.text = event_data.choice_3_text
+	leave_button.text = event_data.leave_text

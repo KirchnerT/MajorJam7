@@ -18,8 +18,8 @@ func _on_ability_component_use_ability() -> void:
 			if enemy != null:
 				enemy.add_status_effect(Enums.StatusEffects.TAUNT, self, taunt_duration)
 
-func take_damage(damage: float) -> void:
+func take_damage(damage: float, source: UnitBase, damage_mult_low_health: float = 1) -> void:
 	var has_dodged_attack: bool = randi_range(0, 100) <= dodge_chance
 	
 	if !has_dodged_attack:
-		super(damage)
+		super(damage, source, damage_mult_low_health)

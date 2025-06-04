@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://1n502iuaxwr6"]
+[gd_scene load_steps=12 format=3 uid="uid://1n502iuaxwr6"]
 
 [ext_resource type="Script" path="res://Units/Witch/Brewmistress/brewmistress.gd" id="1_5q7bg"]
 [ext_resource type="PackedScene" uid="uid://dqo7mjg8nna3x" path="res://Units/Components/ability_component.tscn" id="2_pv53u"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="6_cdm2k"]
 [ext_resource type="Shader" path="res://damage_flash.gdshader" id="7_bvmi0"]
 [ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="8_g4a42"]
+[ext_resource type="Texture2D" uid="uid://cke3bmxlkp5d1" path="res://Assets/unit_sprites/brewmistress.png" id="9_7a86h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kvs2y"]
 resource_local_to_scene = true
@@ -32,5 +33,6 @@ attack_range = 80.0
 
 [node name="SpriteComponent" parent="." instance=ExtResource("6_cdm2k")]
 material = SubResource("ShaderMaterial_kvs2y")
+texture = ExtResource("9_7a86h")
 
 [node name="StatusEffectsComponent" parent="." instance=ExtResource("8_g4a42")]

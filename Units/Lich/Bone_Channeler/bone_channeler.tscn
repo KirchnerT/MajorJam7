@@ -28,7 +28,6 @@ ability_energy_cost = 80.0
 [node name="AttackComponent" parent="." instance=ExtResource("3_t7j5g")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_kpqxu")]
-unit_health = 12.0
 
 [node name="MovementComponent" parent="." instance=ExtResource("5_dvpyg")]
 speed = 30.0

@@ -23,4 +23,4 @@ func _on_attack_component_attack_target_unit(unit_to_attack: Node2D, attack_dama
 		if global_position.distance_to(enemy.global_position) <= explosion_radius:
 			enemy.take_damage(attack_damage)
 	
-	take_damage(9999999)
+	take_damage(9999999, self)

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/Resources/pack_resource.gd" id="1_6f5l3"]
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="2_yh1u1"]
-[ext_resource type="Resource" uid="uid://ds37rmipltdya" path="res://Units/Devil/FlameAbjudicator/flame_adjudicator.tres" id="3_fehsp"]
+[ext_resource type="Resource" uid="uid://cpv2nln42jyyw" path="res://Units/Lich/Soul_Leech/soul_leech.tres" id="3_u8yo6"]
 
 [resource]
 script = ExtResource("1_6f5l3")
 faction = 0
 min_number_of_units = 1
 max_number_of_units = 1
-unit_pool = Array[ExtResource("2_yh1u1")]([ExtResource("3_fehsp")])
+unit_pool = Array[ExtResource("2_yh1u1")]([ExtResource("3_u8yo6")])

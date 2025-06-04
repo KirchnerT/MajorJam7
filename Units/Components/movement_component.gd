@@ -71,10 +71,26 @@ func get_new_target() -> Node2D:
 	
 	if unit_targeting == 0: # CLOSEST
 		return find_closest_enemy()
+	elif unit_targeting == 3: # LOWEST HP
+		return find_lowest_hp_enemy()
 	else:
 		print("Targeting Style Not Implemented")
 	
 	return null
+
+
+func find_lowest_hp_enemy() -> Node2D:
+	var all_enemies = get_tree().get_nodes_in_group(get_string_of_unit_group(unit_target_faction))
+	var lowest_hp: float
+	var lowest_enemy: Node2D
+	
+	for enemy in all_enemies:
+		var enemy_cur_health = enemy.get_cur_health()
+		if  lowest_enemy == null || enemy_cur_health < lowest_hp:
+			lowest_hp = enemy_cur_health
+			lowest_enemy = enemy
+	
+	return lowest_enemy
 
 
 func find_closest_enemy() -> Node2D:

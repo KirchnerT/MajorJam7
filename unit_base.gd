@@ -56,10 +56,10 @@ func activate() -> void:
 	sprite_component.play_walk_animation()
 
 
-func take_damage(damage: float) -> void:
+func take_damage(damage: float, source: UnitBase, damage_mult_low_health: float = 1) -> void:
 	sprite_component.stop_walk_animation()
 	sprite_component.play_flash_animation()
-	health_component.take_damage(damage)
+	health_component.take_damage(damage, source, damage_mult_low_health)
 
 
 func _on_movement_component_new_target_found(new_target: Node2D) -> void:
@@ -81,7 +81,7 @@ func _on_health_component_unit_has_died() -> void:
 
 func _on_attack_component_attack_target_unit(unit_to_attack: Node2D, attack_damage: float) -> void:
 	sprite_component.play_attack_animation()
-	unit_to_attack.take_damage(attack_damage)
+	unit_to_attack.take_damage(attack_damage, self)
 
 
 func _on_ability_component_use_ability() -> void:
@@ -97,11 +97,11 @@ func _on_status_effects_component_taunt_started(taunt_source: Node2D) -> void:
 
 
 func _on_status_effects_component_crow_ended() -> void:
-	health_component.change_crow_dot(false)
+	health_component.change_crow_dot(false, null)
 
 
-func _on_status_effects_component_crow_started(taunt_source: Node2D) -> void:
-	health_component.change_crow_dot(true)
+func _on_status_effects_component_crow_started(crow_source: Node2D) -> void:
+	health_component.change_crow_dot(true, crow_source)
 
 
 func add_status_effect(effect: Enums.StatusEffects, source: Node2D, duration: float) -> void:
@@ -128,3 +128,7 @@ func enemies_to_give_status_effects(all_enemies: Array[Node], status_effect: Enu
 		enemies_to_give_effects.append(enemies_without_status as Array[UnitBase])
 	
 	return enemies_to_give_effects
+
+
+func get_cur_health() -> float:
+	return health_component.unit_health
