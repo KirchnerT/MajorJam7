@@ -107,7 +107,10 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 		await get_tree().create_timer(1.0).timeout
 		print("Combat to Postcombat")
 		setup_ally_army()
-		AllyArmy.money += current_enemy_army.reward_money
+		
+		var random_extra_reward: int = randi_range(-30, 30) / (current_enemy_army.reward_phylux as float)
+		print(random_extra_reward)
+		AllyArmy.phylux += current_enemy_army.reward_phylux + random_extra_reward
 		round_state = RoundState.EVENT
 	elif prev_state == RoundState.STARTER_DECK && new_state == RoundState.PRECOMBAT:
 		print("Starter to Precombat")

@@ -7,7 +7,7 @@ signal unit_has_died
 
 #Global Variables
 var unit_health: float
-@export var max_health: float = 10
+var max_health: float
 var crow_particle_scene: PackedScene = preload("res://Units/Witch/Crow_Caller/crow_particle.tscn")
 
 var is_crowed: bool = false

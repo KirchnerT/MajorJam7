@@ -13,7 +13,7 @@ func _ready():
 
 func _activate_adding_unit(active: bool, shop_card: ShopCard) -> void:
 	day_manager.is_actively_adding_unit(active, shop_card)
-	ui_manager.update_money()
+	ui_manager.update_phylux()
 
 
 func _ui_manager_starter_pack_selected(starter_pack: CardPack) -> void:

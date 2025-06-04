@@ -13,4 +13,4 @@ class_name EnemyArmyResource
 @export var day: int
 @export var unit_types: Array[UnitResource] # An array that stores the unit scenes for enemies. Index 0 is grid 0 ect
 @export var unit_count: Array[int] # An array that stores the number of units for the types above.
-@export var reward_money: int = 10 # Amount of money to be earned after the battle
+@export var reward_phylux: int = 10 # Amount of phylux to be earned after the battle

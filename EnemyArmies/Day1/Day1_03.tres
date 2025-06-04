@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="1_kudjq"]
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="2_c2gma"]
-[ext_resource type="Resource" uid="uid://cqwkhfan77ico" path="res://Units/Temp_Soldier/temp_soldier_resource.tres" id="3_ba40t"]
+[ext_resource type="Resource" uid="uid://c8j5l3minannw" path="res://Units/Witch/Brewmistress/brewmistress.tres" id="3_ospvh"]
 
 [resource]
 script = ExtResource("1_kudjq")
-faction = 1
+faction = 0
 day = 1
-unit_types = Array[ExtResource("2_c2gma")]([null, ExtResource("3_ba40t"), null, null, null, null])
+unit_types = Array[ExtResource("2_c2gma")]([null, ExtResource("3_ospvh"), null, null, null, null])
 unit_count = Array[int]([0, 2, 0, 0, 0, 0])
-reward_money = 10
+reward_phylux = 15

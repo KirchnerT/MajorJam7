@@ -119,15 +119,20 @@ func add_status_effect(effect: Enums.StatusEffects, source: Node2D, duration: fl
 	status_effects_component.give_status_effect(effect, source, duration)
 
 
-func enemies_to_give_status_effects(all_enemies: Array[Node], status_effect: Enums.StatusEffects, number_of_enemies_to_effect: int) -> Array[UnitBase]:
+func enemies_to_give_status_effects(all_enemies: Array[Node], status_effect: Enums.StatusEffects, number_of_enemies_to_effect: int, range: float) -> Array[UnitBase]:
 	var enemies_to_give_effects: Array[UnitBase] = []
+	var enemies_in_range: Array[UnitBase] = []
 	
-	if all_enemies.size() < number_of_enemies_to_effect:
-		for enemy in all_enemies:
+	for enemy in all_enemies:
+		if global_position.distance_to(enemy.global_position) < 150:
+			enemies_in_range.append(enemy as UnitBase)
+	
+	if enemies_in_range.size() < number_of_enemies_to_effect:
+		for enemy in enemies_in_range:
 			enemies_to_give_effects.append(enemy as UnitBase)
 
 	# filter out enemies without that status effect
-	var enemies_without_status = all_enemies.filter(func(enemy): return !enemy.status_effects_component.current_status_effects.has(Enums.StatusEffects.CROW))
+	var enemies_without_status = enemies_in_range.filter(func(enemy): return !enemy.status_effects_component.current_status_effects.has(Enums.StatusEffects.CROW))
 	
 	if enemies_without_status.size() == number_of_enemies_to_effect:
 		for i in number_of_enemies_to_effect:
@@ -143,3 +148,12 @@ func enemies_to_give_status_effects(all_enemies: Array[Node], status_effect: Enu
 
 func get_cur_health() -> float:
 	return health_component.unit_health
+
+## Radius of the circle
+#var circle_radius = 150
+## Color of the circle
+#var circle_color = Color(1, 0, 0) # Red
+#
+#func _draw():
+	## Draw the circle at the node's position.
+	#draw_circle(Vector2(0, 0), circle_radius, circle_color)

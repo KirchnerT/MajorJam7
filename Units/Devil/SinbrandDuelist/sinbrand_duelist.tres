@@ -7,9 +7,9 @@
 resource_local_to_scene = true
 script = ExtResource("1_3823k")
 name = "Sinbrand Duelist"
-cost = 1
+cost = 10
 initial_count = 2
 unit_packed_scene = ExtResource("2_ursoc")
 unit_upgrade_count = 2
-attack_damage = 20.0
-health = 50.0
+attack_damage = 60.0
+health = 110.0

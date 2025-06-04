@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=37 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="2_2itb3"]
@@ -23,11 +23,17 @@
 [ext_resource type="Resource" uid="uid://rvux3r4guujw" path="res://StarterPacks/imp_starter_pack.tres" id="13_jyuje"]
 [ext_resource type="Resource" uid="uid://dlj2e7j006407" path="res://EnemyArmies/Day1/Day1_01.tres" id="13_n8aw2"]
 [ext_resource type="Texture2D" uid="uid://cet0qto6fydva" path="res://Assets/Character_Box_Bottom_Left.png" id="15_kr4cd"]
+[ext_resource type="Resource" uid="uid://dplitsxyc50gg" path="res://EnemyArmies/Day1/Day1_03.tres" id="19_1yoog"]
 [ext_resource type="Script" path="res://Scripts/event_manager.gd" id="19_ps23t"]
 [ext_resource type="Resource" uid="uid://cadl0sibcoqo8" path="res://StarterPacks/lich_starter_pack.tres" id="19_ur6mj"]
 [ext_resource type="Script" path="res://Scripts/Resources/event_resource.gd" id="20_lg50m"]
 [ext_resource type="Resource" uid="uid://cew813ki0qn30" path="res://StarterPacks/devil_starter_pack.tres" id="20_njsr4"]
+[ext_resource type="Resource" uid="uid://dqdrwgm66vxc0" path="res://EnemyArmies/Day1/Day1_04.tres" id="20_r7ttm"]
 [ext_resource type="Resource" uid="uid://cpcn3yxhqj5j4" path="res://Events/the_law_of_the_moment.tres" id="21_8f727"]
+[ext_resource type="Resource" uid="uid://ymchd3q66jc6" path="res://EnemyArmies/Day2/Day2_01.tres" id="21_ew7c6"]
+[ext_resource type="Resource" uid="uid://8cra5q1js0ra" path="res://EnemyArmies/Day2/Day2_02.tres" id="22_88gnp"]
+[ext_resource type="Resource" uid="uid://ce3n5p7u48iw7" path="res://EnemyArmies/Day2/Day2_03.tres" id="23_tbgj5"]
+[ext_resource type="Resource" uid="uid://cmgelxppycpnm" path="res://EnemyArmies/Day2/Day2_04.tres" id="24_fpyyt"]
 [ext_resource type="Script" path="res://Scenes/faction_description_panel.gd" id="28_5732x"]
 [ext_resource type="Texture2D" uid="uid://tn6eguwflw2x" path="res://Assets/Unit_-_Test.png" id="28_86234"]
 
@@ -100,7 +106,7 @@ position = Vector2(455, 422)
 [node name="DayManager" type="Node2D" parent="." node_paths=PackedStringArray("ally_unit_containers", "enemy_unit_containers")]
 script = ExtResource("3_8lsv2")
 current_day = 1
-enemy_armies = Array[ExtResource("2_2itb3")]([ExtResource("4_r51qh"), ExtResource("13_n8aw2")])
+enemy_armies = Array[ExtResource("2_2itb3")]([ExtResource("4_r51qh"), ExtResource("13_n8aw2"), ExtResource("19_1yoog"), ExtResource("20_r7ttm"), ExtResource("21_ew7c6"), ExtResource("22_88gnp"), ExtResource("23_tbgj5"), ExtResource("24_fpyyt")])
 ally_unit_containers = [NodePath("../AllyUnits/AllyUnitContainer_1"), NodePath("../AllyUnits/AllyUnitContainer_2"), NodePath("../AllyUnits/AllyUnitContainer_3"), NodePath("../AllyUnits/AllyUnitContainer_4"), NodePath("../AllyUnits/AllyUnitContainer_5"), NodePath("../AllyUnits/AllyUnitContainer_6")]
 enemy_unit_containers = [NodePath("../EnemyUnits/EnemyUnitContainer_1"), NodePath("../EnemyUnits/EnemyUnitContainer_2"), NodePath("../EnemyUnits/EnemyUnitContainer_3"), NodePath("../EnemyUnits/EnemyUnitContainer_4"), NodePath("../EnemyUnits/EnemyUnitContainer_5"), NodePath("../EnemyUnits/EnemyUnitContainer_6")]
 

@@ -28,6 +28,7 @@ attack_speed = 2.0
 [node name="HealthComponent" parent="." instance=ExtResource("5_ssg15")]
 
 [node name="MovementComponent" parent="." instance=ExtResource("6_nbg18")]
+speed = 40.0
 
 [node name="AbilityComponent" parent="." instance=ExtResource("7_furyn")]
 ability_energy_cost = 50.0

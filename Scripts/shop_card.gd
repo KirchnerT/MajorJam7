@@ -35,7 +35,7 @@ var dragging_color: Color = Color.MEDIUM_PURPLE
 
 func _process(delta: float) -> void:
 	if is_hovered:
-		if Input.is_action_just_pressed("click") && (AllyArmy.money >= unit_in_card.cost || is_pack_card):
+		if Input.is_action_just_pressed("click") && (AllyArmy.phylux >= unit_in_card.cost || is_pack_card):
 			initial_pos = global_position
 			offset = get_global_mouse_position() - global_position
 			is_following = true

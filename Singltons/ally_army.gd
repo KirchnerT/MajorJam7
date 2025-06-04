@@ -10,7 +10,7 @@ enum FACTIONS {WITCHES, LICHES, IMPS, DEVILS}
 var unit_containers: Array[UnitContainerInfo]
 var max_containers: int = 6
 var starter_pack: CardPack
-var money: int = 0
+var phylux: int = 0
 var current_law: Enums.LawEffects = Enums.LawEffects.NONE
 var unit_count: int
 

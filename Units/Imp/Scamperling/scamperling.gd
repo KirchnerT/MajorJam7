@@ -9,7 +9,7 @@ class_name Scamperling
 func _on_ability_component_use_ability() -> void:
 	var enemies_in_range: Array[Node2D]
 	var all_enemies = get_tree().get_nodes_in_group(movement_component.get_string_of_unit_group(movement_component.unit_target_faction))
-	var enemies_to_give_effects_to = enemies_to_give_status_effects(all_enemies, Enums.StatusEffects.TAUNT, tauntable_enemies_count)
+	var enemies_to_give_effects_to = enemies_to_give_status_effects(all_enemies, Enums.StatusEffects.TAUNT, tauntable_enemies_count, taunt_range)
 	
 	for i in tauntable_enemies_count:
 		if i < enemies_to_give_effects_to.size():

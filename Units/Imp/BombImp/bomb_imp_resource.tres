@@ -7,9 +7,9 @@
 resource_local_to_scene = true
 script = ExtResource("1_5htdl")
 name = "Bomb Imp"
-cost = 1
-initial_count = 5
+cost = 12
+initial_count = 3
 unit_packed_scene = ExtResource("2_qxs6u")
-unit_upgrade_count = 4
-attack_damage = 20.0
-health = 50.0
+unit_upgrade_count = 3
+attack_damage = 100.0
+health = 70.0

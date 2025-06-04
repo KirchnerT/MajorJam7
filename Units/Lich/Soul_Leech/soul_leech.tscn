@@ -19,6 +19,7 @@ script = ExtResource("1_pdw03")
 lifesteal_percent = 0.333
 
 [node name="AttackComponent" parent="." instance=ExtResource("2_3dgge")]
+attack_range = 80.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_mohxs")]
 

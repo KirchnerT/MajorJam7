@@ -23,14 +23,15 @@ skeletons_to_spawn = 5
 skeleton_spawn_radius = 50.0
 
 [node name="AbilityComponent" parent="." instance=ExtResource("2_mtsoa")]
-ability_energy_cost = 30.0
+ability_energy_cost = 60.0
 
 [node name="AttackComponent" parent="." instance=ExtResource("3_t7j5g")]
+attack_speed = 2.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_kpqxu")]
 
 [node name="MovementComponent" parent="." instance=ExtResource("5_dvpyg")]
-speed = 30.0
+speed = 40.0
 
 [node name="SpriteComponent" parent="." instance=ExtResource("6_gcqx2")]
 material = SubResource("ShaderMaterial_66oae")

@@ -7,9 +7,9 @@
 resource_local_to_scene = true
 script = ExtResource("1_o2mwc")
 name = "Scamperling"
-cost = 1
-initial_count = 3
+cost = 15
+initial_count = 1
 unit_packed_scene = ExtResource("2_gk5oc")
-unit_upgrade_count = 3
-attack_damage = 20.0
-health = 50.0
+unit_upgrade_count = 1
+attack_damage = 50.0
+health = 150.0

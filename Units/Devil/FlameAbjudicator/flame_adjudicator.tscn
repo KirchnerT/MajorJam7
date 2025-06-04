@@ -20,9 +20,10 @@ script = ExtResource("1_wv41h")
 damage_increase_percentage = 0.351
 
 [node name="AbilityComponent" parent="." instance=ExtResource("1_1mljq")]
-ability_energy_cost = 15.0
+ability_energy_cost = 30.0
 
 [node name="AttackComponent" parent="." instance=ExtResource("2_k76i1")]
+attack_range = 80.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_xc16n")]
 

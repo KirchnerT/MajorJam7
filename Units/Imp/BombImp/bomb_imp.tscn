@@ -24,9 +24,6 @@ explosion_particle = ExtResource("2_1ftkm")
 material = SubResource("ShaderMaterial_olt18")
 
 [node name="AttackComponent" parent="." instance=ExtResource("3_2n6v6")]
-attack_damage = 3.0
-attack_range = 15.0
-attack_speed = 0.5
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_jq6jc")]
 

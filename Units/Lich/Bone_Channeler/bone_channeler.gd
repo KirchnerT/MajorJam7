@@ -25,12 +25,3 @@ func activate_tony(tony: UnitBase) -> void:
 func _random_inside_unit_circle() -> Vector2:
 	var theta : float = randf() * 2 * PI
 	return Vector2(cos(theta), sin(theta)) * sqrt(randf())
-
-## Radius of the circle
-#var circle_radius = 75.0
-## Color of the circle
-#var circle_color = Color(1, 0, 0) # Red
-#
-#func _draw():
-	## Draw the circle at the node's position.
-	#draw_circle(Vector2(0, 0), circle_radius, circle_color)

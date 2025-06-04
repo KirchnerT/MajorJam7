@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="EnemyArmyResource" load_steps=4 format=3 uid="uid://dcfquklm6oplw"]
+[gd_resource type="Resource" script_class="EnemyArmyResource" load_steps=4 format=3 uid="uid://cmgelxppycpnm"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="1_2hxej"]
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="2_g71cy"]
-[ext_resource type="Resource" uid="uid://cqwkhfan77ico" path="res://Units/Temp_Soldier/temp_soldier_resource.tres" id="3_es2qg"]
+[ext_resource type="Resource" uid="uid://b1y0lpv8f78g5" path="res://Units/Devil/SinbrandDuelist/sinbrand_duelist.tres" id="3_my7qv"]
 
 [resource]
 script = ExtResource("1_2hxej")
-faction = 1
-day = 1
-unit_types = Array[ExtResource("2_g71cy")]([null, ExtResource("3_es2qg"), null, null, null, null])
+faction = 3
+day = 2
+unit_types = Array[ExtResource("2_g71cy")]([null, ExtResource("3_my7qv"), null, null, null, null])
 unit_count = Array[int]([0, 2, 0, 0, 0, 0])
-reward_money = 10
+reward_phylux = 15

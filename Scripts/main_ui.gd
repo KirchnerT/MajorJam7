@@ -13,7 +13,7 @@ signal leave_event()
 @onready var battle_start_button: Button = $BattleStartButton
 @onready var faction_shops_panel: Panel = $FactionShopsPanel
 @onready var shop_leave_button: Button = $ShopLeaveButton
-@onready var money_label: Label = $FactionShopsPanel/MoneyLabel
+@onready var phylux_label: Label = $FactionShopsPanel/MoneyLabel
 @onready var portrait_border: TextureRect = $PortraitBorder
 
 # Event
@@ -60,7 +60,7 @@ func send_open_shop_signal(faction: AllyArmy.FACTIONS) -> void:
 
 func show_faction_shops_panel() -> void:
 	faction_shops_panel.visible = true
-	money_label.text = "$" + str(AllyArmy.money)
+	phylux_label.text = "$" + str(AllyArmy.phylux)
 	shop_leave_button.visible = true
 
 
@@ -86,8 +86,8 @@ func _on_shop_leave_button_pressed() -> void:
 	leave_shop.emit()
 
 
-func update_money() -> void:
-	money_label.text = "$" + str(AllyArmy.money)
+func update_phylux() -> void:
+	phylux_label.text = "$" + str(AllyArmy.phylux)
 
 
 func start_event(event_data: EventManager.EventDisplayData) -> void:

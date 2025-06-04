@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyArmyResource" load_steps=4 format=3 uid="uid://70ejog0pvnws"]
+[gd_resource type="Resource" script_class="EnemyArmyResource" load_steps=4 format=3 uid="uid://ymchd3q66jc6"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="1_fuwbi"]
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="2_wjeps"]
@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_fuwbi")
-faction = 0
-day = 1
+faction = 2
+day = 2
 unit_types = Array[ExtResource("2_wjeps")]([null, ExtResource("3_hj6si"), null, null, null, null])
 unit_count = Array[int]([0, 1, 0, 0, 0, 0])
-reward_money = 10
+reward_phylux = 15

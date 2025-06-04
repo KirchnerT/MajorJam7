@@ -6,10 +6,10 @@ signal attack_target_unit(unit_to_attack: Node2D, attack_damage: float)
 
 @onready var attack_speed_timer: Timer = $AttackSpeedTimer
 
-@export var attack_damage: float
 @export var attack_range: float
 @export var attack_speed: float
 
+var attack_damage: float
 var can_attack: bool = true
 
 var target_unit: Node2D
