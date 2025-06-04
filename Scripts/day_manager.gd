@@ -78,6 +78,8 @@ func get_new_enemy_army() -> EnemyArmyResource:
 		if unit.faction == new_army.faction:
 			units_in_faction.append(unit)
 	
+	units_in_faction.shuffle()
+	
 	while(new_army.power_level < power_level):
 		for i in new_army.units.size():
 			#var cur_container: UnitResource = new_army.unit_types[i]
