@@ -37,7 +37,7 @@ func update_units(info: UnitContainerInfo) -> void:
 
 
 func update_unit_stats(unit: Node2D, attack_damage: float, health: float):
-	unit.update_stats(attack_damage + 1000, health)
+	unit.update_stats(attack_damage, health)
 
 
 func start_battle() -> void:
