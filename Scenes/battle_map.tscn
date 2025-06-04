@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=31 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="2_2itb3"]
@@ -28,6 +28,8 @@
 [ext_resource type="Script" path="res://Scripts/Resources/event_resource.gd" id="20_lg50m"]
 [ext_resource type="Resource" uid="uid://cew813ki0qn30" path="res://StarterPacks/devil_starter_pack.tres" id="20_njsr4"]
 [ext_resource type="Resource" uid="uid://cpcn3yxhqj5j4" path="res://Events/the_law_of_the_moment.tres" id="21_8f727"]
+[ext_resource type="Script" path="res://Scenes/faction_description_panel.gd" id="28_5732x"]
+[ext_resource type="Texture2D" uid="uid://tn6eguwflw2x" path="res://Assets/Unit_-_Test.png" id="28_86234"]
 
 [node name="BattleMap" type="Node2D"]
 script = ExtResource("1_e6q5w")
@@ -74,14 +76,13 @@ position = Vector2(130, 130)
 position = Vector2(130, 212)
 
 [node name="Shop" type="Node2D" parent="." node_paths=PackedStringArray("card_holders")]
-visible = false
 script = ExtResource("3_txbk6")
 witch_units = Array[ExtResource("4_jpu8v")]([ExtResource("5_bri2b"), ExtResource("6_kbmpv")])
 lich_units = Array[ExtResource("4_jpu8v")]([ExtResource("7_ot4b7"), ExtResource("8_v2rql")])
 imp_units = Array[ExtResource("4_jpu8v")]([ExtResource("6_f5buj"), ExtResource("7_6qghn")])
 devil_units = Array[ExtResource("4_jpu8v")]([ExtResource("10_1mhxw"), ExtResource("11_p1t4x")])
 card_packed_scene = ExtResource("7_r12aw")
-card_holders = [NodePath("CardHolderContainer/ShopCardHolder"), NodePath("CardHolderContainer/ShopCardHolder2"), NodePath("CardHolderContainer/ShopCardHolder3"), NodePath("CardHolderContainer/ShopCardHolder4"), NodePath("CardHolderContainer/ShopCardHolder5"), NodePath("CardHolderContainer/ShopCardHolder6")]
+card_holders = [NodePath("CardHolderContainer/ShopCardHolder"), NodePath("CardHolderContainer/ShopCardHolder2")]
 
 [node name="Center" type="Node2D" parent="Shop"]
 position = Vector2(313, 421)
@@ -89,22 +90,10 @@ position = Vector2(313, 421)
 [node name="CardHolderContainer" type="Node2D" parent="Shop"]
 
 [node name="ShopCardHolder" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(65, 350)
+position = Vector2(228, 418)
 
 [node name="ShopCardHolder2" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(290, 354)
-
-[node name="ShopCardHolder3" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(517, 356)
-
-[node name="ShopCardHolder4" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(64, 510)
-
-[node name="ShopCardHolder5" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(288, 511)
-
-[node name="ShopCardHolder6" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(514, 515)
+position = Vector2(455, 422)
 
 [node name="PackedCardsContainer" type="Node2D" parent="Shop"]
 
@@ -134,51 +123,109 @@ layout_mode = 0
 offset_right = 958.0
 offset_bottom = 601.0
 
+[node name="ColorRect" type="ColorRect" parent="UI/StarterPackSelection"]
+layout_mode = 0
+offset_left = -21.0
+offset_top = -11.0
+offset_right = 985.0
+offset_bottom = 613.0
+color = Color(0.425325, 0.425325, 0.425325, 1)
+
 [node name="WITCH" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
 layout_mode = 0
-offset_left = 213.0
-offset_top = 105.0
-offset_right = 309.0
-offset_bottom = 249.0
+offset_left = 106.0
+offset_top = 344.0
+offset_right = 202.0
+offset_bottom = 488.0
 label_name = "Witch"
 
 [node name="Lich" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
 layout_mode = 0
-offset_left = 575.0
-offset_top = 360.0
-offset_right = 671.0
-offset_bottom = 504.0
+offset_left = 761.0
+offset_top = 343.0
+offset_right = 857.0
+offset_bottom = 487.0
 starter_pack = ExtResource("19_ur6mj")
 label_name = "Lich"
 
 [node name="Devil" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
 layout_mode = 0
-offset_left = 573.0
-offset_top = 107.0
-offset_right = 669.0
-offset_bottom = 251.0
+offset_left = 305.0
+offset_top = 345.0
+offset_right = 401.0
+offset_bottom = 489.0
 starter_pack = ExtResource("20_njsr4")
 label_name = "Devil"
 
 [node name="Imp" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
 layout_mode = 0
-offset_left = 213.0
-offset_top = 344.0
-offset_right = 309.0
-offset_bottom = 488.0
+offset_left = 566.0
+offset_top = 345.0
+offset_right = 662.0
+offset_bottom = 489.0
 starter_pack = ExtResource("13_jyuje")
 label_name = "Imp"
 
 [node name="TestPack" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
 layout_mode = 0
-offset_left = 428.0
-offset_top = 223.0
-offset_right = 524.0
-offset_bottom = 367.0
+offset_left = 436.0
+offset_top = 464.0
+offset_right = 532.0
+offset_bottom = 608.0
 starter_pack = ExtResource("11_d5r8k")
 label_name = "Test Pack"
 
+[node name="FactionDescriptionPanel" type="Panel" parent="UI/StarterPackSelection"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 942.0
+offset_bottom = 309.0
+script = ExtResource("28_5732x")
+
+[node name="Tutorial" type="Label" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
+layout_mode = 2
+offset_left = 132.0
+offset_right = 780.0
+offset_bottom = 74.0
+text = "Chose a faction pack that you would like to open. This will determine the first few units you obtain on your journey."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="FactionName" type="Label" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 78.0
+offset_right = 169.0
+offset_bottom = 101.0
+text = "Faction Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 113.0
+offset_right = 181.0
+offset_bottom = 276.0
+texture = ExtResource("28_86234")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 125.0
+offset_right = 891.0
+offset_bottom = 263.0
+text = "A description about displayed faction.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+_______________
+________________________________________________"
+
 [node name="BattleStartButton" type="Button" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 416.0
 offset_top = 115.0
@@ -187,6 +234,7 @@ offset_bottom = 180.0
 text = "Start Battle"
 
 [node name="ShopLeaveButton" type="Button" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 722.0
 offset_top = 14.0
@@ -195,6 +243,7 @@ offset_bottom = 45.0
 text = "Leave"
 
 [node name="FactionShopsPanel" type="Panel" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 257.0
 offset_top = 16.0
@@ -240,6 +289,7 @@ offset_bottom = 23.0
 text = "$0"
 
 [node name="PortraitBorder" type="TextureRect" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 725.0
 offset_top = 279.0
@@ -248,6 +298,7 @@ offset_bottom = 595.0
 texture = ExtResource("15_kr4cd")
 
 [node name="EventPanel" type="Panel" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 11.0
 offset_top = 280.0
@@ -255,6 +306,7 @@ offset_right = 718.0
 offset_bottom = 591.0
 
 [node name="EventTitle" type="Label" parent="UI/EventPanel"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0

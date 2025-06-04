@@ -7,6 +7,11 @@ signal activate_adding_unit(active: bool, shop_card: ShopCard)
 @onready var name_label: Label = $CardName
 @onready var cost_label: Label = $CostLabel
 
+var devil_bought: bool = false
+var imp_bought: bool = false
+var lich_bought: bool = false
+var witch_bought: bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

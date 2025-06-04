@@ -3,12 +3,19 @@ class_name ShopCard
 
 signal activate_adding_unit(active: bool, shop_card: ShopCard)
 
+@onready var unit_sprite: Sprite2D = $UnitSprite
+
 var is_hovered: bool = false
 var offset: Vector2 # snap location if card is within unit container and player lets go of card
 var initial_pos: Vector2 # if player lets go of card and is outside of a unit container, the card will snap to it's original position
 
 var is_pack_card: bool = false
-var unit_in_card: UnitResource
+var unit_in_card: UnitResource:
+	get:
+		return unit_in_card
+	set(value):
+		unit_in_card = value
+		call_deferred("update_unit_sprite", unit_in_card.texture)
 
 var is_following: bool = false:
 	get:
@@ -63,6 +70,11 @@ func hover_changed(_is_hovered: bool) -> void:
 
 func change_unit_in_card(new_unit: UnitResource) -> void:
 	unit_in_card = new_unit
+
+
+func update_unit_sprite(unit_texture: Texture) -> void:
+	unit_sprite.texture = unit_texture
+
 
 func deactivate() -> void:
 	if is_pack_card:

@@ -81,7 +81,7 @@ func generate_new_shop(day: int) -> void:
 func generate_random_units_for_shop(potential_units: Array[UnitResource]) -> Array[UnitResource]:
 	var new_shop_inventory: Array[UnitResource] = []
 	
-	for i in 6:
+	for i in card_holders.size():
 		var unit_to_add: UnitResource = potential_units[randi_range(0, potential_units.size() - 1)]
 		new_shop_inventory.append(unit_to_add)
 		pass
