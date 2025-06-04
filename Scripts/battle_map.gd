@@ -53,8 +53,21 @@ func _on_day_manager_event_started() -> void:
 
 
 func _on_event_manager_event_ended() -> void:
+	ui_manager.end_event()
 	day_manager.end_event()
 
 
 func _on_event_manager_start_event(event_data: EventManager.EventDisplayData) -> void:
 	ui_manager.start_event(event_data)
+
+
+func _on_event_manager_proceed_event(event_data: RefCounted) -> void:
+	ui_manager.start_event(event_data)
+
+
+func _on_ui_proceed_event() -> void:
+	event_manager.proceed()
+
+
+func _on_ui_leave_event() -> void:
+	event_manager.end_event()

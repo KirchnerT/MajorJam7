@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyArmyResource" load_steps=4 format=3 uid="uid://bobhknn0ub2gl"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/enemy_army_resource.gd" id="1_oc4lb"]
+[ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="2_6b7e0"]
+[ext_resource type="Resource" uid="uid://cqwkhfan77ico" path="res://Units/Temp_Soldier/temp_soldier_resource.tres" id="3_br7a2"]
+
+[resource]
+script = ExtResource("1_oc4lb")
+faction = 1
+day = 1
+unit_types = Array[ExtResource("2_6b7e0")]([null, ExtResource("3_br7a2"), null, null, null, null])
+unit_count = Array[int]([0, 2, 0, 0, 0, 0])
+reward_money = 10

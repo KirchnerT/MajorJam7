@@ -11,3 +11,6 @@ texture = ExtResource("2_oxggg")
 cost = 4
 initial_count = 3
 unit_packed_scene = ExtResource("3_ctgqa")
+unit_upgrade_count = 0
+attack_damage = 10.0
+health = 10.0

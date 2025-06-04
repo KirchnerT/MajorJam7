@@ -29,7 +29,6 @@ attack_range = 15.0
 attack_speed = 0.5
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_jq6jc")]
-unit_health = 1.0
 
 [node name="MovementComponent" parent="." instance=ExtResource("5_xw5qs")]
 speed = 100.0

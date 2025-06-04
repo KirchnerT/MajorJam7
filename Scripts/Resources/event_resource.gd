@@ -8,4 +8,4 @@ class_name EventResource
 @export var name: String
 @export var description: Array[String]
 @export var type: String
-@export var effect_names: Dictionary
+@export var effects: Dictionary

@@ -34,14 +34,15 @@ var round_state: RoundState = RoundState.STARTER_DECK:
 func _ready() -> void:	
 	for i in ally_unit_containers.size():
 		ally_unit_containers[i].index = i
+	
+	current_enemy_army = get_new_enemy_army()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if round_state == RoundState.COMBAT:
 		check_for_winner()
 
-func start_battle() -> void:	
-	setup_armies()
+func start_battle() -> void:
 	for unit_container in ally_unit_containers:
 		unit_container.start_battle()
 	for unit_container in enemy_unit_containers:
@@ -49,17 +50,22 @@ func start_battle() -> void:
 	
 
 func start_new_day() -> void:
-	#current_day += 1
+	current_day += 1
 	round_state = RoundState.STARTOFDAY
+	current_enemy_army = get_new_enemy_army()
 
+
+func get_new_enemy_army() -> EnemyArmyResource:
+	var prospect_armies: Array[EnemyArmyResource]
+	
+	for army in enemy_armies:
+		if army.day == current_day:
+			prospect_armies.append(army)
+	
+	return prospect_armies[randi_range(0, prospect_armies.size() - 1)]
 
 func start_precombat() -> void:
 	setup_armies()
-
-
-func stop_day() -> void:
-	#current_day += 1
-	setup_ally_army()
 
 
 func setup_armies() -> void:
@@ -68,14 +74,6 @@ func setup_armies() -> void:
 
 
 func setup_enemy_army() -> void:
-	var prospect_armies: Array[EnemyArmyResource]
-	
-	for army in enemy_armies:
-		if army.day == current_day:
-			prospect_armies.append(army)
-	
-	current_enemy_army = prospect_armies[randi_range(0, prospect_armies.size() - 1)]
-	
 	for i in enemy_unit_containers.size() - 1:
 		var test_container_enemy = UnitContainerInfo.new(current_enemy_army.unit_types[i], current_enemy_army.unit_count[i], "Enemy")
 		enemy_unit_containers[i].update_unit_container(test_container_enemy)
@@ -104,6 +102,8 @@ func check_for_winner() -> void:
 
 func round_state_transition(prev_state: RoundState, new_state: RoundState) -> void:
 	if prev_state == RoundState.COMBAT && new_state == RoundState.POSTCOMBAT:
+		AllyArmy.current_law = Enums.LawEffects.NONE
+		print("EVENT SET IN ALLY ARMY: " + str(AllyArmy.current_law))
 		await get_tree().create_timer(1.0).timeout
 		print("Combat to Postcombat")
 		setup_ally_army()
@@ -111,6 +111,7 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 		round_state = RoundState.EVENT
 	elif prev_state == RoundState.STARTER_DECK && new_state == RoundState.PRECOMBAT:
 		print("Starter to Precombat")
+		start_precombat()
 		precombat_started.emit()
 	elif prev_state == RoundState.PRECOMBAT && new_state == RoundState.COMBAT:
 		print("Precombat to Combat")
@@ -121,6 +122,7 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 		print("Postcombat to Event")
 		event_started.emit()
 	elif prev_state == RoundState.EVENT && new_state == RoundState.STARTOFDAY:
+		print("EVENT SET IN ALLY ARMY: " + str(AllyArmy.current_law))
 		print("Event to Start of Day")
 		print("DO START OF DAY STUFF")
 		round_state = RoundState.SHOP
@@ -129,6 +131,7 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 		shopping_started.emit(current_day)
 	elif prev_state == RoundState.SHOP && new_state == RoundState.PRECOMBAT:
 		print("Shop to Precombat")
+		start_precombat()
 		precombat_started.emit()
 	else:
 		print("STATE TRANSITION NOT NOTED: " + str(prev_state) + " --> " + str(new_state))

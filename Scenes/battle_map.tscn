@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/day_manager.gd" id="3_8lsv2"]
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="3_txbk6"]
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="4_jpu8v"]
-[ext_resource type="Resource" uid="uid://bf2sfs1kb651f" path="res://EnemyArmies/Day1_02.tres" id="4_r51qh"]
+[ext_resource type="Resource" uid="uid://bf2sfs1kb651f" path="res://EnemyArmies/Day1/Day1_02.tres" id="4_r51qh"]
 [ext_resource type="Resource" uid="uid://c8j5l3minannw" path="res://Units/Witch/Brewmistress/brewmistress.tres" id="5_bri2b"]
 [ext_resource type="Resource" uid="uid://dyxgc27850wqy" path="res://Units/Imp/BombImp/bomb_imp_resource.tres" id="6_f5buj"]
 [ext_resource type="Resource" uid="uid://bh6vlrfdtw0kk" path="res://Units/Witch/Crow_Caller/crow_caller.tres" id="6_kbmpv"]
@@ -21,7 +21,7 @@
 [ext_resource type="Resource" uid="uid://cag66hxim3hu4" path="res://StarterPacks/temp_alot_starter_pack.tres" id="11_d5r8k"]
 [ext_resource type="Resource" uid="uid://b1y0lpv8f78g5" path="res://Units/Devil/SinbrandDuelist/sinbrand_duelist.tres" id="11_p1t4x"]
 [ext_resource type="Resource" uid="uid://rvux3r4guujw" path="res://StarterPacks/imp_starter_pack.tres" id="13_jyuje"]
-[ext_resource type="Resource" uid="uid://dlj2e7j006407" path="res://EnemyArmies/Day1_01.tres" id="13_n8aw2"]
+[ext_resource type="Resource" uid="uid://dlj2e7j006407" path="res://EnemyArmies/Day1/Day1_01.tres" id="13_n8aw2"]
 [ext_resource type="Texture2D" uid="uid://cet0qto6fydva" path="res://Assets/Character_Box_Bottom_Left.png" id="15_kr4cd"]
 [ext_resource type="Script" path="res://Scripts/event_manager.gd" id="19_ps23t"]
 [ext_resource type="Resource" uid="uid://cadl0sibcoqo8" path="res://StarterPacks/lich_starter_pack.tres" id="19_ur6mj"]
@@ -276,33 +276,6 @@ WIll you dive into the realm of WILD
 Take your chances....!!!??!?!?!! !!?!? !?!???! !!"
 autowrap_mode = 2
 
-[node name="ChoiceButton_1" type="Button" parent="UI/EventPanel"]
-layout_mode = 0
-offset_left = 436.0
-offset_top = 9.0
-offset_right = 699.0
-offset_bottom = 58.0
-text = "Choice #1
-"
-
-[node name="ChoiceButton_2" type="Button" parent="UI/EventPanel"]
-layout_mode = 0
-offset_left = 435.0
-offset_top = 76.0
-offset_right = 698.0
-offset_bottom = 125.0
-text = "Choice #2
-"
-
-[node name="ChoiceButton_3" type="Button" parent="UI/EventPanel"]
-layout_mode = 0
-offset_left = 437.0
-offset_top = 138.0
-offset_right = 700.0
-offset_bottom = 187.0
-text = "Choice #3
-"
-
 [node name="LeaveButton" type="Button" parent="UI/EventPanel"]
 layout_mode = 0
 offset_left = 569.0
@@ -312,14 +285,26 @@ offset_bottom = 287.0
 text = "Leave
 "
 
+[node name="NextButton" type="Button" parent="UI/EventPanel"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 256.0
+offset_right = 558.0
+offset_bottom = 287.0
+text = "Next
+"
+
 [connection signal="all_packed_cards_used" from="Shop" to="." method="_on_shop_all_packed_cards_used"]
 [connection signal="child_exiting_tree" from="Shop/PackedCardsContainer" to="Shop" method="_on_pulled_cards_container_child_exiting_tree"]
 [connection signal="event_started" from="DayManager" to="." method="_on_day_manager_event_started"]
 [connection signal="shopping_started" from="DayManager" to="." method="_on_day_manager_shopping_started"]
 [connection signal="event_ended" from="EventManager" to="." method="_on_event_manager_event_ended"]
+[connection signal="proceed_event" from="EventManager" to="." method="_on_event_manager_proceed_event"]
 [connection signal="start_event" from="EventManager" to="." method="_on_event_manager_start_event"]
+[connection signal="leave_event" from="UI" to="." method="_on_ui_leave_event"]
 [connection signal="leave_shop" from="UI" to="." method="_on_ui_leave_shop"]
 [connection signal="open_shop" from="UI" to="." method="_on_ui_open_shop"]
+[connection signal="proceed_event" from="UI" to="." method="_on_ui_proceed_event"]
 [connection signal="pressed" from="UI/BattleStartButton" to="DayManager" method="_on_battle_start_button_pressed"]
 [connection signal="pressed" from="UI/BattleStartButton" to="UI" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/ShopLeaveButton" to="UI" method="_on_shop_leave_button_pressed"]
@@ -327,3 +312,5 @@ text = "Leave
 [connection signal="pressed" from="UI/FactionShopsPanel/DevilShop" to="UI" method="_on_devil_shop_pressed"]
 [connection signal="pressed" from="UI/FactionShopsPanel/LichShop" to="UI" method="_on_lich_shop_pressed"]
 [connection signal="pressed" from="UI/FactionShopsPanel/ImpShop" to="UI" method="_on_imp_shop_pressed"]
+[connection signal="pressed" from="UI/EventPanel/LeaveButton" to="UI" method="_on_leave_button_pressed"]
+[connection signal="pressed" from="UI/EventPanel/NextButton" to="UI" method="_on_next_button_pressed"]

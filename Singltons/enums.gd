@@ -5,6 +5,9 @@ enum StatusEffects {
 	CROW = 2
 }
 
-enum EventTypes {
-	RULEMODIFIER
+enum LawEffects {
+	NONE,
+	REVERSEHEAL,
+	ALLYATTACK,
+	DOUBLEABILITY
 }

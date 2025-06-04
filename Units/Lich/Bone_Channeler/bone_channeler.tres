@@ -9,3 +9,6 @@ name = "Bone Channeler"
 cost = 1
 initial_count = 1
 unit_packed_scene = ExtResource("2_ctnn3")
+unit_upgrade_count = 1
+attack_damage = 20.0
+health = 50.0

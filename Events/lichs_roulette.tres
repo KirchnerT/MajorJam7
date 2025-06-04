@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://brlqk6jvldtq2"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/event_resource.gd" id="1_qw0ee"]
+
+[resource]
+script = ExtResource("1_qw0ee")
+name = "Lich's Roulette"
+description = Array[String](["Spin the wheel (newline)"])
+type = "Roulette"
+effects = {
+1: "Lose one random unit!",
+2: "Lose 20% of money.",
+3: "Random Unit Duplicates Itself to an adjacent square",
+4: "Random Unit gets double HP"
+}

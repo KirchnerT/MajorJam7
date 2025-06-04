@@ -29,10 +29,16 @@ func update_units(info: UnitContainerInfo) -> void:
 		var scene = info.unit_resource.unit_packed_scene.instantiate()
 		scene.global_position = global_position
 		scene.global_rotation = global_rotation
+		call_deferred("update_unit_stats", scene, info.unit_resource.attack_damage, info.unit_resource.health)
 		add_child(scene)
 		scene.add_to_group(info.unit_group, true)
 	
 	distribute_units_in_square(cube_size, position)
+
+
+func update_unit_stats(unit: Node2D, attack_damage: float, health: float):
+	unit.update_stats(attack_damage + 1000, health)
+
 
 func start_battle() -> void:
 	for child in get_children():

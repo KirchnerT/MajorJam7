@@ -4,6 +4,8 @@ class_name MainUi
 signal starter_pack_selected(starter_pack: CardPack)
 signal open_shop(faction: AllyArmy.FACTIONS)
 signal leave_shop()
+signal proceed_event()
+signal leave_event()
 
 @export var starter_packs: Array[StarterPackUi]
 
@@ -18,9 +20,7 @@ signal leave_shop()
 @onready var event_panel: Panel = $EventPanel
 @onready var event_title: Label = $EventPanel/EventTitle
 @onready var event_description: RichTextLabel = $EventPanel/EventDescription
-@onready var choice_button_1: Button = $EventPanel/ChoiceButton_1
-@onready var choice_button_2: Button = $EventPanel/ChoiceButton_2
-@onready var choice_button_3: Button = $EventPanel/ChoiceButton_3
+@onready var next_button: Button = $EventPanel/NextButton
 @onready var leave_button: Button = $EventPanel/LeaveButton
 
 # Called when the node enters the scene tree for the first time.
@@ -92,9 +92,30 @@ func update_money() -> void:
 
 func start_event(event_data: EventManager.EventDisplayData) -> void:
 	event_panel.visible = true
+	next_button.visible = true
+	leave_button.visible = true
+	
 	event_title.text = event_data.title
 	event_description.text = event_data.description.replace("(new_line)", "\n")
-	choice_button_1.text = event_data.choice_1_text
-	choice_button_2.text = event_data.choice_2_text
-	choice_button_3.text = event_data.choice_3_text
-	leave_button.text = event_data.leave_text
+	
+	if event_data.next_text == "":
+		next_button.visible = false
+	else:
+		next_button.text = event_data.next_text
+	
+	if event_data.leave_text == "":
+		leave_button.visible = false
+	else:
+		leave_button.text = event_data.leave_text
+
+
+func end_event() -> void:
+	event_panel.visible = false
+
+
+func _on_next_button_pressed() -> void:
+	proceed_event.emit()
+
+
+func _on_leave_button_pressed() -> void:
+	leave_event.emit()

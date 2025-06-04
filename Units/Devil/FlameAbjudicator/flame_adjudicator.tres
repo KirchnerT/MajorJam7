@@ -9,3 +9,6 @@ name = "Flame Adjudicator"
 cost = 1
 initial_count = 3
 unit_packed_scene = ExtResource("2_a4b44")
+unit_upgrade_count = 3
+attack_damage = 20.0
+health = 50.0

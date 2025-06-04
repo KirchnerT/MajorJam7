@@ -59,7 +59,7 @@ func is_actively_adding_unit(active: bool, shop_card: ShopCard) -> void:
 			update_unit_container(new_container)
 			shop_card.deactivate()
 		elif current_units.unit_resource == shop_card.unit_in_card:
-			current_units.unit_count += 4
+			current_units.unit_count += shop_card.unit_in_card.unit_upgrade_count
 			AllyArmy.update_unit_container(current_units, index)
 			update_unit_container(current_units)
 			shop_card.deactivate()

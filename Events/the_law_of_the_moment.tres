@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource("1_egxqm")
 name = "The Law of the Moment"
-description = Array[String](["Reality shifts ..... for now. (new_line)BLAH BLAH DESCRIPTION (new_line) (new_line) (new_line) You must chose a new law. This law will be enacted for the next day!"])
+description = Array[String](["Reality shifts ..... for now. (new_line)BLAH BLAH DESCRIPTION (new_line) (new_line) (new_line) A new law is being enacted!(new_line)(new_line)"])
 type = "Rule Modifier"
-effect_names = {
+effects = {
 "AllyAttack": "Units attack allies instead of enemies.",
-"DoubleCast": "Abilities take twice as long to activate, but activate twice",
-"ReversedHealing": "All healing is reversed (heals cause damage)."
+"DoubleAbilities": "Abilities take twice as long to activiate, but trigger twice.",
+"ReverseHeal": "All healing is reversed (heals cause damage)"
 }

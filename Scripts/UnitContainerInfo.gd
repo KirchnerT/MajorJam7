@@ -8,6 +8,7 @@ var unit_resource: UnitResource
 var unit_count: int
 var unit_group: String
 
+
 func _init(_unit_resource: UnitResource, _unit_count: int, _unit_group: String):
 	unit_resource = _unit_resource
 	unit_count = _unit_count
