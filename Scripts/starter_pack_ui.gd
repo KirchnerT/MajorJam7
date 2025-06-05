@@ -8,8 +8,9 @@ signal starter_pack_chosen(starter_pack)
 
 @onready var name_label: Label = $Label
 
+
 func _ready() -> void:
-	name_label.text = label_name
+	name_label.text = label_name.to_upper()
 
 func _on_button_pressed() -> void:
 	starter_pack_chosen.emit(starter_pack)

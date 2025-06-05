@@ -29,7 +29,7 @@ func attempt_event_start() -> void:
 	
 	# Setup event
 	var new_display_data: EventDisplayData = EventDisplayData.new(cur_event.name, 
-													cur_event.description[0], "Next", "")
+													cur_event.description[0], "NEXT", "")
 	# display event
 	event_stage = 1
 	start_event.emit(new_display_data)
@@ -53,7 +53,7 @@ func proceed_rule_modifier_event() -> void:
 		var choosen_effect_desc: String = cur_event.effects[choosen_effect_key]
 		var event_description = cur_event.description[0] + choosen_effect_desc
 		var new_display_data: EventDisplayData = EventDisplayData.new(cur_event.name, 
-																event_description, "", "Leave")
+																event_description, "", "LEAVE")
 		match choosen_effect_key:
 			"ReverseHeal":
 				AllyArmy.current_law = Enums.LawEffects.REVERSEHEAL

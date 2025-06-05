@@ -13,7 +13,7 @@ config_version=5
 config/name="WILDJam"
 run/main_scene="res://Menus/Main Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon2.svg"
+config/icon="res://Assets/unit_sprites/Imps_Cards_Back_-_Final.1.png"
 
 [autoload]
 

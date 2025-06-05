@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=39 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://Scenes/unit_container.tscn" id="2_nwsat"]
@@ -26,12 +26,24 @@
 [ext_resource type="Script" path="res://Scripts/Resources/event_resource.gd" id="20_lg50m"]
 [ext_resource type="Resource" uid="uid://cew813ki0qn30" path="res://StarterPacks/devil_starter_pack.tres" id="20_njsr4"]
 [ext_resource type="Resource" uid="uid://cpcn3yxhqj5j4" path="res://Events/the_law_of_the_moment.tres" id="21_8f727"]
+[ext_resource type="Texture2D" uid="uid://bq55b5k3o5hnt" path="res://Assets/unit_sprites/Witches_Cards_Back_-_Final.png" id="22_101ck"]
+[ext_resource type="Texture2D" uid="uid://jfigqc4hiim7" path="res://Assets/unit_sprites/Lichs_Cards_Back_-_Final.png" id="22_xifm6"]
+[ext_resource type="Texture2D" uid="uid://btknep381bjb" path="res://Assets/unit_sprites/Devil_Cards_Back_-_Final.png" id="23_2k1ty"]
+[ext_resource type="Texture2D" uid="uid://cjtkrgx4ohgy0" path="res://Assets/unit_sprites/Imps_Cards_Back_-_Final.1.png" id="25_axsr8"]
+[ext_resource type="FontFile" uid="uid://d1gy756akasq0" path="res://Assets/New Roman Times.ttf" id="27_n2ljg"]
 [ext_resource type="Script" path="res://Scenes/faction_description_panel.gd" id="28_5732x"]
 [ext_resource type="Texture2D" uid="uid://tn6eguwflw2x" path="res://Assets/Unit_-_Test.png" id="28_86234"]
+[ext_resource type="Texture2D" uid="uid://cqa1e2gmi1mlr" path="res://Assets/Text_Box.png" id="29_4f07c"]
 
 [sub_resource type="Curve" id="Curve_qoav8"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0341615, 0.359606), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idebf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_andct"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqkv4"]
 
 [node name="BattleMap" type="Node2D"]
 script = ExtResource("1_e6q5w")
@@ -128,6 +140,7 @@ starter_packs = [NodePath("StarterPackSelection/WITCH"), NodePath("StarterPackSe
 layout_mode = 0
 offset_right = 958.0
 offset_bottom = 601.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_idebf")
 
 [node name="ColorRect" type="ColorRect" parent="UI/StarterPackSelection"]
 layout_mode = 0
@@ -143,6 +156,7 @@ offset_left = 106.0
 offset_top = 344.0
 offset_right = 202.0
 offset_bottom = 488.0
+texture = ExtResource("22_101ck")
 label_name = "Witch"
 
 [node name="Lich" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
@@ -151,6 +165,7 @@ offset_left = 761.0
 offset_top = 343.0
 offset_right = 857.0
 offset_bottom = 487.0
+texture = ExtResource("22_xifm6")
 starter_pack = ExtResource("19_ur6mj")
 label_name = "Lich"
 
@@ -160,6 +175,7 @@ offset_left = 305.0
 offset_top = 345.0
 offset_right = 401.0
 offset_bottom = 489.0
+texture = ExtResource("23_2k1ty")
 starter_pack = ExtResource("20_njsr4")
 label_name = "Devil"
 
@@ -169,10 +185,12 @@ offset_left = 566.0
 offset_top = 345.0
 offset_right = 662.0
 offset_bottom = 489.0
+texture = ExtResource("25_axsr8")
 starter_pack = ExtResource("13_jyuje")
 label_name = "Imp"
 
 [node name="TestPack" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
+visible = false
 layout_mode = 0
 offset_left = 436.0
 offset_top = 464.0
@@ -187,48 +205,69 @@ offset_left = 20.0
 offset_top = 14.0
 offset_right = 942.0
 offset_bottom = 309.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_andct")
 script = ExtResource("28_5732x")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_4f07c")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
 
 [node name="Tutorial" type="Label" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
 layout_mode = 2
 offset_left = 132.0
+offset_top = 12.0
 offset_right = 780.0
-offset_bottom = 74.0
-text = "Chose a faction pack that you would like to open. This will determine the first few units you obtain on your journey."
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+CHOOSE A FACTION PACK THAT YOU WOULD LIKE TO OPEN
+
+ THIS WILL DETERMINE THE FIRST FEW UNITS YOU OBTAIN ON YOUR JOURNEY"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="FactionName" type="Label" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
 layout_mode = 0
-offset_left = 36.0
-offset_top = 78.0
-offset_right = 169.0
-offset_bottom = 101.0
-text = "Faction Name
+offset_left = 84.0
+offset_top = 91.0
+offset_right = 223.0
+offset_bottom = 126.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+FACTION NAME
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 113.0
-offset_right = 181.0
+offset_left = 85.0
+offset_top = 125.0
+offset_right = 222.0
 offset_bottom = 276.0
 texture = ExtResource("28_86234")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
 layout_mode = 0
-offset_left = 217.0
+offset_left = 248.0
 offset_top = 125.0
-offset_right = 891.0
+offset_right = 832.0
 offset_bottom = 263.0
-text = "A description about displayed faction.
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-_______________
-________________________________________________"
+theme_override_fonts/normal_font = ExtResource("27_n2ljg")
+theme_override_font_sizes/normal_font_size = 16
+text = "
+A DESCRIPTION ABOUT THE DISPLAYED FACTION"
 
 [node name="BattleStartButton" type="Button" parent="UI"]
 visible = false
@@ -237,7 +276,10 @@ offset_left = 416.0
 offset_top = 115.0
 offset_right = 565.0
 offset_bottom = 180.0
-text = "Start Battle"
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+START BATTLE"
 
 [node name="ShopLeaveButton" type="Button" parent="UI"]
 visible = false
@@ -246,7 +288,10 @@ offset_left = 722.0
 offset_top = 14.0
 offset_right = 775.0
 offset_bottom = 45.0
-text = "Leave"
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+LEAVE"
 
 [node name="FactionShopsPanel" type="Panel" parent="UI"]
 visible = false
@@ -256,42 +301,69 @@ offset_top = 16.0
 offset_right = 715.0
 offset_bottom = 255.0
 
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/FactionShopsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_4f07c")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
 [node name="WitchShop" type="Button" parent="UI/FactionShopsPanel"]
 layout_mode = 0
-offset_left = 343.0
-offset_top = 34.0
-offset_right = 433.0
-offset_bottom = 105.0
-text = "Witch Shop"
+offset_left = 271.0
+offset_top = 45.0
+offset_right = 393.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+WITCH SHOP"
 
 [node name="DevilShop" type="Button" parent="UI/FactionShopsPanel"]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 28.0
-offset_right = 148.0
-offset_bottom = 99.0
-text = "Devil Shop"
+offset_left = 51.0
+offset_top = 44.0
+offset_right = 173.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+DEVIL SHOP"
 
 [node name="LichShop" type="Button" parent="UI/FactionShopsPanel"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 128.0
-offset_right = 154.0
-offset_bottom = 199.0
-text = "Lich Shop"
+offset_left = 51.0
+offset_top = 135.0
+offset_right = 173.0
+offset_bottom = 188.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+LICH SHOP"
 
 [node name="ImpShop" type="Button" parent="UI/FactionShopsPanel"]
 layout_mode = 0
-offset_left = 328.0
-offset_top = 128.0
-offset_right = 418.0
-offset_bottom = 199.0
-text = "Imp Shop"
+offset_left = 271.0
+offset_top = 135.0
+offset_right = 393.0
+offset_bottom = 188.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+IMP SHOP"
 
 [node name="MoneyLabel" type="Label" parent="UI/FactionShopsPanel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = 55.0
+offset_bottom = 34.0
 text = "$0"
 
 [node name="PortraitBorder" type="TextureRect" parent="UI"]
@@ -310,46 +382,79 @@ offset_left = 11.0
 offset_top = 280.0
 offset_right = 718.0
 offset_bottom = 591.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_eqkv4")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/EventPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_4f07c")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
 
 [node name="EventTitle" type="Label" parent="UI/EventPanel"]
-visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Event Title"
+offset_left = 6.0
+offset_top = 19.0
+offset_right = 237.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+EVENT TITLE"
 
 [node name="EventDescription" type="RichTextLabel" parent="UI/EventPanel"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 32.0
-offset_right = 430.0
-offset_bottom = 304.0
+offset_left = 21.0
+offset_top = 54.0
+offset_right = 450.0
+offset_bottom = 326.0
+theme_override_fonts/normal_font = ExtResource("27_n2ljg")
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "This is where the event description  will live...
-
-OoooOOOOOOOO   Spooky noises
-WIll you dive into the realm of WILD
+text = "
+THIS IS WHERE THE EVENT DESCRIPTION WILL LIVE
 
 
-Take your chances....!!!??!?!?!! !!?!? !?!???! !!"
+
+
+WILL YOU DIVE INTO THE REALM OF WILD
+
+
+
+
+
+
+TAKE YOUR CHANCES"
 autowrap_mode = 2
 
 [node name="LeaveButton" type="Button" parent="UI/EventPanel"]
 layout_mode = 0
-offset_left = 569.0
-offset_top = 256.0
-offset_right = 702.0
-offset_bottom = 287.0
-text = "Leave
+offset_left = 598.0
+offset_top = 262.0
+offset_right = 694.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+LEAVE
 "
 
 [node name="NextButton" type="Button" parent="UI/EventPanel"]
 layout_mode = 0
-offset_left = 425.0
-offset_top = 256.0
-offset_right = 558.0
-offset_bottom = 287.0
-text = "Next
+offset_left = 484.0
+offset_top = 262.0
+offset_right = 591.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+NEXT
 "
 
 [connection signal="all_packed_cards_used" from="Shop" to="." method="_on_shop_all_packed_cards_used"]
