@@ -86,10 +86,8 @@ text = "
 PLAY"
 icon_alignment = 1
 
-[node name="Separator2" type="Control" parent="MarginContainer/Menu Buttons/VBoxContainer"]
-layout_mode = 2
-
 [node name="Factions" type="Button" parent="MarginContainer/Menu Buttons/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_v4x4n")

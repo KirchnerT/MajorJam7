@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0ssjge5ecnxi"]
+[gd_scene load_steps=11 format=3 uid="uid://d0ssjge5ecnxi"]
 
 [ext_resource type="Script" path="res://Units/Imp/Scamperling/scamperling.gd" id="1_ecn8n"]
 [ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="2_ftbf4"]
 [ext_resource type="Shader" path="res://damage_flash.gdshader" id="3_prj3q"]
 [ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="4_fji2o"]
+[ext_resource type="Texture2D" uid="uid://m5tiscyp3cbq" path="res://Assets/unit_sprites/Scamperling.png" id="4_ofkd5"]
 [ext_resource type="PackedScene" uid="uid://iy8rxunr4xcq" path="res://Units/Components/health_component.tscn" id="5_ssg15"]
 [ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="6_nbg18"]
 [ext_resource type="PackedScene" uid="uid://dqo7mjg8nna3x" path="res://Units/Components/ability_component.tscn" id="7_furyn"]
@@ -21,6 +22,7 @@ taunt_range = 50.0
 
 [node name="SpriteComponent" parent="." instance=ExtResource("2_ftbf4")]
 material = SubResource("ShaderMaterial_vjrje")
+texture = ExtResource("4_ofkd5")
 
 [node name="AttackComponent" parent="." instance=ExtResource("4_fji2o")]
 attack_speed = 2.0

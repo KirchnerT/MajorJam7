@@ -142,4 +142,8 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_dtjta")
 text = "
 BACK"
 
+[connection signal="pressed" from="Factions/HBoxContainer/VBoxContainer/Witches Button" to="." method="_on_witches_button_pressed"]
+[connection signal="pressed" from="Factions/HBoxContainer/VBoxContainer/Liches Button" to="." method="_on_liches_button_pressed"]
+[connection signal="pressed" from="Factions/HBoxContainer/VBoxContainer2/Imps Button" to="." method="_on_imps_button_pressed"]
+[connection signal="pressed" from="Factions/HBoxContainer/VBoxContainer2/Devils Button" to="." method="_on_devils_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

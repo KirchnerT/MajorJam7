@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpssubtmymddw"]
+[gd_scene load_steps=11 format=3 uid="uid://cpssubtmymddw"]
 
 [ext_resource type="Script" path="res://Units/Imp/BombImp/bomb_imp.gd" id="1_8eph1"]
 [ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="1_cwauq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://damage_flash.gdshader" id="2_2bkmk"]
 [ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="3_2n6v6"]
 [ext_resource type="PackedScene" uid="uid://iy8rxunr4xcq" path="res://Units/Components/health_component.tscn" id="4_jq6jc"]
+[ext_resource type="Texture2D" uid="uid://dwgr87tojdtu2" path="res://Assets/unit_sprites/Imp_Bomb.png" id="5_lkcrl"]
 [ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="5_xw5qs"]
 [ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="8_v8r11"]
 
@@ -22,6 +23,7 @@ explosion_particle = ExtResource("2_1ftkm")
 
 [node name="SpriteComponent" parent="." instance=ExtResource("1_cwauq")]
 material = SubResource("ShaderMaterial_olt18")
+texture = ExtResource("5_lkcrl")
 
 [node name="AttackComponent" parent="." instance=ExtResource("3_2n6v6")]
 

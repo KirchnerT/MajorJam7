@@ -175,7 +175,7 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 		print("Precombat to Combat")
 		start_battle()
 	elif prev_state == RoundState.COMBAT && new_state == RoundState.GAMEOVER:
-		print("GAME OVER")
+		get_tree().change_scene_to_file("res://Scenes/game_over_screen.tscn")
 	elif prev_state == RoundState.POSTCOMBAT && new_state == RoundState.EVENT:
 		print("Postcombat to Event")
 		event_started.emit()

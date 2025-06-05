@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://deqass2swsrnk"]
+[gd_scene load_steps=10 format=3 uid="uid://deqass2swsrnk"]
 
 [ext_resource type="Script" path="res://Units/Lich/Soul_Leech/soul_leech.gd" id="1_pdw03"]
 [ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="2_3dgge"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="4_of00e"]
 [ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="5_yhmil"]
 [ext_resource type="Shader" path="res://damage_flash.gdshader" id="6_778iq"]
+[ext_resource type="Texture2D" uid="uid://bpxkchghfxod5" path="res://Assets/unit_sprites/Soul_Leach.png" id="7_dfs8g"]
 [ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="7_mgnh6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aw7k0"]
@@ -27,5 +28,6 @@ attack_range = 80.0
 
 [node name="SpriteComponent" parent="." instance=ExtResource("5_yhmil")]
 material = SubResource("ShaderMaterial_aw7k0")
+texture = ExtResource("7_dfs8g")
 
 [node name="StatusEffectsComponent" parent="." instance=ExtResource("7_mgnh6")]

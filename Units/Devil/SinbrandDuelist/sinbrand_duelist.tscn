@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://wpavlxto66g5"]
+[gd_scene load_steps=10 format=3 uid="uid://wpavlxto66g5"]
 
 [ext_resource type="Script" path="res://Units/Devil/SinbrandDuelist/sinbrand_duelist.gd" id="1_30o3l"]
 [ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="2_kxfjy"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="4_3ilkk"]
 [ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="5_4a8fv"]
 [ext_resource type="Shader" path="res://damage_flash.gdshader" id="6_148gq"]
+[ext_resource type="Texture2D" uid="uid://c5x4uofqy6gpa" path="res://Assets/unit_sprites/Sinbrand_Duelist.png" id="7_hw1xh"]
 [ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="7_nxhbx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljpa7"]
@@ -27,5 +28,6 @@ unit_targeting = 3
 
 [node name="SpriteComponent" parent="." instance=ExtResource("5_4a8fv")]
 material = SubResource("ShaderMaterial_ljpa7")
+texture = ExtResource("7_hw1xh")
 
 [node name="StatusEffectsComponent" parent="." instance=ExtResource("7_nxhbx")]

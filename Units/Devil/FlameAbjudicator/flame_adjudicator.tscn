@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5ls0ufrwimas"]
+[gd_scene load_steps=11 format=3 uid="uid://c5ls0ufrwimas"]
 
 [ext_resource type="PackedScene" uid="uid://dqo7mjg8nna3x" path="res://Units/Components/ability_component.tscn" id="1_1mljq"]
 [ext_resource type="Script" path="res://Units/Devil/FlameAbjudicator/flame_adjudicator.gd" id="1_wv41h"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="5_qgi7w"]
 [ext_resource type="Shader" path="res://damage_flash.gdshader" id="6_icpa1"]
 [ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="7_jqjk7"]
+[ext_resource type="Texture2D" uid="uid://2mbstkgxjrai" path="res://Assets/unit_sprites/Flame_Adjudicator.png" id="8_1ilhw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3rtuc"]
 resource_local_to_scene = true
@@ -31,5 +32,6 @@ attack_range = 80.0
 
 [node name="SpriteComponent" parent="." instance=ExtResource("5_qgi7w")]
 material = SubResource("ShaderMaterial_3rtuc")
+texture = ExtResource("8_1ilhw")
 
 [node name="StatusEffectsComponent" parent="." instance=ExtResource("7_jqjk7")]
