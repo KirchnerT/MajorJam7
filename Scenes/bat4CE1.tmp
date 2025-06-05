@@ -123,7 +123,7 @@ units = Array[ExtResource("4_jpu8v")]([ExtResource("5_bri2b"), ExtResource("6_kb
 
 [node name="EventManager" type="Node2D" parent="."]
 script = ExtResource("19_ps23t")
-event_chance = 0.05
+event_chance = 1.0
 events = Array[ExtResource("20_lg50m")]([ExtResource("21_8f727"), ExtResource("19_gspyi")])
 
 [node name="QuipManager" type="Node2D" parent="."]

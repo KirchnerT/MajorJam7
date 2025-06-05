@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_qw0ee")
-name = "Lich's Roulette"
-description = Array[String](["Spin the wheel (newline)"])
+name = "LICHS ROULETTE"
+description = Array[String](["SPIN THE WHEELLLLLL", "SPIN       SPINNNNNN      SPINNNNNNNNNN"])
 type = "Roulette"
 effects = {
-1: "Lose one random unit!",
-2: "Lose 20% of money.",
-3: "Random Unit Duplicates Itself to an adjacent square",
-4: "Random Unit gets double HP"
+1: "LOSE ONE RANDOM UNIT",
+2: "LOSE HALF YOUR MONEY",
+3: "RANDOM UNIT DUPLICATES ITSELF TO A RANDOM SQUARE",
+4: "CUPID SHUFFLE"
 }

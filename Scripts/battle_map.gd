@@ -69,3 +69,7 @@ func _on_ui_proceed_event() -> void:
 
 func _on_ui_leave_event() -> void:
 	event_manager.end_event()
+
+
+func _on_event_manager_ally_army_was_shuffled() -> void:
+	day_manager.setup_ally_army()

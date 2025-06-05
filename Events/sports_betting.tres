@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EventResource" load_steps=2 format=3 uid="uid://dvrmurv6ot123"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/event_resource.gd" id="1_o8b2l"]
+
+[resource]
+script = ExtResource("1_o8b2l")
+name = "IMP BROS SPORTS BETTING"
+description = Array[String](["OH NO IT LOOKS LIKE THE IMPS HAVE FORMED A BETTING POOL ON WETHER OR NOT THE LICHES WILL BEAT THE DEVILS", "IF YOU BET TEN PHYLUX ON THE LICHES YOU WILL GET TWENTY BACK(newline)IF YOU PUT DOWN THIRTY PHYLUX ON THE DEVILS YOU WILL GET ONE HUNDRED BACK", "HOW MUCH WILL YOU BET"])
+type = "BETTING"
+effects = {}

@@ -19,6 +19,10 @@ func _ready() -> void:
 	for i in max_containers:
 		unit_containers.insert(i, null)
 
+func clear_ally_army_containers() -> void:
+	for i in unit_containers.size():
+		unit_containers[i] = null
+
 func update_unit_container(unit_container_info: UnitContainerInfo, index: int) -> void:
 	# TO DO: add safe gaurd on index so you cannot update past max_containers containers
 	

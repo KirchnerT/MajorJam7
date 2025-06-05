@@ -175,6 +175,7 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 		print("Precombat to Combat")
 		start_battle()
 	elif prev_state == RoundState.COMBAT && new_state == RoundState.GAMEOVER:
+		AllyArmy.clear_ally_army_containers()
 		get_tree().change_scene_to_file("res://Scenes/game_over_screen.tscn")
 	elif prev_state == RoundState.POSTCOMBAT && new_state == RoundState.EVENT:
 		print("Postcombat to Event")
@@ -210,3 +211,7 @@ func _on_battle_start_button_pressed() -> void:
 
 func end_event() -> void:
 	round_state = RoundState.STARTOFDAY
+
+
+func shuffle_ally_army() -> void:
+	pass

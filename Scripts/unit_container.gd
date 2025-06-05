@@ -42,8 +42,6 @@ func hover_changed(_is_hovered: bool) -> void:
 
 # Passthrough method to update the unit information
 func update_unit_container(info: UnitContainerInfo) -> void:
-	if (info == null):
-		return
 	units_node.update_units(info)
 
 func start_battle() -> void:
