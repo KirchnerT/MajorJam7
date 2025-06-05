@@ -14,7 +14,7 @@ signal leave_event()
 @onready var faction_shops_panel: Panel = $FactionShopsPanel
 @onready var shop_leave_button: Button = $ShopLeaveButton
 @onready var phylux_label: Label = $FactionShopsPanel/MoneyLabel
-@onready var portrait_border: TextureRect = $PortraitBorder
+@onready var portrait: TextureRect = $FactionPortrait
 
 # Event
 @onready var event_panel: Panel = $EventPanel
@@ -32,7 +32,7 @@ func _ready() -> void:
 	battle_start_button.visible = false
 	faction_shops_panel.visible = false
 	shop_leave_button.visible = false
-	portrait_border.visible = false
+	portrait.visible = false
 	event_panel.visible = false
 
 
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 func starter_pack_chosen(starter_pack: CardPack) -> void:
 	starter_pack_selected.emit(starter_pack)
 	starter_pack_panel.visible = false
-	portrait_border.visible = true
+	portrait.visible = true
 
 
 func _on_button_pressed() -> void:
