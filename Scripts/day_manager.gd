@@ -70,7 +70,7 @@ func increase_power_level() -> void:
 
 func get_new_enemy_army() -> EnemyArmyResource:
 	var new_army: EnemyArmyResource = EnemyArmyResource.new()
-	new_army.faction = 0# randi_range(0, 3)
+	new_army.faction = randi_range(0, 3)
 	
 	var units_in_faction: Array[UnitResource] = []
 	

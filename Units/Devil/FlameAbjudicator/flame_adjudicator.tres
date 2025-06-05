@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://ds37rmipltdya"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=4 format=3 uid="uid://ds37rmipltdya"]
 
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_pgxgb"]
+[ext_resource type="Texture2D" uid="uid://2mbstkgxjrai" path="res://Assets/unit_sprites/Flame_Adjudicator.png" id="2_0goyk"]
 [ext_resource type="PackedScene" uid="uid://c5ls0ufrwimas" path="res://Units/Devil/FlameAbjudicator/flame_adjudicator.tscn" id="2_a4b44"]
 
 [resource]
@@ -8,6 +9,7 @@ resource_local_to_scene = true
 script = ExtResource("1_pgxgb")
 name = "Flame Adjudicator"
 faction = 3
+texture = ExtResource("2_0goyk")
 cost = 15
 initial_count = 3
 unit_packed_scene = ExtResource("2_a4b44")

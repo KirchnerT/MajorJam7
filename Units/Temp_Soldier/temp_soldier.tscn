@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl36pg1txrdq"]
+[gd_scene load_steps=10 format=3 uid="uid://dl36pg1txrdq"]
 
 [ext_resource type="Script" path="res://Units/Temp_Soldier/temp_soldier.gd" id="1_kl7nj"]
 [ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="2_u8epf"]
 [ext_resource type="Shader" path="res://damage_flash.gdshader" id="2_u8rym"]
 [ext_resource type="PackedScene" uid="uid://iy8rxunr4xcq" path="res://Units/Components/health_component.tscn" id="4_a4t8i"]
+[ext_resource type="Texture2D" uid="uid://bufi1tojepg1e" path="res://Assets/unit_sprites/Bone_Daddys_Kids.png" id="4_gch0i"]
 [ext_resource type="PackedScene" uid="uid://cf8vygf501tkg" path="res://Units/Components/movement_component.tscn" id="5_c0ni7"]
 [ext_resource type="PackedScene" uid="uid://hkfov7lvebi2" path="res://Units/Components/attack_component.tscn" id="6_rabhs"]
 [ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="7_jul52"]
@@ -19,13 +20,13 @@ script = ExtResource("1_kl7nj")
 
 [node name="SpriteComponent" parent="." instance=ExtResource("2_u8epf")]
 material = SubResource("ShaderMaterial_2y1oe")
+texture = ExtResource("4_gch0i")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_a4t8i")]
 
 [node name="MovementComponent" parent="." instance=ExtResource("5_c0ni7")]
 
 [node name="AttackComponent" parent="." instance=ExtResource("6_rabhs")]
-attack_damage = 0.0
 attack_range = 25.0
 
 [node name="StatusEffectsComponent" parent="." instance=ExtResource("7_jul52")]

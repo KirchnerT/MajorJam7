@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg4bgko042ve4"]
+[gd_scene load_steps=12 format=3 uid="uid://cg4bgko042ve4"]
 
 [ext_resource type="Script" path="res://Units/Lich/Bone_Channeler/bone_channeler.gd" id="1_ls0fh"]
 [ext_resource type="PackedScene" uid="uid://dl36pg1txrdq" path="res://Units/Temp_Soldier/temp_soldier.tscn" id="2_l52bn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://nir8gbyvlhgu" path="res://Units/Components/sprite_component.tscn" id="6_gcqx2"]
 [ext_resource type="Shader" path="res://damage_flash.gdshader" id="7_2fy8t"]
 [ext_resource type="PackedScene" uid="uid://biiy6qv6f42up" path="res://Units/Components/status_effects_component.tscn" id="8_m41st"]
+[ext_resource type="Texture2D" uid="uid://daatvoywneqws" path="res://Assets/unit_sprites/Bone_Channeler.png" id="9_5l362"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_66oae"]
 resource_local_to_scene = true
@@ -35,5 +36,6 @@ speed = 40.0
 
 [node name="SpriteComponent" parent="." instance=ExtResource("6_gcqx2")]
 material = SubResource("ShaderMaterial_66oae")
+texture = ExtResource("9_5l362")
 
 [node name="StatusEffectsComponent" parent="." instance=ExtResource("8_m41st")]

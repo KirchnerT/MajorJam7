@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://rdy0r0cod4wr"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=4 format=3 uid="uid://rdy0r0cod4wr"]
 
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_o2mwc"]
+[ext_resource type="Texture2D" uid="uid://m5tiscyp3cbq" path="res://Assets/unit_sprites/Scamperling.png" id="2_bwrn2"]
 [ext_resource type="PackedScene" uid="uid://d0ssjge5ecnxi" path="res://Units/Imp/Scamperling/scamperling.tscn" id="2_gk5oc"]
 
 [resource]
@@ -8,6 +9,7 @@ resource_local_to_scene = true
 script = ExtResource("1_o2mwc")
 name = "Scamperling"
 faction = 2
+texture = ExtResource("2_bwrn2")
 cost = 15
 initial_count = 1
 unit_packed_scene = ExtResource("2_gk5oc")

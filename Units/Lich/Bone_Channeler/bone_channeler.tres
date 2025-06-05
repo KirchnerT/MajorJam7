@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://bxypxwq6piuo5"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=4 format=3 uid="uid://bxypxwq6piuo5"]
 
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_aauvt"]
 [ext_resource type="PackedScene" uid="uid://cg4bgko042ve4" path="res://Units/Lich/Bone_Channeler/bone_channeler.tscn" id="2_ctnn3"]
+[ext_resource type="Texture2D" uid="uid://daatvoywneqws" path="res://Assets/unit_sprites/Bone_Channeler.png" id="2_r3bvn"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_aauvt")
 name = "Bone Channeler"
 faction = 1
+texture = ExtResource("2_r3bvn")
 cost = 15
 initial_count = 1
 unit_packed_scene = ExtResource("2_ctnn3")

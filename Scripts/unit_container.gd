@@ -61,17 +61,20 @@ func is_actively_adding_unit(active: bool, shop_card: ShopCard) -> void:
 			return
 	elif is_hovered:
 		if current_units == null:
+			if !shop_card.is_pack_card:
+				AllyArmy.phylux -= shop_card.unit_in_card.cost
 			var new_container = UnitContainerInfo.new(shop_card.unit_in_card, shop_card.unit_in_card.initial_count, "Ally")
 			AllyArmy.update_unit_container(new_container, index)
 			update_unit_container(new_container)
 			shop_card.deactivate()
-		elif current_units.unit_resource == shop_card.unit_in_card:
+		elif current_units.unit_resource.name == shop_card.unit_in_card.name:
+			if !shop_card.is_pack_card:
+				AllyArmy.phylux -= shop_card.unit_in_card.cost
 			current_units.unit_count += shop_card.unit_in_card.unit_upgrade_count
 			AllyArmy.update_unit_container(current_units, index)
 			update_unit_container(current_units)
 			shop_card.deactivate()
 		
-		if !shop_card.is_pack_card:
-			AllyArmy.phylux -= shop_card.unit_in_card.cost
+
 	
 	area_sprite.modulate.a = 0.5

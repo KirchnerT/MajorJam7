@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://b1y0lpv8f78g5"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=4 format=3 uid="uid://b1y0lpv8f78g5"]
 
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_3823k"]
+[ext_resource type="Texture2D" uid="uid://c5x4uofqy6gpa" path="res://Assets/unit_sprites/Sinbrand_Duelist.png" id="2_cw6ur"]
 [ext_resource type="PackedScene" uid="uid://wpavlxto66g5" path="res://Units/Devil/SinbrandDuelist/sinbrand_duelist.tscn" id="2_ursoc"]
 
 [resource]
@@ -8,6 +9,7 @@ resource_local_to_scene = true
 script = ExtResource("1_3823k")
 name = "Sinbrand Duelist"
 faction = 3
+texture = ExtResource("2_cw6ur")
 cost = 8
 initial_count = 2
 unit_packed_scene = ExtResource("2_ursoc")

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://cpv2nln42jyyw"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=4 format=3 uid="uid://cpv2nln42jyyw"]
 
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_oiae6"]
+[ext_resource type="Texture2D" uid="uid://bpxkchghfxod5" path="res://Assets/unit_sprites/Soul_Leach.png" id="2_tdc4q"]
 [ext_resource type="PackedScene" uid="uid://deqass2swsrnk" path="res://Units/Lich/Soul_Leech/soul_leech.tscn" id="2_x5fgf"]
 
 [resource]
@@ -8,6 +9,7 @@ resource_local_to_scene = true
 script = ExtResource("1_oiae6")
 name = "Soul Leech"
 faction = 1
+texture = ExtResource("2_tdc4q")
 cost = 10
 initial_count = 2
 unit_packed_scene = ExtResource("2_x5fgf")

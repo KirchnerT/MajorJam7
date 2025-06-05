@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=30 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://Scenes/unit_container.tscn" id="2_nwsat"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://b1y0lpv8f78g5" path="res://Units/Devil/SinbrandDuelist/sinbrand_duelist.tres" id="11_p1t4x"]
 [ext_resource type="Resource" uid="uid://rvux3r4guujw" path="res://StarterPacks/imp_starter_pack.tres" id="13_jyuje"]
 [ext_resource type="Texture2D" uid="uid://cet0qto6fydva" path="res://Assets/Character_Box_Bottom_Left.png" id="15_kr4cd"]
+[ext_resource type="Script" path="res://Scenes/quip_manager.gd" id="19_a8q3n"]
 [ext_resource type="Script" path="res://Scripts/event_manager.gd" id="19_ps23t"]
 [ext_resource type="Resource" uid="uid://cadl0sibcoqo8" path="res://StarterPacks/lich_starter_pack.tres" id="19_ur6mj"]
 [ext_resource type="Script" path="res://Scripts/Resources/event_resource.gd" id="20_lg50m"]
@@ -110,6 +111,9 @@ units = Array[ExtResource("4_jpu8v")]([ExtResource("5_bri2b"), ExtResource("6_kb
 script = ExtResource("19_ps23t")
 event_chance = 0.05
 events = Array[ExtResource("20_lg50m")]([ExtResource("21_8f727")])
+
+[node name="QuipManager" type="Node2D" parent="."]
+script = ExtResource("19_a8q3n")
 
 [node name="UI" type="Control" parent="." node_paths=PackedStringArray("starter_packs")]
 layout_mode = 3

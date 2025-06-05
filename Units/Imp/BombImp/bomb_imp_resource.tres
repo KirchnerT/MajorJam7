@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=3 format=3 uid="uid://dyxgc27850wqy"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=4 format=3 uid="uid://dyxgc27850wqy"]
 
 [ext_resource type="Script" path="res://Scripts/UnitResource.gd" id="1_5htdl"]
+[ext_resource type="Texture2D" uid="uid://dwgr87tojdtu2" path="res://Assets/unit_sprites/Imp_Bomb.png" id="2_7a4su"]
 [ext_resource type="PackedScene" uid="uid://cpssubtmymddw" path="res://Units/Imp/BombImp/bomb_imp.tscn" id="2_qxs6u"]
 
 [resource]
@@ -8,6 +9,7 @@ resource_local_to_scene = true
 script = ExtResource("1_5htdl")
 name = "Bomb Imp"
 faction = 2
+texture = ExtResource("2_7a4su")
 cost = 12
 initial_count = 2
 unit_packed_scene = ExtResource("2_qxs6u")
