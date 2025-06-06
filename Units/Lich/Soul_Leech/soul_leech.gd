@@ -8,4 +8,7 @@ func _on_attack_component_attack_target_unit(unit_to_attack: Node2D, attack_dama
 	
 	var hp_to_gain: float = attack_damage * lifesteal_percent * -1
 	print("Lifesteal: " + str(hp_to_gain))
+	if AllyArmy.current_law != Enums.LawEffects.REVERSEHEAL:
+		hp_to_gain *= -1
+
 	take_damage(hp_to_gain, self)
