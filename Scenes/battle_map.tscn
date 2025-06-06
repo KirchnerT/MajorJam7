@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=57 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://Scenes/unit_container.tscn" id="2_nwsat"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://jfigqc4hiim7" path="res://Assets/unit_sprites/Lichs_Cards_Back_-_Final.png" id="22_xifm6"]
 [ext_resource type="Texture2D" uid="uid://btknep381bjb" path="res://Assets/unit_sprites/Devil_Cards_Back_-_Final.png" id="23_2k1ty"]
 [ext_resource type="Texture2D" uid="uid://bio31yyjgtbjh" path="res://Assets/Devil_Portrait.png" id="24_15hei"]
+[ext_resource type="Texture2D" uid="uid://bt0cjj0vm0xq6" path="res://Assets/Imp_Portrait.png" id="24_58q5g"]
 [ext_resource type="Texture2D" uid="uid://cjtkrgx4ohgy0" path="res://Assets/unit_sprites/Imps_Cards_Back_-_Final.1.png" id="25_axsr8"]
 [ext_resource type="Script" path="res://Scenes/faction_shops_panel.gd" id="26_wyx5i"]
 [ext_resource type="Script" path="res://Scenes/starter_pack_selection.gd" id="27_b14x2"]
@@ -69,6 +70,7 @@ WITCHES BEND THE RULES OF BATTLE WITH POTIONS AND DAMAGE OVER TIME EFFECTS"
 [sub_resource type="Resource" id="Resource_e33w6"]
 script = ExtResource("28_qym20")
 faction_name = "IMPS"
+faction_portrait = ExtResource("24_58q5g")
 faction_description = "CHAOTIC CLEVER AND COMPLETELY UNHINGED
 IMPS THRIVE ON EXPLOSIVES AND TAUNTING THOSE AROUND THEM"
 
@@ -177,7 +179,7 @@ offset_bottom = 600.0
 mouse_filter = 1
 script = ExtResource("10_yym2m")
 starter_packs = [NodePath("StarterPackSelection/WITCH"), NodePath("StarterPackSelection/TestPack"), NodePath("StarterPackSelection/Imp"), NodePath("StarterPackSelection/Lich"), NodePath("StarterPackSelection/Devil")]
-all_portraits = Array[Texture]([ExtResource("28_ledcg"), ExtResource("34_7sb1a"), ExtResource("34_7sb1a"), ExtResource("24_15hei")])
+all_portraits = Array[Texture]([ExtResource("28_ledcg"), ExtResource("34_7sb1a"), ExtResource("24_58q5g"), ExtResource("24_15hei")])
 
 [node name="BattleStartButton" type="Button" parent="UI"]
 layout_mode = 0
@@ -307,27 +309,46 @@ scale = Vector2(1, 1)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/FactionShopsPanel/DevilArea"]
 polygon = PackedVector2Array(25, 115, 33, 95, 82, 50, 131, 58, 132, 81, 148, 91, 147, 102, 127, 101, 120, 108, 122, 116, 141, 129, 130, 143, 136, 154, 123, 154, 93, 196, 75, 218, 60, 217, 38, 188, 64, 163, 38, 152, 39, 144, 45, 138, 24, 120)
 
+[node name="ImpArea" type="Area2D" parent="UI/FactionShopsPanel"]
+scale = Vector2(1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/FactionShopsPanel/ImpArea"]
+polygon = PackedVector2Array(238, 74, 290, 44, 324, 52, 337, 82, 334, 107, 313, 124, 317, 137, 327, 146, 315, 170, 297, 177, 288, 166, 276, 163, 266, 145, 262, 131, 251, 125, 256, 111, 251, 109, 236, 114, 235, 102, 243, 93)
+
+[node name="WitchArea" type="Area2D" parent="UI/FactionShopsPanel"]
+scale = Vector2(1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/FactionShopsPanel/WitchArea"]
+polygon = PackedVector2Array(208, 212, 222, 210, 246, 162, 259, 158, 266, 146, 261, 131, 251, 125, 256, 111, 251, 109, 236, 114, 235, 109, 220, 110, 203, 102, 193, 109, 195, 142, 204, 165, 206, 189, 201, 197, 201, 210)
+
+[node name="LichArea" type="Area2D" parent="UI/FactionShopsPanel"]
+scale = Vector2(1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/FactionShopsPanel/LichArea"]
+polygon = PackedVector2Array(148, 188, 151, 176, 151, 169, 141, 165, 135, 153, 130, 143, 141, 129, 122, 115, 120, 108, 126, 101, 147, 102, 149, 90, 132, 80, 132, 57, 138, 52, 146, 56, 159, 56, 208, 35, 221, 37, 227, 44, 227, 55, 216, 66, 223, 74, 238, 74, 243, 93, 235, 102, 235, 110, 220, 110, 201, 102, 194, 109, 195, 140, 189, 140, 184, 134, 178, 136, 176, 166, 162, 187)
+
 [node name="DevilHighlight" type="TextureRect" parent="UI/FactionShopsPanel"]
 visible = false
 layout_mode = 0
 offset_left = 23.0
-offset_top = 49.0
+offset_top = 48.0
 offset_right = 383.0
-offset_bottom = 530.0
-scale = Vector2(0.36, 0.36)
+offset_bottom = 529.0
+scale = Vector2(0.37, 0.37)
 texture = ExtResource("29_jpod3")
 
 [node name="ImpHighlight" type="TextureRect" parent="UI/FactionShopsPanel"]
 visible = false
 layout_mode = 0
-offset_left = 232.0
-offset_top = 32.0
-offset_right = 592.0
-offset_bottom = 513.0
-scale = Vector2(0.36, 0.36)
+offset_left = 230.0
+offset_top = 34.0
+offset_right = 590.0
+offset_bottom = 515.0
+scale = Vector2(0.315, 0.315)
 texture = ExtResource("30_23g4m")
 
 [node name="WitchHighlight" type="TextureRect" parent="UI/FactionShopsPanel"]
+visible = false
 layout_mode = 0
 offset_left = 184.0
 offset_top = 99.0
@@ -338,12 +359,13 @@ texture = ExtResource("31_weyqg")
 expand_mode = 1
 
 [node name="LichHighlight" type="TextureRect" parent="UI/FactionShopsPanel"]
+visible = false
 layout_mode = 0
-offset_left = 117.0
-offset_top = 24.0
-offset_right = 477.0
-offset_bottom = 505.0
-scale = Vector2(0.36, 0.36)
+offset_left = 115.0
+offset_top = 30.0
+offset_right = 481.0
+offset_bottom = 506.0
+scale = Vector2(0.355, 0.355)
 texture = ExtResource("32_bk7wi")
 
 [node name="FactionPortrait" type="TextureRect" parent="UI"]
@@ -607,6 +629,12 @@ A DESCRIPTION ABOUT THE DISPLAYED FACTION"
 [connection signal="pressed" from="UI/FactionShopsPanel" to="." method="_on_faction_shops_panel_pressed"]
 [connection signal="mouse_entered" from="UI/FactionShopsPanel/DevilArea" to="UI/FactionShopsPanel" method="_on_devil_area_mouse_entered"]
 [connection signal="mouse_exited" from="UI/FactionShopsPanel/DevilArea" to="UI/FactionShopsPanel" method="_on_devil_area_mouse_exited"]
+[connection signal="mouse_entered" from="UI/FactionShopsPanel/ImpArea" to="UI/FactionShopsPanel" method="_on_imp_mouse_entered"]
+[connection signal="mouse_exited" from="UI/FactionShopsPanel/ImpArea" to="UI/FactionShopsPanel" method="_on_imp_mouse_exited"]
+[connection signal="mouse_entered" from="UI/FactionShopsPanel/WitchArea" to="UI/FactionShopsPanel" method="_on_witch_area_mouse_entered"]
+[connection signal="mouse_exited" from="UI/FactionShopsPanel/WitchArea" to="UI/FactionShopsPanel" method="_on_witch_area_mouse_exited"]
+[connection signal="mouse_entered" from="UI/FactionShopsPanel/LichArea" to="UI/FactionShopsPanel" method="_on_lich_area_mouse_entered"]
+[connection signal="mouse_exited" from="UI/FactionShopsPanel/LichArea" to="UI/FactionShopsPanel" method="_on_lich_area_mouse_exited"]
 [connection signal="pressed" from="UI/EventPanel/LeaveButton" to="UI" method="_on_leave_button_pressed"]
 [connection signal="pressed" from="UI/EventPanel/NextButton" to="UI" method="_on_next_button_pressed"]
 [connection signal="mouse_has_entered" from="UI/StarterPackSelection/WITCH" to="UI/StarterPackSelection" method="_on_witch_mouse_has_entered"]
