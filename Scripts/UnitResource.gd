@@ -16,3 +16,4 @@ class_name UnitResource
 @export var attack_damage: float
 @export var health: float
 @export var unit_power_value: int
+@export_multiline var tooltip_message: String = "Tooltip not configured"

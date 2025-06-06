@@ -17,3 +17,8 @@ unit_upgrade_count = 1
 attack_damage = 10.0
 health = 60.0
 unit_power_value = 10
+tooltip_message = "A WOMAN WITH A THING FOR CROWS
+
+SEND OUT BIRDS TO DO HER BIDDING AND DAMAGE ENEMIES
+
+ABILITY	CROW DOT"

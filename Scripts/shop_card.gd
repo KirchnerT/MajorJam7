@@ -76,6 +76,11 @@ func hover_changed(_is_hovered: bool) -> void:
 
 
 func change_unit_in_card(new_unit: UnitResource) -> void:
+	var tooltip_text: String = new_unit.tooltip_message
+	if not tooltip:
+		await self.ready
+	
+	tooltip.Config(tooltip_text)
 	unit_in_card = new_unit
 
 

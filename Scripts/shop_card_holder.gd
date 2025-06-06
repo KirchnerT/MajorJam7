@@ -4,8 +4,8 @@ class_name ShopCardHolder
 signal activate_adding_unit(active: bool, shop_card: ShopCard)
 
 @onready var card: ShopCard = $ShopCard
-@onready var name_label: Label = $CardName
-@onready var cost_label: Label = $CostLabel
+@onready var name_label: Label = $Name/CardName
+@onready var cost_label: Label = $Cost/CostLabel
 
 var devil_bought: bool = false
 var imp_bought: bool = false
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 
 func update_unit_inside_card(new_unit: UnitResource) -> void:
 	card.change_unit_in_card(new_unit)
-	name_label.text = new_unit.name
+	name_label.text = new_unit.name.to_upper()
 	cost_label.text = "$" + str(card.unit_in_card.cost)
 
 

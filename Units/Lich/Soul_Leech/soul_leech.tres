@@ -17,3 +17,6 @@ unit_upgrade_count = 2
 attack_damage = 50.0
 health = 90.0
 unit_power_value = 5
+tooltip_message = "A LIFESTEAL BRUISER THAT WILL SOAK UP DAMAGE AS LONG AS IT IS DISHING SOME OUT
+
+ABILITY	LIFESTEAL"

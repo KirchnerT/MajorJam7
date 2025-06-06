@@ -1,26 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccqybcgx31ach"]
+[gd_scene load_steps=5 format=3 uid="uid://ccqybcgx31ach"]
 
 [ext_resource type="Script" path="res://Scripts/shop_card_holder.gd" id="1_ghbie"]
+[ext_resource type="Texture2D" uid="uid://cqa1e2gmi1mlr" path="res://Assets/Text_Box.png" id="2_83310"]
 [ext_resource type="PackedScene" uid="uid://co7kucn2sklks" path="res://Scenes/shop_card.tscn" id="2_s5amk"]
+[ext_resource type="FontFile" uid="uid://d1gy756akasq0" path="res://Assets/New Roman Times.ttf" id="3_mi80r"]
 
 [node name="ShopCardHolder" type="Node2D"]
 script = ExtResource("1_ghbie")
 
-[node name="ShopCard" parent="." instance=ExtResource("2_s5amk")]
+[node name="Name" type="NinePatchRect" parent="."]
+offset_left = -48.0
+offset_top = -104.0
+offset_right = 47.0
+offset_bottom = -75.0
+texture = ExtResource("2_83310")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
 
-[node name="CardName" type="Label" parent="."]
-offset_left = 58.0
-offset_top = -71.0
-offset_right = 163.0
-offset_bottom = -48.0
-text = "Invalid_Name"
+[node name="CardName" type="Label" parent="Name"]
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 90.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("3_mi80r")
+theme_override_font_sizes/font_size = 8
+text = "NAME NOT FOUND"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="CostLabel" type="Label" parent="."]
-offset_left = 89.0
-offset_top = 47.0
-offset_right = 129.0
-offset_bottom = 70.0
+[node name="Cost" type="NinePatchRect" parent="."]
+offset_left = 48.0
+offset_top = -104.0
+offset_right = 79.0
+offset_bottom = -75.0
+texture = ExtResource("2_83310")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="CostLabel" type="Label" parent="Cost"]
+offset_right = 40.0
+offset_bottom = 23.0
 text = "$0"
+
+[node name="ShopCard" parent="." instance=ExtResource("2_s5amk")]
 
 [connection signal="activate_adding_unit" from="ShopCard" to="." method="_on_shop_card_activate_adding_unit"]

@@ -15,7 +15,7 @@ enum RoundState {STARTER_DECK = 1,
 				GAMEOVER = 7,
 				STARTOFDAY = 8}
 
-@export var current_day: int = 0
+@export var current_day: int = 1
 @export var ally_unit_containers: Array[UnitContainer]
 @export var enemy_unit_containers: Array[UnitContainer]
 
@@ -73,6 +73,8 @@ func get_new_enemy_army() -> EnemyArmyResource:
 	var new_army: EnemyArmyResource = EnemyArmyResource.new()
 	new_army.faction = randi_range(0, 3)
 	faction_changed.emit(new_army.faction)
+	print("")
+	print("GETTING ARMY DAY :" + str(current_day))
 	
 	var units_in_faction: Array[UnitResource] = []
 	
@@ -120,11 +122,14 @@ func get_new_enemy_army() -> EnemyArmyResource:
 					cur_unit_array.unit_count = num_units_to_add
 					new_army.power_level += (num_units_to_add * cur_unit_array.unit_type.unit_power_value)	
 	
-	print("new army power level: " + str(new_army.power_level))
-	if new_army.power_level == 0:
-		return get_new_enemy_army()
-	
-	return new_army
+	#print("new army power level: " + str(new_army.power_level))
+	for unit in new_army.units:
+		print("")
+		print("NEW UNIT CONTAINER")
+		print(str(unit.unit_type) + " " + str(unit.unit_count))
+		if unit.unit_type != null:
+			return new_army
+	return get_new_enemy_army()
 
 
 func start_precombat() -> void:

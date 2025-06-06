@@ -17,3 +17,6 @@ unit_upgrade_count = 1
 attack_damage = 50.0
 health = 150.0
 unit_power_value = 15
+tooltip_message = "AN UNDEAD TANK THAT SUMMONS LESSER SKELETONS TO FORM A BONY ARMY
+
+ABILITY	RAISE DEAD"

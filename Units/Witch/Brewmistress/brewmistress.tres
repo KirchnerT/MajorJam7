@@ -17,3 +17,6 @@ unit_upgrade_count = 2
 attack_damage = 50.0
 health = 80.0
 unit_power_value = 8
+tooltip_message = "A VILE WITCH THAT TOSSES A HEALING OR DAMAGING BREW BASED ON HER WHIMS
+
+ABILITY	POTION TOSS"

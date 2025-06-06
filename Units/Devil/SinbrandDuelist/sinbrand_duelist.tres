@@ -17,3 +17,7 @@ unit_upgrade_count = 2
 attack_damage = 60.0
 health = 110.0
 unit_power_value = 4
+tooltip_message = "AN EXECUTIONER FROM HELL
+SEEKS OUT AND DEALS MASSIVE DAMAGE WHEN A UNIT IS ON ITS LAST LEGS
+
+ABILITY	EXECUTION"

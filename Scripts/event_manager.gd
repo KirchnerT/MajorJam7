@@ -28,7 +28,6 @@ func attempt_event_start() -> void:
 	
 	# Pick a random event
 	cur_event = events[randi_range(0, events.size() - 1)]
-	cur_event = events[1]
 	
 	# Setup event
 	var new_display_data: EventDisplayData = EventDisplayData.new(cur_event.name, 
@@ -95,7 +94,6 @@ func proceed_roulette_event() -> void:
 		var effect_keys: Array = cur_event.effects.keys()
 		
 		var random_roulette_key: int = effect_keys[randi_range(0, effect_keys.size() - 1)]
-		random_roulette_key = 3
 		var choosen_effect_desc: String = cur_event.effects[random_roulette_key]
 		var event_description = cur_event.description[0] + "\n\n" + cur_event.description[1] + "\n\n\n" + choosen_effect_desc
 		var new_display_data: EventDisplayData = EventDisplayData.new(cur_event.name, 

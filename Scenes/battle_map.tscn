@@ -120,7 +120,6 @@ position = Vector2(455, 422)
 
 [node name="DayManager" type="Node2D" parent="." node_paths=PackedStringArray("ally_unit_containers", "enemy_unit_containers")]
 script = ExtResource("3_8lsv2")
-current_day = 1
 ally_unit_containers = [NodePath("../AllyUnits/AllyUnitContainer_1"), NodePath("../AllyUnits/AllyUnitContainer_2"), NodePath("../AllyUnits/AllyUnitContainer_3"), NodePath("../AllyUnits/AllyUnitContainer_4"), NodePath("../AllyUnits/AllyUnitContainer_5"), NodePath("../AllyUnits/AllyUnitContainer_6")]
 enemy_unit_containers = [NodePath("../EnemyUnits/EnemyUnitContainer_1"), NodePath("../EnemyUnits/EnemyUnitContainer_2"), NodePath("../EnemyUnits/EnemyUnitContainer_3"), NodePath("../EnemyUnits/EnemyUnitContainer_4"), NodePath("../EnemyUnits/EnemyUnitContainer_5"), NodePath("../EnemyUnits/EnemyUnitContainer_6")]
 power_level_scaling = SubResource("Curve_qoav8")
@@ -279,7 +278,6 @@ text = "
 A DESCRIPTION ABOUT THE DISPLAYED FACTION"
 
 [node name="BattleStartButton" type="Button" parent="UI"]
-visible = false
 layout_mode = 0
 offset_left = 416.0
 offset_top = 115.0
@@ -289,17 +287,26 @@ theme_override_fonts/font = ExtResource("27_n2ljg")
 theme_override_font_sizes/font_size = 16
 text = "
 START BATTLE"
+flat = true
 
 [node name="ShopLeaveButton" type="Button" parent="UI"]
+visible = false
 layout_mode = 0
-offset_left = 719.0
-offset_top = 36.0
-offset_right = 787.0
-offset_bottom = 76.0
+offset_left = 662.0
+offset_top = 14.0
+offset_right = 730.0
+offset_bottom = 38.0
 theme_override_fonts/font = ExtResource("27_n2ljg")
-theme_override_font_sizes/font_size = 16
-text = "
-LEAVE"
+flat = true
+
+[node name="LeaveButtonText" type="Label" parent="UI/ShopLeaveButton"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 9.0
+offset_right = 64.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+text = "LEAVE"
 
 [node name="FactionShopsPanel" type="Panel" parent="UI"]
 visible = false

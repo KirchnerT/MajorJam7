@@ -17,3 +17,7 @@ unit_upgrade_count = 1
 attack_damage = 50.0
 health = 150.0
 unit_power_value = 15
+tooltip_message = "A LITTLE DEMON WITH A FETISH FOR PAIN
+HAS A HIGH DODGE CHANCE WHEN TAUNTING ENEMIES
+
+ABILITY	TAUNT"

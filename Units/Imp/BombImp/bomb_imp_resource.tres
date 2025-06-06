@@ -17,3 +17,7 @@ unit_upgrade_count = 2
 attack_damage = 100.0
 health = 70.0
 unit_power_value = 6
+tooltip_message = "LITTLE SPRINTER WITH A DEATH WITH
+WILL EXPLODE UPON CONTACT WITH AN ENEMY
+
+ABILITY SELF DESTRUCT"

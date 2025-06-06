@@ -12,7 +12,8 @@ func _ready() -> void:
 func Config(for_text: String) -> void:
 	if not rich_text_label:
 		await self.ready
-	rich_text_label.text = for_text
+		
+	rich_text_label.text = "\n" + for_text
 
 
 func activate_tooltip() -> void:

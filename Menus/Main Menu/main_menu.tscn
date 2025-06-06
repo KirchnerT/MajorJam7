@@ -121,6 +121,15 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_s1sh0")
 text = "
 QUIT"
 
+[node name="PlayTextureBackground" type="TextureRect" parent="MarginContainer/Menu Buttons/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionsTextureBackground" type="TextureRect" parent="MarginContainer/Menu Buttons/VBoxContainer"]
+layout_mode = 2
+
+[node name="QuitTextureBackground" type="TextureRect" parent="MarginContainer/Menu Buttons/VBoxContainer"]
+layout_mode = 2
+
 [node name="Credits" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
