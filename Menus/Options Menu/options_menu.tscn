@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://3t3ncivtcvwi"]
 
 [ext_resource type="Script" path="res://Menus/Options Menu/options_menu.gd" id="1_iswtf"]
-[ext_resource type="Texture2D" uid="uid://byvmfporyv5cq" path="res://Assets/fantasy_pixelmap_by_chevyray_d1uljko-375w-2x.jpg" id="2_n7hru"]
+[ext_resource type="Texture2D" uid="uid://dhgrsi4wdyhd" path="res://Assets/Map.png" id="2_d6ii3"]
 [ext_resource type="FontFile" uid="uid://d1gy756akasq0" path="res://Assets/New Roman Times.ttf" id="3_boie4"]
 [ext_resource type="PackedScene" uid="uid://c0r8eg85yibhc" path="res://Menus/Options Menu/audio_slider_settings.tscn" id="4_cyrgi"]
 
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_n7hru")
+texture = ExtResource("2_d6ii3")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
