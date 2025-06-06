@@ -25,8 +25,9 @@ func _on_shop_all_packed_cards_used() -> void:
 	day_manager.all_packed_cards_used()
 
 
-func _day_manager_precombat_started() -> void:
+func _day_manager_precombat_started(faction: int) -> void:
 	ui_manager.show_battle_start_button()
+	ui_manager.update_portrait(faction)
 	shop.close_shop()
 
 

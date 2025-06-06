@@ -1,10 +1,14 @@
 extends Node2D
 class_name DayManager
 
-signal precombat_started()
+signal precombat_started(faction: int)
 signal shopping_started(day: int)
 signal event_started()
 signal faction_changed(faction: AllyArmy.FACTIONS)
+
+# REMOVE LATER
+@onready var day_number: Label = $"../UI/DayStat/DayNumber"
+
 
 enum RoundState {STARTER_DECK = 1,
 				SHOP = 2,
@@ -44,6 +48,8 @@ func _ready() -> void:
 		enemy_unit_containers[i].is_enemy_container = true
 	
 	current_enemy_army = get_new_enemy_army()
+	
+	day_number.text = "Day " + str(current_day)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -59,6 +65,7 @@ func start_battle() -> void:
 
 func start_new_day() -> void:
 	current_day += 1
+	day_number.text = "Day " + str(current_day)
 	increase_power_level()
 	current_enemy_army = get_new_enemy_army()
 	round_state = RoundState.SHOP
@@ -187,7 +194,7 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 	elif prev_state == RoundState.STARTER_DECK && new_state == RoundState.PRECOMBAT:
 		print("Starter to Precombat")
 		start_precombat()
-		precombat_started.emit()
+		precombat_started.emit(current_enemy_army.faction)
 	elif prev_state == RoundState.PRECOMBAT && new_state == RoundState.COMBAT:
 		print("Precombat to Combat")
 		start_battle()
@@ -208,7 +215,7 @@ func round_state_transition(prev_state: RoundState, new_state: RoundState) -> vo
 	elif prev_state == RoundState.SHOP && new_state == RoundState.PRECOMBAT:
 		print("Shop to Precombat")
 		start_precombat()
-		precombat_started.emit()
+		precombat_started.emit(current_enemy_army.faction)
 	else:
 		print("STATE TRANSITION NOT NOTED: " + str(prev_state) + " --> " + str(new_state))
 

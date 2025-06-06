@@ -181,6 +181,28 @@ script = ExtResource("10_yym2m")
 starter_packs = [NodePath("StarterPackSelection/WITCH"), NodePath("StarterPackSelection/TestPack"), NodePath("StarterPackSelection/Imp"), NodePath("StarterPackSelection/Lich"), NodePath("StarterPackSelection/Devil")]
 all_portraits = Array[Texture]([ExtResource("28_ledcg"), ExtResource("34_7sb1a"), ExtResource("24_58q5g"), ExtResource("24_15hei")])
 
+[node name="DayStat" type="NinePatchRect" parent="UI"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 555.0
+offset_right = 722.0
+offset_bottom = 595.0
+texture = ExtResource("29_4f07c")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="DayNumber" type="Label" parent="UI/DayStat"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 71.0
+offset_bottom = 34.0
+text = "DAY #"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BattleStartButton" type="Button" parent="UI"]
 layout_mode = 0
 offset_left = 416.0
@@ -379,6 +401,7 @@ offset_bottom = 316.0
 texture = ExtResource("15_kr4cd")
 
 [node name="EventPanel" type="Panel" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 11.0
 offset_top = 280.0
