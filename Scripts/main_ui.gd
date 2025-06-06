@@ -67,7 +67,7 @@ func send_open_shop_signal(faction: AllyArmy.FACTIONS) -> void:
 
 func show_faction_shops_panel() -> void:
 	faction_shops_panel.visible = true
-	phylux_label.text = "$" + str(AllyArmy.phylux)
+	phylux_label.text = str(AllyArmy.phylux) + "\""
 	shop_leave_button.visible = true
 
 
@@ -78,7 +78,7 @@ func _on_shop_leave_button_pressed() -> void:
 
 
 func update_phylux() -> void:
-	phylux_label.text = "$" + str(AllyArmy.phylux)
+	phylux_label.text = str(AllyArmy.phylux) + "\""
 
 
 func start_event(event_data: EventManager.EventDisplayData) -> void:

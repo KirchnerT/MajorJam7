@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=58 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://Scenes/unit_container.tscn" id="2_nwsat"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://cqa1e2gmi1mlr" path="res://Assets/Text_Box.png" id="29_4f07c"]
 [ext_resource type="Texture2D" uid="uid://d3a21gf8clwph" path="res://Assets/Highlight/Devil_Highlight.png" id="29_jpod3"]
 [ext_resource type="Texture2D" uid="uid://c65uqssvjfjkw" path="res://Assets/Highlight/Imp_Highlight.png" id="30_23g4m"]
+[ext_resource type="FontFile" uid="uid://dq3kwembx1rr" path="res://Assets/Mystery Font.ttf" id="30_nttnv"]
 [ext_resource type="Texture2D" uid="uid://b7prxps57t01f" path="res://Assets/Highlight/Witch_Highlight.png" id="31_weyqg"]
 [ext_resource type="Texture2D" uid="uid://d1qitt8r3wttq" path="res://Assets/Highlight/Lich_Highlight.png" id="32_bk7wi"]
 [ext_resource type="Texture2D" uid="uid://b3n2age2orgv4" path="res://Assets/Liches_Portrait.png" id="34_7sb1a"]
@@ -195,11 +196,12 @@ patch_margin_bottom = 6
 
 [node name="DayNumber" type="Label" parent="UI/DayStat"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 71.0
-offset_bottom = 34.0
-text = "DAY #"
+offset_left = 5.0
+offset_top = 13.0
+offset_right = 72.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("30_nttnv")
+text = "DAY 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -268,11 +270,12 @@ expand_mode = 1
 
 [node name="MoneyLabel" type="Label" parent="UI/FactionShopsPanel"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 11.0
-offset_right = 55.0
-offset_bottom = 34.0
-text = "$0"
+offset_left = 16.0
+offset_top = 20.0
+offset_right = 56.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("30_nttnv")
+text = "99\""
 
 [node name="Shop_Sign" type="NinePatchRect" parent="UI/FactionShopsPanel"]
 layout_mode = 0

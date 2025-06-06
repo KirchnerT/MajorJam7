@@ -49,7 +49,7 @@ func _ready() -> void:
 	
 	current_enemy_army = get_new_enemy_army()
 	
-	day_number.text = "Day " + str(current_day)
+	day_number.text = "DAY " + str(current_day)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -65,7 +65,7 @@ func start_battle() -> void:
 
 func start_new_day() -> void:
 	current_day += 1
-	day_number.text = "Day " + str(current_day)
+	day_number.text = "DAY " + str(current_day)
 	increase_power_level()
 	current_enemy_army = get_new_enemy_army()
 	round_state = RoundState.SHOP

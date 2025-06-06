@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 func update_unit_inside_card(new_unit: UnitResource) -> void:
 	card.change_unit_in_card(new_unit)
 	name_label.text = new_unit.name.to_upper()
-	cost_label.text = "$" + str(card.unit_in_card.cost)
+	cost_label.text = str(card.unit_in_card.cost) + "\""
 
 
 func _on_shop_card_activate_adding_unit(active: bool, shop_card: ShopCard) -> void:
