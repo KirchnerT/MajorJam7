@@ -67,7 +67,7 @@ func update_stats(attack_damage: float, health: float) -> void:
 
 
 func take_damage(damage: float, source: UnitBase, damage_mult_low_health: float = 1) -> void:
-	sprite_component.stop_walk_animation()
+	#sprite_component.stop_walk_animation()
 	#if damage > 0:
 		#sprite_component.play_flash_animation()
 	health_component.take_damage(damage, source, damage_mult_low_health)
