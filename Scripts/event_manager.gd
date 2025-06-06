@@ -19,7 +19,8 @@ func _ready() -> void:
 	start_event_chance = event_chance
 
 func attempt_event_start() -> void:
-	if randi_range(0, 1) > event_chance:
+	var random_number: int = randi_range(1, 100)
+	if random_number as float / 100 > event_chance:
 		event_ended.emit()
 		event_chance += 0.05 # increase odds of event on next day by 5%
 		return

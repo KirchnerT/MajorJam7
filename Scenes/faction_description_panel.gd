@@ -13,9 +13,7 @@ extends Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	texture_rect.visible = false
-	rich_text_label.visible = false
-	faction_name.visible = false
+	pass
 
 
 func update_information() -> void:

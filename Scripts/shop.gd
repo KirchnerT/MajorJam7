@@ -59,7 +59,7 @@ func show_starter_pack_cards(starter_pack: CardPack) -> void:
 	var added_cards: Array[Node2D]
 	for i in number_of_cards:
 		added_cards.append(add_new_card_scene(starter_pack.unit_pool[randi_range(0, starter_pack.unit_pool.size() - 1)], true))
-	distribute_cards_in_square(added_cards, 500, shop_center.global_position)
+	distribute_cards_in_square(added_cards, 650, shop_center.global_position)
 
 
 func add_new_card_scene(unit_to_add: UnitResource, is_packed_card: bool) -> ShopCard:

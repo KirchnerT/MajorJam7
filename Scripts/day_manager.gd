@@ -143,7 +143,9 @@ func setup_armies() -> void:
 
 func setup_enemy_army() -> void:
 	current_enemy_army.units.shuffle()
-	for i in enemy_unit_containers.size() - 1:
+	
+	for i in enemy_unit_containers.size():
+		print(i)
 		var cur_unit_array: EnemyArmyResource.UnitArray = current_enemy_army.units[i]
 		var test_container_enemy = UnitContainerInfo.new(cur_unit_array.unit_type, cur_unit_array.unit_count, "Enemy")
 		enemy_unit_containers[i].update_unit_container(test_container_enemy)

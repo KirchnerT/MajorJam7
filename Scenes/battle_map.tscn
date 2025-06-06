@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=51 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://Scenes/unit_container.tscn" id="2_nwsat"]
@@ -30,10 +30,14 @@
 [ext_resource type="Texture2D" uid="uid://bq55b5k3o5hnt" path="res://Assets/unit_sprites/Witches_Cards_Back_-_Final.png" id="22_101ck"]
 [ext_resource type="Texture2D" uid="uid://jfigqc4hiim7" path="res://Assets/unit_sprites/Lichs_Cards_Back_-_Final.png" id="22_xifm6"]
 [ext_resource type="Texture2D" uid="uid://btknep381bjb" path="res://Assets/unit_sprites/Devil_Cards_Back_-_Final.png" id="23_2k1ty"]
+[ext_resource type="Texture2D" uid="uid://bio31yyjgtbjh" path="res://Assets/Devil_Portrait.png" id="24_15hei"]
 [ext_resource type="Texture2D" uid="uid://cjtkrgx4ohgy0" path="res://Assets/unit_sprites/Imps_Cards_Back_-_Final.1.png" id="25_axsr8"]
+[ext_resource type="Script" path="res://Scenes/starter_pack_selection.gd" id="27_b14x2"]
 [ext_resource type="FontFile" uid="uid://d1gy756akasq0" path="res://Assets/New Roman Times.ttf" id="27_n2ljg"]
 [ext_resource type="Script" path="res://Scenes/faction_description_panel.gd" id="28_5732x"]
 [ext_resource type="Texture2D" uid="uid://tn6eguwflw2x" path="res://Assets/Unit_-_Test.png" id="28_86234"]
+[ext_resource type="Texture2D" uid="uid://cgk22t0p6u2wl" path="res://Assets/Witches_Portrait.png" id="28_ledcg"]
+[ext_resource type="Script" path="res://Scripts/start_pack_info_resource.gd" id="28_qym20"]
 [ext_resource type="Texture2D" uid="uid://cqa1e2gmi1mlr" path="res://Assets/Text_Box.png" id="29_4f07c"]
 [ext_resource type="Texture2D" uid="uid://b3n2age2orgv4" path="res://Assets/Liches_Portrait.png" id="34_7sb1a"]
 [ext_resource type="Texture2D" uid="uid://dhgrsi4wdyhd" path="res://Assets/Map.png" id="36_uhr0i"]
@@ -42,15 +46,42 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0341615, 0.359606), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idebf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_andct"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_susla"]
 font = ExtResource("27_n2ljg")
 font_size = 60
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqkv4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idebf"]
+
+[sub_resource type="Resource" id="Resource_5kmg4"]
+script = ExtResource("28_qym20")
+faction_name = "WITCHES"
+faction_portrait = ExtResource("28_ledcg")
+faction_description = "MASTERS OF MAGIC AND RANGE
+WITCHES BEND THE RULES OF BATTLE WITH POTIONS AND DAMAGE OVER TIME EFFECTS"
+
+[sub_resource type="Resource" id="Resource_e33w6"]
+script = ExtResource("28_qym20")
+faction_name = "IMPS"
+faction_description = "CHAOTIC CLEVER AND COMPLETELY UNHINGED
+IMPS THRIVE ON EXPLOSIVES AND TAUNTING THOSE AROUND THEM"
+
+[sub_resource type="Resource" id="Resource_h7e02"]
+script = ExtResource("28_qym20")
+faction_name = "DEVILS"
+faction_portrait = ExtResource("24_15hei")
+faction_description = "POWERFUL AND RUTHLESS
+DEVILS EXECUTE THOSE AROUND THEM WHILE GAINING POWER AS THE FIGHTS GO ON"
+
+[sub_resource type="Resource" id="Resource_rtpmd"]
+script = ExtResource("28_qym20")
+faction_name = "LICHES"
+faction_portrait = ExtResource("34_7sb1a")
+faction_description = "ANCIENT AND UNHOLY TACTICIANS
+LICHES DEAL IN DEATH AND DECAY SUMMONING UNDEAD SERVANTS AND DRAINING LIFE FROM THE LIVING"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_andct"]
 
 [node name="BattleMap" type="Node2D"]
 script = ExtResource("1_e6q5w")
@@ -111,10 +142,10 @@ position = Vector2(313, 421)
 [node name="CardHolderContainer" type="Node2D" parent="Shop"]
 
 [node name="ShopCardHolder" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(228, 418)
+position = Vector2(208, 418)
 
 [node name="ShopCardHolder2" parent="Shop/CardHolderContainer" instance=ExtResource("8_et18m")]
-position = Vector2(455, 422)
+position = Vector2(475, 422)
 
 [node name="PackedCardsContainer" type="Node2D" parent="Shop"]
 
@@ -141,141 +172,7 @@ offset_bottom = 600.0
 mouse_filter = 1
 script = ExtResource("10_yym2m")
 starter_packs = [NodePath("StarterPackSelection/WITCH"), NodePath("StarterPackSelection/TestPack"), NodePath("StarterPackSelection/Imp"), NodePath("StarterPackSelection/Lich"), NodePath("StarterPackSelection/Devil")]
-all_portraits = Array[Texture]([ExtResource("34_7sb1a"), ExtResource("34_7sb1a"), ExtResource("34_7sb1a"), ExtResource("34_7sb1a")])
-
-[node name="StarterPackSelection" type="Panel" parent="UI"]
-visible = false
-layout_mode = 0
-offset_right = 958.0
-offset_bottom = 601.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_idebf")
-
-[node name="ColorRect" type="ColorRect" parent="UI/StarterPackSelection"]
-layout_mode = 0
-offset_left = -21.0
-offset_top = -11.0
-offset_right = 985.0
-offset_bottom = 613.0
-color = Color(0.425325, 0.425325, 0.425325, 1)
-
-[node name="WITCH" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
-layout_mode = 0
-offset_left = 106.0
-offset_top = 344.0
-offset_right = 202.0
-offset_bottom = 488.0
-texture = ExtResource("22_101ck")
-label_name = "Witch"
-
-[node name="Lich" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
-layout_mode = 0
-offset_left = 761.0
-offset_top = 343.0
-offset_right = 857.0
-offset_bottom = 487.0
-texture = ExtResource("22_xifm6")
-starter_pack = ExtResource("19_ur6mj")
-label_name = "Lich"
-
-[node name="Devil" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
-layout_mode = 0
-offset_left = 305.0
-offset_top = 345.0
-offset_right = 401.0
-offset_bottom = 489.0
-texture = ExtResource("23_2k1ty")
-starter_pack = ExtResource("20_njsr4")
-label_name = "Devil"
-
-[node name="Imp" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
-layout_mode = 0
-offset_left = 566.0
-offset_top = 345.0
-offset_right = 662.0
-offset_bottom = 489.0
-texture = ExtResource("25_axsr8")
-starter_pack = ExtResource("13_jyuje")
-label_name = "Imp"
-
-[node name="TestPack" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
-visible = false
-layout_mode = 0
-offset_left = 436.0
-offset_top = 464.0
-offset_right = 532.0
-offset_bottom = 608.0
-starter_pack = ExtResource("11_d5r8k")
-label_name = "Test Pack"
-
-[node name="FactionDescriptionPanel" type="Panel" parent="UI/StarterPackSelection"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 14.0
-offset_right = 942.0
-offset_bottom = 309.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_andct")
-script = ExtResource("28_5732x")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("29_4f07c")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="Tutorial" type="Label" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
-layout_mode = 2
-offset_left = 132.0
-offset_top = 12.0
-offset_right = 780.0
-offset_bottom = 111.0
-theme_override_fonts/font = ExtResource("27_n2ljg")
-theme_override_font_sizes/font_size = 16
-text = "
-CHOOSE A FACTION PACK THAT YOU WOULD LIKE TO OPEN
-
- THIS WILL DETERMINE THE FIRST FEW UNITS YOU OBTAIN ON YOUR JOURNEY"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="FactionName" type="Label" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
-layout_mode = 0
-offset_left = 84.0
-offset_top = 91.0
-offset_right = 223.0
-offset_bottom = 126.0
-theme_override_fonts/font = ExtResource("27_n2ljg")
-theme_override_font_sizes/font_size = 16
-text = "
-FACTION NAME
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
-layout_mode = 0
-offset_left = 85.0
-offset_top = 125.0
-offset_right = 222.0
-offset_bottom = 276.0
-texture = ExtResource("28_86234")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
-layout_mode = 0
-offset_left = 248.0
-offset_top = 125.0
-offset_right = 832.0
-offset_bottom = 263.0
-theme_override_fonts/normal_font = ExtResource("27_n2ljg")
-theme_override_font_sizes/normal_font_size = 16
-text = "
-A DESCRIPTION ABOUT THE DISPLAYED FACTION"
+all_portraits = Array[Texture]([ExtResource("28_ledcg"), ExtResource("34_7sb1a"), ExtResource("34_7sb1a"), ExtResource("24_15hei")])
 
 [node name="BattleStartButton" type="Button" parent="UI"]
 layout_mode = 0
@@ -462,6 +359,7 @@ offset_left = 11.0
 offset_top = 280.0
 offset_right = 718.0
 offset_bottom = 591.0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_eqkv4")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/EventPanel"]
@@ -537,6 +435,150 @@ text = "
 NEXT
 "
 
+[node name="StarterPackSelection" type="Panel" parent="UI"]
+layout_mode = 0
+offset_right = 958.0
+offset_bottom = 601.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_idebf")
+script = ExtResource("27_b14x2")
+witch_starter_info = SubResource("Resource_5kmg4")
+imp_starter_info = SubResource("Resource_e33w6")
+devil_starter_info = SubResource("Resource_h7e02")
+lich_starter_info = SubResource("Resource_rtpmd")
+
+[node name="ColorRect" type="ColorRect" parent="UI/StarterPackSelection"]
+layout_mode = 0
+offset_left = -21.0
+offset_top = -11.0
+offset_right = 985.0
+offset_bottom = 613.0
+color = Color(0.425325, 0.425325, 0.425325, 1)
+
+[node name="WITCH" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 386.0
+offset_right = 198.0
+offset_bottom = 530.0
+mouse_filter = 0
+texture = ExtResource("22_101ck")
+label_name = "Witch"
+
+[node name="Lich" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 385.0
+offset_right = 853.0
+offset_bottom = 529.0
+mouse_filter = 0
+texture = ExtResource("22_xifm6")
+starter_pack = ExtResource("19_ur6mj")
+label_name = "Lich"
+
+[node name="Devil" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 387.0
+offset_right = 412.0
+offset_bottom = 531.0
+mouse_filter = 0
+texture = ExtResource("23_2k1ty")
+starter_pack = ExtResource("20_njsr4")
+label_name = "Devil"
+
+[node name="Imp" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 387.0
+offset_right = 645.0
+offset_bottom = 531.0
+mouse_filter = 0
+texture = ExtResource("25_axsr8")
+starter_pack = ExtResource("13_jyuje")
+label_name = "Imp"
+
+[node name="TestPack" parent="UI/StarterPackSelection" instance=ExtResource("10_uihuv")]
+visible = false
+layout_mode = 0
+offset_left = 436.0
+offset_top = 464.0
+offset_right = 532.0
+offset_bottom = 608.0
+starter_pack = ExtResource("11_d5r8k")
+label_name = "Test Pack"
+
+[node name="FactionDescriptionPanel" type="Panel" parent="UI/StarterPackSelection"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 942.0
+offset_bottom = 309.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_andct")
+script = ExtResource("28_5732x")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_4f07c")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Tutorial" type="Label" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = -10.0
+offset_right = 915.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 24
+text = "
+CHOOSE A FACTION PACK THAT YOU WOULD LIKE TO OPEN
+
+ THIS WILL DETERMINE THE FIRST FEW UNITS YOU OBTAIN ON YOUR JOURNEY"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="FactionName" type="Label" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 110.0
+offset_right = 342.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+theme_override_font_sizes/font_size = 16
+text = "
+FACTION NAME
+"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 99.0
+offset_right = 186.0
+offset_bottom = 281.0
+texture = ExtResource("28_86234")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/StarterPackSelection/FactionDescriptionPanel"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 174.0
+offset_right = 912.0
+offset_bottom = 283.0
+theme_override_fonts/normal_font = ExtResource("27_n2ljg")
+theme_override_font_sizes/normal_font_size = 16
+text = "
+A DESCRIPTION ABOUT THE DISPLAYED FACTION"
+
 [connection signal="all_packed_cards_used" from="Shop" to="." method="_on_shop_all_packed_cards_used"]
 [connection signal="swap_portrait_shop" from="Shop" to="." method="_on_shop_swap_portrait_shop"]
 [connection signal="child_exiting_tree" from="Shop/PackedCardsContainer" to="Shop" method="_on_pulled_cards_container_child_exiting_tree"]
@@ -560,3 +602,17 @@ NEXT
 [connection signal="pressed" from="UI/FactionShopsPanel/ImpShop" to="UI" method="_on_imp_shop_pressed"]
 [connection signal="pressed" from="UI/EventPanel/LeaveButton" to="UI" method="_on_leave_button_pressed"]
 [connection signal="pressed" from="UI/EventPanel/NextButton" to="UI" method="_on_next_button_pressed"]
+[connection signal="mouse_has_entered" from="UI/StarterPackSelection/WITCH" to="UI/StarterPackSelection" method="_on_witch_mouse_has_entered"]
+[connection signal="mouse_has_exited" from="UI/StarterPackSelection/WITCH" to="UI/StarterPackSelection" method="_on_witch_mouse_has_exited"]
+[connection signal="mouse_entered" from="UI/StarterPackSelection/Lich" to="UI/StarterPackSelection" method="_on_lich_mouse_entered"]
+[connection signal="mouse_exited" from="UI/StarterPackSelection/Lich" to="UI/StarterPackSelection" method="_on_lich_mouse_exited"]
+[connection signal="mouse_has_entered" from="UI/StarterPackSelection/Lich" to="UI/StarterPackSelection" method="_on_lich_mouse_has_entered"]
+[connection signal="mouse_has_exited" from="UI/StarterPackSelection/Lich" to="UI/StarterPackSelection" method="_on_lich_mouse_has_exited"]
+[connection signal="mouse_entered" from="UI/StarterPackSelection/Devil" to="UI/StarterPackSelection" method="_on_devil_mouse_entered"]
+[connection signal="mouse_exited" from="UI/StarterPackSelection/Devil" to="UI/StarterPackSelection" method="_on_devil_mouse_exited"]
+[connection signal="mouse_has_entered" from="UI/StarterPackSelection/Devil" to="UI/StarterPackSelection" method="_on_devil_mouse_has_entered"]
+[connection signal="mouse_has_exited" from="UI/StarterPackSelection/Devil" to="UI/StarterPackSelection" method="_on_devil_mouse_has_exited"]
+[connection signal="mouse_entered" from="UI/StarterPackSelection/Imp" to="UI/StarterPackSelection" method="_on_imp_mouse_entered"]
+[connection signal="mouse_exited" from="UI/StarterPackSelection/Imp" to="UI/StarterPackSelection" method="_on_imp_mouse_exited"]
+[connection signal="mouse_has_entered" from="UI/StarterPackSelection/Imp" to="UI/StarterPackSelection" method="_on_imp_mouse_has_entered"]
+[connection signal="mouse_has_exited" from="UI/StarterPackSelection/Imp" to="UI/StarterPackSelection" method="_on_imp_mouse_has_exited"]
