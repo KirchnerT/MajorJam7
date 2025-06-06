@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=56 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://Scenes/unit_container.tscn" id="2_nwsat"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://btknep381bjb" path="res://Assets/unit_sprites/Devil_Cards_Back_-_Final.png" id="23_2k1ty"]
 [ext_resource type="Texture2D" uid="uid://bio31yyjgtbjh" path="res://Assets/Devil_Portrait.png" id="24_15hei"]
 [ext_resource type="Texture2D" uid="uid://cjtkrgx4ohgy0" path="res://Assets/unit_sprites/Imps_Cards_Back_-_Final.1.png" id="25_axsr8"]
+[ext_resource type="Script" path="res://Scenes/faction_shops_panel.gd" id="26_wyx5i"]
 [ext_resource type="Script" path="res://Scenes/starter_pack_selection.gd" id="27_b14x2"]
 [ext_resource type="FontFile" uid="uid://d1gy756akasq0" path="res://Assets/New Roman Times.ttf" id="27_n2ljg"]
 [ext_resource type="Script" path="res://Scenes/faction_description_panel.gd" id="28_5732x"]
@@ -39,6 +40,10 @@
 [ext_resource type="Texture2D" uid="uid://cgk22t0p6u2wl" path="res://Assets/Witches_Portrait.png" id="28_ledcg"]
 [ext_resource type="Script" path="res://Scripts/start_pack_info_resource.gd" id="28_qym20"]
 [ext_resource type="Texture2D" uid="uid://cqa1e2gmi1mlr" path="res://Assets/Text_Box.png" id="29_4f07c"]
+[ext_resource type="Texture2D" uid="uid://d3a21gf8clwph" path="res://Assets/Highlight/Devil_Highlight.png" id="29_jpod3"]
+[ext_resource type="Texture2D" uid="uid://c65uqssvjfjkw" path="res://Assets/Highlight/Imp_Highlight.png" id="30_23g4m"]
+[ext_resource type="Texture2D" uid="uid://b7prxps57t01f" path="res://Assets/Highlight/Witch_Highlight.png" id="31_weyqg"]
+[ext_resource type="Texture2D" uid="uid://d1qitt8r3wttq" path="res://Assets/Highlight/Lich_Highlight.png" id="32_bk7wi"]
 [ext_resource type="Texture2D" uid="uid://b3n2age2orgv4" path="res://Assets/Liches_Portrait.png" id="34_7sb1a"]
 [ext_resource type="Texture2D" uid="uid://dhgrsi4wdyhd" path="res://Assets/Map.png" id="36_uhr0i"]
 
@@ -206,12 +211,13 @@ theme_override_fonts/font = ExtResource("27_n2ljg")
 text = "LEAVE"
 
 [node name="FactionShopsPanel" type="Panel" parent="UI"]
-visible = false
 layout_mode = 0
 offset_left = 290.0
 offset_top = 10.0
 offset_right = 659.0
 offset_bottom = 249.0
+mouse_filter = 1
+script = ExtResource("26_wyx5i")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/FactionShopsPanel"]
 layout_mode = 1
@@ -226,7 +232,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="TextureRect" type="TextureRect" parent="UI/FactionShopsPanel"]
+[node name="Map" type="TextureRect" parent="UI/FactionShopsPanel"]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 11.0
@@ -235,50 +241,6 @@ offset_bottom = 611.0
 scale = Vector2(0.36, 0.36)
 texture = ExtResource("36_uhr0i")
 expand_mode = 1
-
-[node name="WitchShop" type="Button" parent="UI/FactionShopsPanel"]
-layout_mode = 0
-offset_left = 271.0
-offset_top = 45.0
-offset_right = 393.0
-offset_bottom = 97.0
-theme_override_fonts/font = ExtResource("27_n2ljg")
-theme_override_font_sizes/font_size = 16
-text = "
-WITCH SHOP"
-
-[node name="DevilShop" type="Button" parent="UI/FactionShopsPanel"]
-layout_mode = 0
-offset_left = 51.0
-offset_top = 44.0
-offset_right = 173.0
-offset_bottom = 97.0
-theme_override_fonts/font = ExtResource("27_n2ljg")
-theme_override_font_sizes/font_size = 16
-text = "
-DEVIL SHOP"
-
-[node name="LichShop" type="Button" parent="UI/FactionShopsPanel"]
-layout_mode = 0
-offset_left = 51.0
-offset_top = 135.0
-offset_right = 173.0
-offset_bottom = 188.0
-theme_override_fonts/font = ExtResource("27_n2ljg")
-theme_override_font_sizes/font_size = 16
-text = "
-LICH SHOP"
-
-[node name="ImpShop" type="Button" parent="UI/FactionShopsPanel"]
-layout_mode = 0
-offset_left = 271.0
-offset_top = 135.0
-offset_right = 393.0
-offset_bottom = 188.0
-theme_override_fonts/font = ExtResource("27_n2ljg")
-theme_override_font_sizes/font_size = 16
-text = "
-IMP SHOP"
 
 [node name="MoneyLabel" type="Label" parent="UI/FactionShopsPanel"]
 layout_mode = 0
@@ -338,6 +300,51 @@ offset_bottom = 231.0
 theme_override_fonts/font = ExtResource("27_n2ljg")
 text = "P"
 label_settings = SubResource("LabelSettings_susla")
+
+[node name="DevilArea" type="Area2D" parent="UI/FactionShopsPanel"]
+scale = Vector2(1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/FactionShopsPanel/DevilArea"]
+polygon = PackedVector2Array(25, 115, 33, 95, 82, 50, 131, 58, 132, 81, 148, 91, 147, 102, 127, 101, 120, 108, 122, 116, 141, 129, 130, 143, 136, 154, 123, 154, 93, 196, 75, 218, 60, 217, 38, 188, 64, 163, 38, 152, 39, 144, 45, 138, 24, 120)
+
+[node name="DevilHighlight" type="TextureRect" parent="UI/FactionShopsPanel"]
+visible = false
+layout_mode = 0
+offset_left = 23.0
+offset_top = 49.0
+offset_right = 383.0
+offset_bottom = 530.0
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("29_jpod3")
+
+[node name="ImpHighlight" type="TextureRect" parent="UI/FactionShopsPanel"]
+visible = false
+layout_mode = 0
+offset_left = 232.0
+offset_top = 32.0
+offset_right = 592.0
+offset_bottom = 513.0
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("30_23g4m")
+
+[node name="WitchHighlight" type="TextureRect" parent="UI/FactionShopsPanel"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 99.0
+offset_right = 544.0
+offset_bottom = 580.0
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("31_weyqg")
+expand_mode = 1
+
+[node name="LichHighlight" type="TextureRect" parent="UI/FactionShopsPanel"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 24.0
+offset_right = 477.0
+offset_bottom = 505.0
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("32_bk7wi")
 
 [node name="FactionPortrait" type="TextureRect" parent="UI"]
 layout_mode = 0
@@ -436,6 +443,7 @@ NEXT
 "
 
 [node name="StarterPackSelection" type="Panel" parent="UI"]
+visible = false
 layout_mode = 0
 offset_right = 958.0
 offset_bottom = 601.0
@@ -596,10 +604,9 @@ A DESCRIPTION ABOUT THE DISPLAYED FACTION"
 [connection signal="pressed" from="UI/BattleStartButton" to="DayManager" method="_on_battle_start_button_pressed"]
 [connection signal="pressed" from="UI/BattleStartButton" to="UI" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/ShopLeaveButton" to="UI" method="_on_shop_leave_button_pressed"]
-[connection signal="pressed" from="UI/FactionShopsPanel/WitchShop" to="UI" method="_on_witch_shop_pressed"]
-[connection signal="pressed" from="UI/FactionShopsPanel/DevilShop" to="UI" method="_on_devil_shop_pressed"]
-[connection signal="pressed" from="UI/FactionShopsPanel/LichShop" to="UI" method="_on_lich_shop_pressed"]
-[connection signal="pressed" from="UI/FactionShopsPanel/ImpShop" to="UI" method="_on_imp_shop_pressed"]
+[connection signal="pressed" from="UI/FactionShopsPanel" to="." method="_on_faction_shops_panel_pressed"]
+[connection signal="mouse_entered" from="UI/FactionShopsPanel/DevilArea" to="UI/FactionShopsPanel" method="_on_devil_area_mouse_entered"]
+[connection signal="mouse_exited" from="UI/FactionShopsPanel/DevilArea" to="UI/FactionShopsPanel" method="_on_devil_area_mouse_exited"]
 [connection signal="pressed" from="UI/EventPanel/LeaveButton" to="UI" method="_on_leave_button_pressed"]
 [connection signal="pressed" from="UI/EventPanel/NextButton" to="UI" method="_on_next_button_pressed"]
 [connection signal="mouse_has_entered" from="UI/StarterPackSelection/WITCH" to="UI/StarterPackSelection" method="_on_witch_mouse_has_entered"]

@@ -85,3 +85,7 @@ func _on_day_manager_faction_changed(faction: int) -> void:
 
 func update_portrait(faction: int) -> void:
 	ui_manager.update_portrait(faction)
+
+
+func _on_faction_shops_panel_pressed(faction: int) -> void:
+	shop.display_faction_shop(faction)

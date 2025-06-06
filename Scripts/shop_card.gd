@@ -5,6 +5,9 @@ signal activate_adding_unit(active: bool, shop_card: ShopCard)
 
 @onready var unit_sprite: Sprite2D = $UnitSprite
 @onready var tooltip: Tooltip = $Tooltip
+@onready var card_back: Sprite2D = $CardBack
+
+@export var faction_card_backs: Array[Texture]
 
 var is_hovered: bool = false
 var offset: Vector2 # snap location if card is within unit container and player lets go of card
@@ -76,9 +79,11 @@ func hover_changed(_is_hovered: bool) -> void:
 
 
 func change_unit_in_card(new_unit: UnitResource) -> void:
-	var tooltip_text: String = new_unit.tooltip_message
-	if not tooltip:
+	if not tooltip || not card_back:
 		await self.ready
+	
+	card_back.texture = faction_card_backs[new_unit.faction]
+	var tooltip_text: String = new_unit.tooltip_message
 	
 	tooltip.Config(tooltip_text)
 	unit_in_card = new_unit

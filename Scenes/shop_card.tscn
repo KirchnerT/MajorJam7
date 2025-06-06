@@ -1,17 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://co7kucn2sklks"]
+[gd_scene load_steps=9 format=3 uid="uid://co7kucn2sklks"]
 
 [ext_resource type="Script" path="res://Scripts/shop_card.gd" id="1_ot6uk"]
 [ext_resource type="Texture2D" uid="uid://cjtkrgx4ohgy0" path="res://Assets/unit_sprites/Imps_Cards_Back_-_Final.1.png" id="2_4t4vx"]
+[ext_resource type="Texture2D" uid="uid://bq55b5k3o5hnt" path="res://Assets/unit_sprites/Witches_Cards_Back_-_Final.png" id="2_xrkkv"]
+[ext_resource type="Texture2D" uid="uid://jfigqc4hiim7" path="res://Assets/unit_sprites/Lichs_Cards_Back_-_Final.png" id="3_s2q4s"]
 [ext_resource type="Texture2D" uid="uid://tn6eguwflw2x" path="res://Assets/Unit_-_Test.png" id="3_t2orw"]
 [ext_resource type="PackedScene" uid="uid://ddwdfxlw4r4wn" path="res://tooltip.tscn" id="4_tc8yf"]
+[ext_resource type="Texture2D" uid="uid://btknep381bjb" path="res://Assets/unit_sprites/Devil_Cards_Back_-_Final.png" id="5_rf1f3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skkqy"]
 size = Vector2(95, 143)
 
 [node name="TempCard" type="Node2D"]
 script = ExtResource("1_ot6uk")
+faction_card_backs = Array[Texture]([ExtResource("2_xrkkv"), ExtResource("3_s2q4s"), ExtResource("2_4t4vx"), ExtResource("5_rf1f3")])
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CardBack" type="Sprite2D" parent="."]
 texture = ExtResource("2_4t4vx")
 
 [node name="UnitSprite" type="Sprite2D" parent="."]

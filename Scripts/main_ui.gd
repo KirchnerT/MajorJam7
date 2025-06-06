@@ -71,22 +71,6 @@ func show_faction_shops_panel() -> void:
 	shop_leave_button.visible = true
 
 
-func _on_witch_shop_pressed() -> void:
-	send_open_shop_signal(AllyArmy.FACTIONS.WITCHES)
-
-
-func _on_devil_shop_pressed() -> void:
-	send_open_shop_signal(AllyArmy.FACTIONS.DEVILS)
-
-
-func _on_lich_shop_pressed() -> void:
-	send_open_shop_signal(AllyArmy.FACTIONS.LICHES)
-
-
-func _on_imp_shop_pressed() -> void:
-	send_open_shop_signal(AllyArmy.FACTIONS.IMPS)
-
-
 func _on_shop_leave_button_pressed() -> void:
 	shop_leave_button.visible = false
 	faction_shops_panel.visible = false
