@@ -309,19 +309,16 @@ label_settings = SubResource("LabelSettings_susla")
 polygon = PackedVector2Array(25, 115, 33, 95, 82, 50, 131, 58, 132, 81, 148, 91, 147, 102, 127, 101, 120, 108, 122, 116, 141, 129, 130, 143, 136, 154, 123, 154, 93, 196, 75, 218, 60, 217, 38, 188, 64, 163, 38, 152, 39, 144, 45, 138, 24, 120)
 
 [node name="ImpArea" type="Area2D" parent="UI/FactionShopsPanel"]
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/FactionShopsPanel/ImpArea"]
 polygon = PackedVector2Array(238, 74, 290, 44, 324, 52, 337, 82, 334, 107, 313, 124, 317, 137, 327, 146, 315, 170, 297, 177, 288, 166, 276, 163, 266, 145, 262, 131, 251, 125, 256, 111, 251, 109, 236, 114, 235, 102, 243, 93)
 
 [node name="WitchArea" type="Area2D" parent="UI/FactionShopsPanel"]
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/FactionShopsPanel/WitchArea"]
 polygon = PackedVector2Array(208, 212, 222, 210, 246, 162, 259, 158, 266, 146, 261, 131, 251, 125, 256, 111, 251, 109, 236, 114, 235, 109, 220, 110, 203, 102, 193, 109, 195, 142, 204, 165, 206, 189, 201, 197, 201, 210)
 
 [node name="LichArea" type="Area2D" parent="UI/FactionShopsPanel"]
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/FactionShopsPanel/LichArea"]
 polygon = PackedVector2Array(148, 188, 151, 176, 151, 169, 141, 165, 135, 153, 130, 143, 141, 129, 122, 115, 120, 108, 126, 101, 147, 102, 149, 90, 132, 80, 132, 57, 138, 52, 146, 56, 159, 56, 208, 35, 221, 37, 227, 44, 227, 55, 216, 66, 223, 74, 238, 74, 243, 93, 235, 102, 235, 110, 220, 110, 201, 102, 194, 109, 195, 140, 189, 140, 184, 134, 178, 136, 176, 166, 162, 187)
