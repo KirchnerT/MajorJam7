@@ -118,8 +118,12 @@ func proceed_roulette_event() -> void:
 			2:
 				AllyArmy.phylux = AllyArmy.phylux / 2
 			3:
-				var random_index: int = randi_range(0, AllyArmy.unit_containers.size() - 1)
-				var random_unit_container: UnitContainerInfo = AllyArmy.unit_containers[random_index]
+				var random_unit_container: UnitContainerInfo
+				var random_index: int
+				
+				while random_unit_container == null:
+					random_index = randi_range(0, AllyArmy.unit_containers.size() - 1)
+					random_unit_container = AllyArmy.unit_containers[random_index]
 				
 				var index_to_copy_to: int = random_index
 				

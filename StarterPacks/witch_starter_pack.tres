@@ -8,6 +8,6 @@
 [resource]
 script = ExtResource("1_1iuew")
 faction = 0
-min_number_of_units = 1
+min_number_of_units = 2
 max_number_of_units = 2
 unit_pool = Array[ExtResource("2_bi5qa")]([ExtResource("3_1rw58"), ExtResource("4_om7t7")])

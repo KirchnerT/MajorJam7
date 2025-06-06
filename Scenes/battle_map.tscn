@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://pbwnb04nu8d0"]
+[gd_scene load_steps=43 format=3 uid="uid://pbwnb04nu8d0"]
 
 [ext_resource type="Script" path="res://Scripts/battle_map.gd" id="1_e6q5w"]
 [ext_resource type="PackedScene" uid="uid://dgw8db45qdoqk" path="res://Scenes/unit_container.tscn" id="2_nwsat"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://tn6eguwflw2x" path="res://Assets/Unit_-_Test.png" id="28_86234"]
 [ext_resource type="Texture2D" uid="uid://cqa1e2gmi1mlr" path="res://Assets/Text_Box.png" id="29_4f07c"]
 [ext_resource type="Texture2D" uid="uid://b3n2age2orgv4" path="res://Assets/Liches_Portrait.png" id="34_7sb1a"]
+[ext_resource type="Texture2D" uid="uid://dhgrsi4wdyhd" path="res://Assets/Map.png" id="36_uhr0i"]
 
 [sub_resource type="Curve" id="Curve_qoav8"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0341615, 0.359606), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -44,6 +45,10 @@ point_count = 3
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idebf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_andct"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_susla"]
+font = ExtResource("27_n2ljg")
+font_size = 60
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqkv4"]
 
@@ -137,6 +142,7 @@ offset_bottom = 600.0
 mouse_filter = 1
 script = ExtResource("10_yym2m")
 starter_packs = [NodePath("StarterPackSelection/WITCH"), NodePath("StarterPackSelection/TestPack"), NodePath("StarterPackSelection/Imp"), NodePath("StarterPackSelection/Lich"), NodePath("StarterPackSelection/Devil")]
+all_portraits = Array[Texture]([ExtResource("34_7sb1a"), ExtResource("34_7sb1a"), ExtResource("34_7sb1a"), ExtResource("34_7sb1a")])
 
 [node name="StarterPackSelection" type="Panel" parent="UI"]
 visible = false
@@ -285,12 +291,11 @@ text = "
 START BATTLE"
 
 [node name="ShopLeaveButton" type="Button" parent="UI"]
-visible = false
 layout_mode = 0
-offset_left = 722.0
-offset_top = 14.0
-offset_right = 775.0
-offset_bottom = 45.0
+offset_left = 719.0
+offset_top = 36.0
+offset_right = 787.0
+offset_bottom = 76.0
 theme_override_fonts/font = ExtResource("27_n2ljg")
 theme_override_font_sizes/font_size = 16
 text = "
@@ -299,10 +304,10 @@ LEAVE"
 [node name="FactionShopsPanel" type="Panel" parent="UI"]
 visible = false
 layout_mode = 0
-offset_left = 257.0
-offset_top = 16.0
-offset_right = 715.0
-offset_bottom = 255.0
+offset_left = 290.0
+offset_top = 10.0
+offset_right = 659.0
+offset_bottom = 249.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/FactionShopsPanel"]
 layout_mode = 1
@@ -316,6 +321,16 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
+
+[node name="TextureRect" type="TextureRect" parent="UI/FactionShopsPanel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 971.0
+offset_bottom = 611.0
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("36_uhr0i")
+expand_mode = 1
 
 [node name="WitchShop" type="Button" parent="UI/FactionShopsPanel"]
 layout_mode = 0
@@ -368,6 +383,57 @@ offset_top = 11.0
 offset_right = 55.0
 offset_bottom = 34.0
 text = "$0"
+
+[node name="Shop_Sign" type="NinePatchRect" parent="UI/FactionShopsPanel"]
+layout_mode = 0
+offset_left = -66.0
+offset_right = -2.0
+offset_bottom = 186.0
+texture = ExtResource("29_4f07c")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="S" type="Label" parent="UI/FactionShopsPanel/Shop_Sign"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 25.0
+offset_right = 78.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+text = "S"
+label_settings = SubResource("LabelSettings_susla")
+
+[node name="H" type="Label" parent="UI/FactionShopsPanel/Shop_Sign"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 66.0
+offset_right = 77.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+text = "H"
+label_settings = SubResource("LabelSettings_susla")
+
+[node name="O" type="Label" parent="UI/FactionShopsPanel/Shop_Sign"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 110.0
+offset_right = 77.0
+offset_bottom = 187.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+text = "O"
+label_settings = SubResource("LabelSettings_susla")
+
+[node name="P" type="Label" parent="UI/FactionShopsPanel/Shop_Sign"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 154.0
+offset_right = 77.0
+offset_bottom = 231.0
+theme_override_fonts/font = ExtResource("27_n2ljg")
+text = "P"
+label_settings = SubResource("LabelSettings_susla")
 
 [node name="FactionPortrait" type="TextureRect" parent="UI"]
 layout_mode = 0
@@ -465,8 +531,10 @@ NEXT
 "
 
 [connection signal="all_packed_cards_used" from="Shop" to="." method="_on_shop_all_packed_cards_used"]
+[connection signal="swap_portrait_shop" from="Shop" to="." method="_on_shop_swap_portrait_shop"]
 [connection signal="child_exiting_tree" from="Shop/PackedCardsContainer" to="Shop" method="_on_pulled_cards_container_child_exiting_tree"]
 [connection signal="event_started" from="DayManager" to="." method="_on_day_manager_event_started"]
+[connection signal="faction_changed" from="DayManager" to="." method="_on_day_manager_faction_changed"]
 [connection signal="shopping_started" from="DayManager" to="." method="_on_day_manager_shopping_started"]
 [connection signal="ally_army_was_shuffled" from="EventManager" to="." method="_on_event_manager_ally_army_was_shuffled"]
 [connection signal="event_ended" from="EventManager" to="." method="_on_event_manager_event_ended"]

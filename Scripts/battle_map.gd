@@ -73,3 +73,15 @@ func _on_ui_leave_event() -> void:
 
 func _on_event_manager_ally_army_was_shuffled() -> void:
 	day_manager.setup_ally_army()
+
+
+func _on_shop_swap_portrait_shop(faction: int) -> void:
+	call_deferred("update_portrait", faction)
+
+
+func _on_day_manager_faction_changed(faction: int) -> void:
+	call_deferred("update_portrait", faction)
+
+
+func update_portrait(faction: int) -> void:
+	ui_manager.update_portrait(faction)

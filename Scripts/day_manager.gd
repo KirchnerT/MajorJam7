@@ -4,6 +4,7 @@ class_name DayManager
 signal precombat_started()
 signal shopping_started(day: int)
 signal event_started()
+signal faction_changed(faction: AllyArmy.FACTIONS)
 
 enum RoundState {STARTER_DECK = 1,
 				SHOP = 2,
@@ -71,6 +72,7 @@ func increase_power_level() -> void:
 func get_new_enemy_army() -> EnemyArmyResource:
 	var new_army: EnemyArmyResource = EnemyArmyResource.new()
 	new_army.faction = randi_range(0, 3)
+	faction_changed.emit(new_army.faction)
 	
 	var units_in_faction: Array[UnitResource] = []
 	
@@ -80,7 +82,11 @@ func get_new_enemy_army() -> EnemyArmyResource:
 	
 	units_in_faction.shuffle()
 	
-	while(new_army.power_level < power_level):
+	var sub_power_level: int = power_level
+	if current_day == 1:
+		sub_power_level = 1
+	
+	while(new_army.power_level < sub_power_level):
 		for i in new_army.units.size():
 			#var cur_container: UnitResource = new_army.unit_types[i]
 			#var cur_num_container: int = new_army.unit_count[i]
@@ -91,9 +97,9 @@ func get_new_enemy_army() -> EnemyArmyResource:
 				var random_unit: UnitResource = units_in_faction[randi_range(0, units_in_faction.size() - 1)]
 				
 				# add random number of them up to power level
-				var max_units_to_add: int = ((power_level - new_army.power_level) / random_unit.unit_power_value)
+				var max_units_to_add: int = ((sub_power_level - new_army.power_level) / random_unit.unit_power_value)
 				var num_units_to_add: int = randi_range(0, max_units_to_add)
-				if num_units_to_add == 0 && new_army.power_level < power_level:
+				if num_units_to_add == 0 && new_army.power_level < sub_power_level:
 					num_units_to_add = 1
 				
 				if num_units_to_add > 0:
@@ -103,16 +109,20 @@ func get_new_enemy_army() -> EnemyArmyResource:
 					new_army.power_level += (num_units_to_add * random_unit.unit_power_value)
 			else:
 				# add random number of them up to power level
-				var max_units_to_add: int = ((power_level  - new_army.power_level)/ cur_unit_array.unit_type.unit_power_value)
+				var max_units_to_add: int = ((sub_power_level  - new_army.power_level)/ cur_unit_array.unit_type.unit_power_value)
 				var num_units_to_add: int = randi_range(0, max_units_to_add)
 				
-				if num_units_to_add == 0 && new_army.power_level < power_level:
+				if num_units_to_add == 0 && new_army.power_level < sub_power_level:
 					num_units_to_add = 1
 				
 				if num_units_to_add > 0:
 					new_army.units[i] = cur_unit_array
 					cur_unit_array.unit_count = num_units_to_add
 					new_army.power_level += (num_units_to_add * cur_unit_array.unit_type.unit_power_value)	
+	
+	print("new army power level: " + str(new_army.power_level))
+	if new_army.power_level == 0:
+		return get_new_enemy_army()
 	
 	return new_army
 

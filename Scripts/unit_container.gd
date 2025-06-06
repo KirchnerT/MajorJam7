@@ -43,9 +43,12 @@ func hover_changed(_is_hovered: bool) -> void:
 # Passthrough method to update the unit information
 func update_unit_container(info: UnitContainerInfo) -> void:
 	units_node.update_units(info)
+	area_sprite.visible = true
+
 
 func start_battle() -> void:
-	units_node.start_battle() 
+	units_node.start_battle()
+	area_sprite.visible = false
 
 
 func is_actively_adding_unit(active: bool, shop_card: ShopCard) -> void:

@@ -16,6 +16,8 @@ signal leave_event()
 @onready var phylux_label: Label = $FactionShopsPanel/MoneyLabel
 @onready var portrait: TextureRect = $FactionPortrait
 
+@export var all_portraits: Array[Texture]
+
 # Event
 @onready var event_panel: Panel = $EventPanel
 @onready var event_title: Label = $EventPanel/EventTitle
@@ -45,6 +47,11 @@ func starter_pack_chosen(starter_pack: CardPack) -> void:
 	starter_pack_selected.emit(starter_pack)
 	starter_pack_panel.visible = false
 	portrait.visible = true
+
+
+func update_portrait(faction: AllyArmy.FACTIONS) -> void:
+	print("Swapping Portrait To: " + str(faction))
+	portrait.texture = all_portraits[faction]
 
 
 func _on_button_pressed() -> void:

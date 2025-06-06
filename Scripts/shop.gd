@@ -3,6 +3,7 @@ class_name Shop
 
 signal activate_adding_unit(active: bool, shop_card: ShopCard)
 signal all_packed_cards_used()
+signal swap_portrait_shop(faction: AllyArmy.FACTIONS)
 
 @export var witch_units: Array[UnitResource]
 @export var lich_units: Array[UnitResource]
@@ -100,6 +101,7 @@ func display_faction_shop(faction: AllyArmy.FACTIONS):
 	elif faction == 3: # DEVIL
 		generate_faction_cards_for_shop(devil_shop)
 	
+	swap_portrait_shop.emit(faction)
 	cards_container.visible = true
 
 
