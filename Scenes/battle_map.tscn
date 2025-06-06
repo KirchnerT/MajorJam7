@@ -302,7 +302,6 @@ text = "P"
 label_settings = SubResource("LabelSettings_susla")
 
 [node name="DevilArea" type="Area2D" parent="UI/FactionShopsPanel"]
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/FactionShopsPanel/DevilArea"]
 polygon = PackedVector2Array(25, 115, 33, 95, 82, 50, 131, 58, 132, 81, 148, 91, 147, 102, 127, 101, 120, 108, 122, 116, 141, 129, 130, 143, 136, 154, 123, 154, 93, 196, 75, 218, 60, 217, 38, 188, 64, 163, 38, 152, 39, 144, 45, 138, 24, 120)

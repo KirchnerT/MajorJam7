@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cys2epqkak7a8"]
 
-[ext_resource type="Texture2D" uid="uid://byvmfporyv5cq" path="res://Assets/fantasy_pixelmap_by_chevyray_d1uljko-375w-2x.jpg" id="1_8518b"]
 [ext_resource type="Script" path="res://Menus/Credits Menu/credits_menu.gd" id="1_pjo27"]
 [ext_resource type="FontFile" uid="uid://d1gy756akasq0" path="res://Assets/New Roman Times.ttf" id="2_iqwxi"]
+[ext_resource type="Texture2D" uid="uid://dhgrsi4wdyhd" path="res://Assets/Map.png" id="2_wwv1g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ep4a"]
 
@@ -19,7 +19,7 @@ script = ExtResource("1_pjo27")
 layout_mode = 2
 offset_right = 960.0
 offset_bottom = 600.0
-texture = ExtResource("1_8518b")
+texture = ExtResource("2_wwv1g")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
